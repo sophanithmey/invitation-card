@@ -95,6 +95,7 @@ export const PreviewPane: React.FC<PreviewPaneProps> = ({ formData }) => {
             wedding={dummyWedding}
             sections={sections}
             onRSVPSubmit={async () => {}}
+            onWishSubmit={async () => {}}
           />
         </ThemeProvider>
       </div>

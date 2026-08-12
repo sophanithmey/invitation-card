@@ -76,7 +76,7 @@ export const KhmerClassicTemplate: React.FC<TemplateProps> = ({ wedding, section
         </CardWrapper>
 
         <CardWrapper show={sections.showWeddingParty} delay={50}>
-          <WeddingPartySection party={wedding.wedding_party} />
+          <WeddingPartySection party={wedding.wedding_party || []} />
         </CardWrapper>
 
         {sections.showCountdown && (
@@ -104,7 +104,7 @@ export const KhmerClassicTemplate: React.FC<TemplateProps> = ({ wedding, section
         </CardWrapper>
 
         <CardWrapper show={sections.showPhotoUpload} delay={50}>
-          <PhotoUploadSection uploadUrl={wedding.photo_upload_url} />
+          <PhotoUploadSection uploadUrl={wedding.photo_upload_url || ''} />
         </CardWrapper>
 
         <CardWrapper show={sections.showStory}>
