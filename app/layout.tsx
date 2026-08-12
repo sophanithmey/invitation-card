@@ -2,8 +2,20 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Cambodian Khmer Wedding Invitation Platform',
-  description: 'Dynamic Cambodian Khmer Wedding Invitation Platform SaaS with multiple visual templates, themes, and dynamic URL routing.',
+  title: 'Khmer Digital Weddings | Premium Invitations',
+  description: 'Create unforgettable digital wedding invitations with elegant Khmer designs. Features interactive maps, RSVP, and gorgeous themes for your special day.',
+  openGraph: {
+    type: 'website',
+    locale: 'km_KH',
+    title: 'Khmer Digital Weddings | Premium Invitations',
+    description: 'Create unforgettable digital wedding invitations with elegant Khmer designs.',
+    siteName: 'Soursdey Digital Weddings',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Khmer Digital Weddings | Premium Invitations',
+    description: 'Create unforgettable digital wedding invitations with elegant Khmer designs.',
+  },
 };
 
 export default function RootLayout({
