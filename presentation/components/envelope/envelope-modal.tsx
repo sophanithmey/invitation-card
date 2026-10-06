@@ -107,7 +107,7 @@ export const EnvelopeModal: React.FC<EnvelopeModalProps> = ({
 
           <p className='text-slate-500 uppercase tracking-[0.2em] text-xs sm:text-sm font-medium'>
             {lang === 'kh'
-              ? 'ចូលរួមក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ'
+              ? 'សូមគោរពអញ្ជើញ ចូលរួមក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ'
               : 'We are pleased to invite you'}
           </p>
 

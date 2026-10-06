@@ -112,6 +112,7 @@ export const BuilderForm: React.FC<BuilderFormProps> = ({
             onChange={(e) => onChange({ template_id: e.target.value as any })}
             className="w-full p-2.5 rounded-lg border border-amber-200 font-semibold"
           >
+            <option value="khmer-romantic">🌹 Khmer Romantic (Sokha & Devi Crimson & Gold)</option>
             <option value="khmer-luxury">👑 Khmer Luxury (Deep Burgundy & Gold)</option>
             <option value="khmer-etheap">⚜️ Khmer E-Theap (Golden Ivory Elegance)</option>
             <option value="khmer-classic">🏛 Khmer Classic (Ivory & Golden Lotus Frame)</option>

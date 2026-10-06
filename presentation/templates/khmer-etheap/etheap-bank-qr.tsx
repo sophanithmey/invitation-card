@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { QrCode, Copy, Check } from 'lucide-react';
 import { GiftInfo } from '@/domain/entities/details';
+import { copyToClipboard } from '@/lib/utils';
 
 interface EtheapBankQrProps {
   giftInfo?: GiftInfo;
@@ -18,9 +19,9 @@ export const EtheapBankQr: React.FC<EtheapBankQrProps> = ({
 
   if (!enabled || !giftInfo) return null;
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (giftInfo.account_number) {
-      navigator.clipboard.writeText(
+      await copyToClipboard(
         giftInfo.account_number.replace(/\s+/g, ''),
       );
       setCopied(true);

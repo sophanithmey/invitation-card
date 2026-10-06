@@ -7,11 +7,21 @@ import ReactPlayer from 'react-player';
 const YOUTUBE_URL =
   'https://www.youtube.com/embed/Mn_qLC7_ueA?si=7Tbhr7z-78IOHsN7';
 
-export const AudioPlayer: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false); // <--- Must start false to avoid autoplay error
+interface AudioPlayerProps {
+  autoPlay?: boolean;
+}
+
+export const AudioPlayer: React.FC<AudioPlayerProps> = ({ autoPlay = false }) => {
+  const [isPlaying, setIsPlaying] = useState(autoPlay);
+
+  React.useEffect(() => {
+    if (autoPlay) {
+      setIsPlaying(true);
+    }
+  }, [autoPlay]);
 
   const toggleAudio = () => {
-    setIsPlaying(!isPlaying);
+    setIsPlaying((prev) => !prev);
   };
 
   return (

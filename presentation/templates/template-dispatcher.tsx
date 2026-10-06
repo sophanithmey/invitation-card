@@ -8,6 +8,7 @@ import { KhmerClassicTemplate } from './khmer-classic';
 import { KhmerModernTemplate } from './khmer-modern';
 import { KhmerFloralTemplate } from './khmer-floral';
 import { KhmerEtheapTemplate } from './khmer-etheap';
+import { KhmerRomanticTemplate } from './khmer-romantic';
 import { RSVPItem } from '@/domain/entities/rsvp';
 import { WishItem } from '@/domain/entities/wish';
 import { LanguageProvider } from '@/presentation/context/language-context';
@@ -34,6 +35,8 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
         return <KhmerFloralTemplate {...props} />;
       case 'khmer-etheap':
         return <KhmerEtheapTemplate {...props} />;
+      case 'khmer-romantic':
+        return <KhmerRomanticTemplate {...props} />;
       case 'khmer-luxury':
       default:
         return <KhmerLuxuryTemplate {...props} />;
@@ -42,8 +45,8 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
 
   return (
     <LanguageProvider>
-      <LanguageSwitcher />
-       <ScrollToTop />
+      {template_id !== 'khmer-romantic' && <LanguageSwitcher />}
+      <ScrollToTop />
       {renderTemplate()}
     </LanguageProvider>
   );

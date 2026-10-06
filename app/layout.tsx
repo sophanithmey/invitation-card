@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Khmer Digital Weddings | Premium Invitations',
   description: 'Create unforgettable digital wedding invitations with elegant Khmer designs. Features interactive maps, RSVP, and gorgeous themes for your special day.',
   openGraph: {
@@ -25,6 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="km">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Moulpali&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased font-khmer-noto bg-[#FFF9EF] text-[#2C1810]">
         {children}
       </body>

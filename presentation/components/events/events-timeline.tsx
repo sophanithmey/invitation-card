@@ -26,7 +26,7 @@ export const EventsTimeline: React.FC<EventsTimelineProps> = ({ events }) => {
       <KhmerOrnament variant="divider" />
 
       {/* Vertical Timeline Path */}
-      <div className="absolute left-1/2 top-48 bottom-10 w-0.5 bg-gradient-to-b from-[#D4AF37]/50 via-[#D4AF37]/20 to-transparent -translate-x-1/2 hidden md:block" />
+      <div className="absolute left-1/2 top-48 bottom-10 w-0.5 bg-linear-to-b from-[#D4AF37]/50 via-[#D4AF37]/20 to-transparent -translate-x-1/2 hidden md:block" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 my-12 text-left relative z-10">
         {events.map((event, idx) => (
@@ -37,7 +37,7 @@ export const EventsTimeline: React.FC<EventsTimelineProps> = ({ events }) => {
             }`}
           >
             <div className="flex items-center gap-4 mb-5">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#8B0000] to-[#5A0000] text-[#D4AF37] flex items-center justify-center flex-shrink-0 border border-[#D4AF37]/40 shadow-lg transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12">
+              <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#8B0000] to-[#5A0000] text-[#D4AF37] flex items-center justify-center flex-shrink-0 border border-[#D4AF37]/40 shadow-lg transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>

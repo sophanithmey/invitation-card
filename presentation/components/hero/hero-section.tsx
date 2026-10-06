@@ -41,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ wedding }) => {
         </div>
 
         <p className='text-[10px] uppercase tracking-[0.3em] font-semibold text-[#D4AF37] mb-6 drop-shadow-md'>
-          {lang === 'kh' ? 'ពិធីមង្គលការ' : 'WE ARE GETTING MARRIED'}
+          {lang === 'kh' ? 'ថ្ងៃមង្គលជ័យ' : 'WE ARE GETTING MARRIED'}
         </p>
 
         {/* Names */}

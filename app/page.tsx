@@ -45,6 +45,22 @@ export default function PlatformHomePage() {
       color: 'from-[#FFF8F5] to-[#FDEBE7]',
       textColor: 'text-[#E8B4B8]',
     },
+    {
+      slug: 'sopheap-chanvadey',
+      names: 'សុភាព & ច័ន្ទវដ្តី',
+      style: 'Khmer Romantic',
+      desc: 'សិរីសួស្តីថ្ងៃមង្គលជ័យរបស់យើងខ្ញុំ សុភាព និង ច័ន្ទវដ្តី',
+      color: 'from-[#8B0000] to-[#4A0000]',
+      textColor: 'text-[#D4AF37]',
+    },
+    {
+      slug: 'chhaiya-thearoth',
+      names: 'ឆាយា & ថារ័ត្ន',
+      style: 'Khmer Minimal',
+      desc: 'Soft rose and champagne hues that bring a delicate, romantic touch.',
+      color: 'from-[#D2FFF9] to-[#E8F9FA]',
+      textColor: 'text-[#032F2D]',
+    },
   ];
 
   return (
@@ -52,9 +68,9 @@ export default function PlatformHomePage() {
       {/* Hero Section */}
       <section className='relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden'>
         {/* Background elements */}
-        <div className='absolute inset-0 bg-gradient-to-b from-[#FFF9EF] to-transparent -z-10' />
-        <div className='absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] max-w-[800px] rounded-full bg-[#D4AF37]/10 blur-[120px] -z-10' />
-        <div className='absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[600px] rounded-full bg-[#7A1624]/5 blur-[100px] -z-10' />
+        <div className='absolute inset-0 bg-linear-to-b from-[#FFF9EF] to-transparent -z-10' />
+        <div className='absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] max-w-200 rounded-full bg-[#D4AF37]/10 blur-[120px] -z-10' />
+        <div className='absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-150rounded-full bg-[#7A1624]/5 blur-[100px] -z-10' />
 
         <div className='max-w-5xl mx-auto text-center space-y-8 relative z-10'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-[#D4AF37]/30 shadow-sm text-[#7A1624] text-xs md:text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up'>
@@ -247,7 +263,7 @@ export default function PlatformHomePage() {
           className='mx-auto mb-6 text-[#D4AF37]/50'
         />
         <p className='text-gray-500 font-medium'>
-          © 2026 Soursdey Digital Weddings. All rights reserved.
+          {`© ${new Date().getFullYear()} Soursdey Digital Weddings. All rights reserved.`}
         </p>
       </footer>
     </main>

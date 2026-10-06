@@ -5,6 +5,7 @@ import { Gift, Copy, Check } from 'lucide-react';
 import { GiftInfo } from '@/domain/entities/details';
 import { useLanguage } from '@/presentation/context/language-context';
 import { KhmerOrnament } from '../ornaments/khmer-ornament';
+import { copyToClipboard } from '@/lib/utils';
 
 interface GiftSectionProps {
   giftInfo?: GiftInfo;
@@ -17,9 +18,11 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
 
   if (!enabled || !giftInfo) return null;
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (giftInfo.account_number) {
-      navigator.clipboard.writeText(`${giftInfo.bank_name} - ${giftInfo.account_name}: ${giftInfo.account_number}`);
+      await copyToClipboard(
+        `${giftInfo.bank_name} - ${giftInfo.account_name}: ${giftInfo.account_number}`
+      );
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     }

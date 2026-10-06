@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Great+Vibes&family=Kantumruuy+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Moul&family=Noto+Sans+Khmer:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Great+Vibes&family=Kantumruuy+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Moul&family=Moulpali&family=Noto+Sans+Khmer:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Suwannaphum:wght@100;300;400;700;900&display=swap');
+@import 'tailwindcss';
 
 :root {
-  --primary-color: #8B0000;
-  --secondary-color: #D4AF37;
-  --accent-color: #C59B27;
-  --bg-color: #FDFBF7;
-  --card-bg: #FFFFFF;
-  --text-primary: #1E293B;
+  --primary-color: #8b0000;
+  --secondary-color: #d4af37;
+  --accent-color: #c59b27;
+  --bg-color: #fdfbf7;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
 }
 
 html {
@@ -21,10 +21,26 @@ body {
   overflow-x: hidden;
 }
 
-.font-khmer-moul { font-family: 'Moul', 'Noto Sans Khmer', serif; }
-.font-cursive { font-family: 'Great Vibes', cursive; }
-.font-khmer-kantumruuy { font-family: 'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif; }
-.font-serif-display { font-family: 'Playfair Display', serif; }
+.font-khmer-moul {
+  font-family: 'Moulpali', 'Moul', cursive, serif;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+}
+.font-khmer-moulpali {
+  font-family: 'Moulpali', cursive, serif;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+}
+.font-cursive {
+  font-family: 'Great Vibes', cursive;
+}
+.font-khmer-kantumruuy {
+  font-family: 'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif;
+  line-height: 1.85;
+}
+.font-serif-display {
+  font-family: 'Playfair Display', serif;
+}
 
 /* Kbac Background Pattern */
 .kbac-bg-pattern {
@@ -34,7 +50,13 @@ body {
 
 /* Gold Shimmer Text */
 .gold-shimmer-text {
-  background: linear-gradient(120deg, #8B0000 0%, #D4AF37 40%, #FFF5C0 60%, #8B0000 100%);
+  background: linear-gradient(
+    120deg,
+    #8b0000 0%,
+    #d4af37 40%,
+    #fff5c0 60%,
+    #8b0000 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -42,15 +64,21 @@ body {
 }
 
 @keyframes goldShimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* Scroll-Reveal Animation Utility */
 .reveal-section {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-section.revealed {
@@ -59,9 +87,15 @@ body {
 }
 
 /* Stagger Delays */
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
 
 /* Premium Glassmorphism & Parallax Utilities */
 .glass-panel {
@@ -89,36 +123,77 @@ body {
 
 /* Ambient Glow Animations */
 @keyframes orbFloat {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  33% { transform: translate(30px, -50px) scale(1.1) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) scale(0.9) rotate(240deg); }
-  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+  }
 }
 
 @keyframes orbPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
 }
 
-.animate-orb-float { animation: orbFloat 25s infinite linear; }
-.animate-orb-pulse { animation: orbPulse 10s infinite ease-in-out; }
+.animate-orb-float {
+  animation: orbFloat 25s infinite linear;
+}
+.animate-orb-pulse {
+  animation: orbPulse 10s infinite ease-in-out;
+}
 
 /* Smooth Keyframes */
 @keyframes floatSlow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(1.5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); }
-  50% { box-shadow: 0 0 28px rgba(212, 175, 55, 0.5); }
+  0%,
+  100% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(212, 175, 55, 0.5);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
-.animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
