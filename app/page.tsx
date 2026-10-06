@@ -1,76 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  Sparkles,
-  ArrowRight,
-  Heart,
-  Map,
-  Calendar,
-  Image as ImageIcon,
-  Send,
-} from 'lucide-react';
+import { Sparkles, ArrowRight, Send } from 'lucide-react';
 import { KhmerOrnament } from '@/presentation/components/ornaments/khmer-ornament';
+import { FeaturesSection } from './_components/features-section';
+import { TemplateShowcase } from './_components/template-showcase';
 
 export default function PlatformHomePage() {
-  const templates = [
-    {
-      slug: 'serey-mongkul',
-      names: 'សិរី & មង្គល',
-      style: 'Khmer Luxury',
-      desc: 'A rich burgundy and gold aesthetic for the most majestic celebrations.',
-      color: 'from-[#7A1624] to-[#4A0D15]',
-      textColor: 'text-[#D4AF37]',
-    },
-    {
-      slug: 'dara-sophea',
-      names: 'ដារ៉ា & សុភា',
-      style: 'Khmer Classic',
-      desc: 'Timeless ivory and subtle gold elements, perfect for a traditional feel.',
-      color: 'from-[#FDFBF7] to-[#EAE3D9]',
-      textColor: 'text-[#8B0000]',
-    },
-    {
-      slug: 'kanha-vichea',
-      names: 'វិជ្ជា & កញ្ញា',
-      style: 'Khmer Modern',
-      desc: 'Sleek emerald tones with glowing accents for the contemporary couple.',
-      color: 'from-[#080F0C] to-[#040806]',
-      textColor: 'text-emerald-400',
-    },
-    {
-      slug: 'cheata-piseth',
-      names: 'ពិសិដ្ឋ & ជាតា',
-      style: 'Khmer Floral',
-      desc: 'Soft rose and champagne hues that bring a delicate, romantic touch.',
-      color: 'from-[#FFF8F5] to-[#FDEBE7]',
-      textColor: 'text-[#E8B4B8]',
-    },
-    {
-      slug: 'sopheap-chanvadey',
-      names: 'សុភាព & ច័ន្ទវដ្តី',
-      style: 'Khmer Romantic',
-      desc: 'សិរីសួស្តីថ្ងៃមង្គលជ័យរបស់យើងខ្ញុំ សុភាព និង ច័ន្ទវដ្តី',
-      color: 'from-[#8B0000] to-[#4A0000]',
-      textColor: 'text-[#D4AF37]',
-    },
-    {
-      slug: 'chhaiya-thearoth',
-      names: 'ឆាយា & ថារ័ត្ន',
-      style: 'Khmer Minimal',
-      desc: 'Soft rose and champagne hues that bring a delicate, romantic touch.',
-      color: 'from-[#D2FFF9] to-[#E8F9FA]',
-      textColor: 'text-[#032F2D]',
-    },
-  ];
-
   return (
     <main className='min-h-screen bg-[#FDFBF7] text-[#2C1810] font-khmer-kantumruuy selection:bg-[#D4AF37]/30'>
       {/* Hero Section */}
       <section className='relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden'>
-        {/* Background elements */}
         <div className='absolute inset-0 bg-linear-to-b from-[#FFF9EF] to-transparent -z-10' />
         <div className='absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] max-w-200 rounded-full bg-[#D4AF37]/10 blur-[120px] -z-10' />
-        <div className='absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-150rounded-full bg-[#7A1624]/5 blur-[100px] -z-10' />
+        <div className='absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-150 rounded-full bg-[#7A1624]/5 blur-[100px] -z-10' />
 
         <div className='max-w-5xl mx-auto text-center space-y-8 relative z-10'>
           <div className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-[#D4AF37]/30 shadow-sm text-[#7A1624] text-xs md:text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up'>
@@ -129,132 +71,9 @@ export default function PlatformHomePage() {
         />
       </div>
 
-      {/* Features Section */}
-      <section className='py-20 px-4 bg-white/50'>
-        <div className='max-w-6xl mx-auto'>
-          <div className='text-center mb-16'>
-            <h2 className='font-khmer-moul text-3xl md:text-4xl text-[#7A1624] mb-4'>
-              អ្វីដែលអ្នកនឹងទទួលបាន
-            </h2>
-            <p className='text-gray-600'>
-              Premium features designed for the modern couple
-            </p>
-          </div>
+      <FeaturesSection />
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-            {[
-              {
-                icon: Heart,
-                title: 'Beautiful Themes',
-                desc: 'Choose from exclusively crafted Khmer designs.',
-              },
-              {
-                icon: Calendar,
-                title: 'Smart Itinerary',
-                desc: 'Interactive timelines with Add-to-Calendar integration.',
-              },
-              {
-                icon: Map,
-                title: 'Interactive Maps',
-                desc: 'Direct your guests seamlessly with embedded maps.',
-              },
-              {
-                icon: ImageIcon,
-                title: 'Photo Galleries',
-                desc: 'Showcase your love story with beautiful masonry grids.',
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className='p-8 rounded-3xl bg-white border border-[#D4AF37]/20 shadow-xl shadow-[#D4AF37]/5 hover:-translate-y-2 transition-transform duration-300'
-              >
-                <div className='w-14 h-14 rounded-2xl bg-[#FFF9EF] flex items-center justify-center mb-6 border border-[#D4AF37]/30'>
-                  <feature.icon className='w-7 h-7 text-[#7A1624]' />
-                </div>
-                <h3 className='text-xl font-bold text-gray-900 mb-3'>
-                  {feature.title}
-                </h3>
-                <p className='text-gray-600 leading-relaxed'>{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Showcase Section */}
-      <section className='py-24 px-4'>
-        <div className='max-w-6xl mx-auto'>
-          <div className='text-center mb-16 flex flex-col items-center justify-center pt-8'>
-            <div className='text-[#D4AF37] font-bold tracking-widest uppercase text-sm mb-6'>
-              Collections
-            </div>
-            <h2 className='font-khmer-moul text-3xl md:text-5xl text-[#7A1624]'>
-              ស្វែងយល់ពីម៉ូតរបស់យើង
-            </h2>
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-            {templates.map((template) => {
-              // Adjust text colors based on background brightness
-              const isLight =
-                template.slug === 'dara-sophea' ||
-                template.slug === 'cheata-piseth';
-              const textPrimary = isLight ? 'text-[#2C1810]' : 'text-white';
-              const textSecondary = isLight ? 'text-gray-600' : 'text-white/80';
-              const badgeBg = isLight
-                ? 'bg-[#7A1624]/10 border-[#7A1624]/20 text-[#7A1624]'
-                : 'bg-white/20 border-white/20 text-white/90';
-
-              return (
-                <Link
-                  key={template.slug}
-                  href={`/wedding/${template.slug}`}
-                  className='group relative h-105 rounded-3xl overflow-hidden flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2'
-                >
-                  <div
-                    className={`absolute inset-0 bg-linear-to-br ${template.color} opacity-90 group-hover:opacity-100 transition-opacity duration-500`}
-                  />
-
-                  {/* Subtle texture overlay */}
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 mix-blend-overlay pointer-events-none" />
-
-                  <div className='relative z-10 flex flex-col h-full justify-between'>
-                    <div className='flex justify-end'>
-                      <div
-                        className={`inline-block px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider border ${badgeBg}`}
-                      >
-                        {template.style}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3
-                        className={`font-khmer-moul text-3xl ${textPrimary} mb-3 drop-shadow-sm group-hover:scale-105 transform origin-left transition-transform duration-500`}
-                      >
-                        {template.names}
-                      </h3>
-                      <p
-                        className={`${textSecondary} max-w-sm mb-8 leading-relaxed`}
-                      >
-                        {template.desc}
-                      </p>
-
-                      <div
-                        className={`flex items-center gap-2 ${template.textColor} font-bold`}
-                      >
-                        <span className='group-hover:mr-2 transition-all duration-300'>
-                          Preview Design
-                        </span>
-                        <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <TemplateShowcase />
 
       {/* Footer */}
       <footer className='py-4 text-center border-t border-[#D4AF37]/20'>

@@ -7,12 +7,19 @@ import { WeddingClientPage } from './client-page';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ to?: string }>;
 }
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const guestName = resolvedSearchParams.to
+    ? decodeURIComponent(resolvedSearchParams.to)
+    : null;
+
   const wedding = await getWeddingBySlug(
     weddingRepository,
     resolvedParams.slug,
@@ -24,29 +31,37 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${wedding.groom_name} & ${wedding.bride_name} | Wedding Invitation`;
-  const description = `You are warmly invited to celebrate the wedding of ${wedding.groom_name_kh} & ${wedding.bride_name_kh}.`;
+  const coupleKh = `${wedding.groom_name_kh} & ${wedding.bride_name_kh}`;
+  const coupleEn = `${wedding.groom_name} & ${wedding.bride_name}`;
+
+  const title = guestName
+    ? `លិខិតអញ្ជើញសម្រាប់ ${guestName} • ${coupleKh} (${coupleEn})`
+    : `${coupleKh} • ${coupleEn} | សំបុត្រអញ្ជើញអាពាហ៍ពិពាហ៍`;
+
+  const description =
+    wedding.invitation_message ||
+    `យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់ ${coupleKh} (${coupleEn})។`;
+
+  const canonicalUrl = `/wedding/${resolvedParams.slug}`;
 
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title,
       description,
-      images: [
-        {
-          url: wedding.cover_photo,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      url: canonicalUrl,
+      siteName: 'Soursdey Digital Weddings',
+      locale: 'km_KH',
+      type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [wedding.cover_photo],
     },
   };
 }

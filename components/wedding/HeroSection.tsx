@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, ArrowDown, Sparkles } from "lucide-react";
+import { Calendar, ArrowDown } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 import { motion } from "framer-motion";
 
@@ -38,7 +38,6 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.7 }}
           className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-[#D4AF37]/50 text-[#FFF2B2] mb-3 sm:mb-4 shadow-sm"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
           <span
             className={`text-xs sm:text-sm font-semibold ${
               isKh

@@ -7,7 +7,6 @@ import { VisibleSections } from "@/use-cases/get-visible-sections";
 import { RSVPItem } from "@/domain/entities/rsvp";
 import { WishItem } from "@/domain/entities/wish";
 
-// Import Components
 import WelcomeOverlay from "@/components/wedding/WelcomeOverlay";
 import NavBar from "@/components/wedding/NavBar";
 import HeroSection from "@/components/wedding/HeroSection";
@@ -17,7 +16,6 @@ import IntroductionSection from "@/components/wedding/IntroductionSection";
 import LoveStorySection from "@/components/wedding/LoveStorySection";
 import PreWeddingGallery from "@/components/wedding/PreWeddingGallery";
 import EventsSection from "@/components/wedding/EventsSection";
-// import WeddingPartySection from "@/components/wedding/WeddingPartySection";
 import DressCodeSection from "@/components/wedding/DressCodeSection";
 import LocationSection from "@/components/wedding/LocationSection";
 import GiftSection from "@/components/wedding/GiftSection";
@@ -27,6 +25,7 @@ import {
   LanguageProvider,
   useLanguage,
 } from "@/components/wedding/LanguageContext";
+import { KhmerRomanticStyles } from "./khmer-romantic-styles";
 
 export interface TemplateProps {
   wedding?: Wedding;
@@ -55,10 +54,9 @@ export function WeddingInvitationContent(props?: TemplateProps) {
   const { wedding } = props || {};
   const { t, language } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
-  const [audioPlaying, setAudioPlaying] = useState(false);
 
-  // Guest Personalization State
   const [guestName, setGuestName] = useState<string | null>(null);
+  const [guestPrefix, setGuestPrefix] = useState<string | null>(null);
   const [showOverlay, setShowOverlay] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -74,15 +72,27 @@ export function WeddingInvitationContent(props?: TemplateProps) {
   }, [showOverlay]);
 
   useEffect(() => {
-    // Check for "to" parameter in URL
     const params = new URLSearchParams(window.location.search);
     const to = params.get("to");
+    const prefix = params.get("prefix") || params.get("title");
+    if (prefix) {
+      setGuestPrefix(decodeURIComponent(prefix));
+    }
     if (to) {
       setGuestName(decodeURIComponent(to));
-      setShowOverlay(true);
+      const storageKey = `welcome_overlay_closed_${wedding?.slug || "khmer-romantic"}_${to}`;
+      try {
+        const isClosed =
+          sessionStorage.getItem(storageKey) === "true" ||
+          localStorage.getItem(storageKey) === "true";
+        if (!isClosed) {
+          setShowOverlay(true);
+        }
+      } catch {
+        setShowOverlay(true);
+      }
     }
 
-    // Simulate a brief loading to ensure fonts/styles are ready and prevent flash
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 500);
@@ -95,12 +105,21 @@ export function WeddingInvitationContent(props?: TemplateProps) {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timer);
     };
-  }, []);
+  }, [wedding?.slug]);
 
   const handleOpenInvitation = () => {
     setShowOverlay(false);
-    // Auto-play audio on interaction
-    setAudioPlaying(true);
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get("to");
+    if (to) {
+      const storageKey = `welcome_overlay_closed_${wedding?.slug || "khmer-romantic"}_${to}`;
+      try {
+        sessionStorage.setItem(storageKey, "true");
+        localStorage.setItem(storageKey, "true");
+      } catch {
+        // Storage access blocked or restricted
+      }
+    }
   };
 
   if (isLoading) {
@@ -126,106 +145,29 @@ export function WeddingInvitationContent(props?: TemplateProps) {
         guestName={guestName}
         showOverlay={showOverlay}
         onOpen={handleOpenInvitation}
+        storageKey={guestName ? `welcome_overlay_closed_${wedding?.slug || "khmer-romantic"}_${guestName}` : undefined}
+        guestPrefix={guestPrefix}
       />
 
       <NavBar scrolled={scrolled} />
-
       <HeroSection />
-
       <KhmerTraditionalDivider />
-
       <CountdownTimer />
-
       <IntroductionSection />
-
       <LoveStorySection />
-
       <PreWeddingGallery gallery={wedding?.gallery} />
-
       <EventsSection />
-
-      {/* <WeddingPartySection /> */}
-
       <DressCodeSection />
-
       <LocationSection />
-
       <GiftSection
         bankName={wedding?.gift_info?.bank_name}
         accountName={wedding?.gift_info?.account_name}
         accountNumber={wedding?.gift_info?.account_number}
         qrCodeUrl={wedding?.gift_info?.qr_code_url}
       />
-
       <Footer />
-
-      <AudioPlayer autoPlay={audioPlaying} />
-
-      {/* Google Fonts: Moulpali for Khmer language */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Moulpali&display=swap"
-        rel="stylesheet"
-      />
-
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Moulpali&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Suwannaphum:wght@100;300;400;700;900&display=swap");
-
-        .font-khmer {
-          line-height: 1.85;
-          letter-spacing: 0.02em;
-        }
-
-        .font-khmer,
-        .font-khmer *:not(.font-cursive):not([style*="Great Vibes"]) {
-          font-family: "Moulpali", "Suwannaphum", cursive, serif;
-        }
-
-        .font-khmer p,
-        .font-khmer li,
-        .font-khmer blockquote {
-          line-height: 1.9 !important;
-        }
-
-        .font-khmer h1:not([style*="Great Vibes"]),
-        .font-khmer h2:not([style*="Great Vibes"]),
-        .font-khmer h3:not([style*="Great Vibes"]),
-        .font-khmer h4:not([style*="Great Vibes"]),
-        .font-khmer .title,
-        .font-khmer .font-serif,
-        .font-khmer .font-playfair,
-        .font-khmer .font-khmer-moul,
-        .font-khmer-moul {
-          font-family: "Moulpali", "Moul", cursive, serif !important;
-          line-height: 1.7 !important;
-          padding-top: 0.15em;
-          padding-bottom: 0.15em;
-          letter-spacing: 0.025em;
-        }
-
-        .font-khmer button,
-        .font-khmer a {
-          line-height: 1.6 !important;
-        }
-
-        .font-khmer .font-cursive,
-        .font-khmer [style*="Great Vibes"] {
-          font-family: "Great Vibes", cursive !important;
-        }
-
-        .animate-spin-slow {
-          animation: spin 4s linear infinite;
-        }
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
+      <AudioPlayer autoPlay={false} />
+      <KhmerRomanticStyles />
     </div>
   );
 }

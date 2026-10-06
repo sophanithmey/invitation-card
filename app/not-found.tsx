@@ -23,7 +23,7 @@ export default function NotFoundPage() {
         </h1>
 
         <p className="font-khmer-kantumruuy text-sm text-gray-700 mb-6">
-          The wedding invitation you're looking for could not be found. Please check the URL or return home.
+          The wedding invitation you&apos;re looking for could not be found. Please check the URL or return home.
         </p>
 
         <KhmerOrnament variant="divider" />

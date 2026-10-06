@@ -24,12 +24,10 @@ body {
 .font-khmer-moul {
   font-family: 'Moulpali', 'Moul', cursive, serif;
   line-height: 1.65;
-  letter-spacing: 0.025em;
 }
 .font-khmer-moulpali {
   font-family: 'Moulpali', cursive, serif;
   line-height: 1.65;
-  letter-spacing: 0.025em;
 }
 .font-cursive {
   font-family: 'Great Vibes', cursive;
