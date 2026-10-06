@@ -8,7 +8,7 @@ const YOUTUBE_URL =
   'https://www.youtube.com/embed/Mn_qLC7_ueA?si=7Tbhr7z-78IOHsN7';
 
 export const AudioPlayer: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // <--- Must start false to avoid autoplay error
+  const [isPlaying, setIsPlaying] = useState(false); // <--- Must start false to avoid autoplay error
 
   const toggleAudio = () => {
     setIsPlaying(!isPlaying);
@@ -35,7 +35,7 @@ export const AudioPlayer: React.FC = () => {
           type='button'
           onClick={toggleAudio}
           aria-label='Toggle background music'
-          className='w-12 h-12 rounded-full bg-[var(--primary-color,#7A1624)] text-[var(--secondary-color,#D4AF37)] border-2 border-[var(--secondary-color,#D4AF37)] shadow-[0_4px_15px_rgba(0,0,0,0.2)] flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-95'
+          className='w-12 h-12 rounded-full bg-(--primary-color,#7A1624) text-(--secondary-color,#D4AF37) border-2 border-(--secondary-color,#D4AF37) shadow-[0_4px_15px_rgba(0,0,0,0.2)] flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-95'
         >
           {isPlaying ? (
             <Volume2 className='w-6 h-6 animate-pulse' />

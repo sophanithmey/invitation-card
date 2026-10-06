@@ -1,0 +1,106 @@
+import { Wedding } from '@/domain/entities/wedding';
+
+export const CHHAIYA_THEAROTH_WEDDING: Wedding = {
+  id: 'w-005',
+  slug: 'chhaiya-thearoth',
+  groom_name: 'Chanchhaiya',
+  bride_name: 'Thearoth',
+  groom_name_kh: 'ស៊ិន ចាន់ឆៃយ៉ា',
+  bride_name_kh: 'លិញ ធារ័ត្ន',
+  wedding_date: '2026-11-28T07:30:00.000Z',
+  cover_photo:
+    'https://drxsceol5sg8q.cloudfront.net/images/IMG_FEATURED-1771297399-44efffd2-f650-4783-9c86-bc82a91d3e80.jpg',
+  groom_photo:
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop',
+  bride_photo:
+    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop',
+  story:
+    'សេចក្តីស្រឡាញ់ដែលចាប់ផ្តើមពីការស្គាល់គ្នា ការយល់ចិត្ត និងការរួមដំណើរជាមួយគ្នាក្នុងគ្រប់ពេលវេលា។ ថ្ងៃនេះជាការចាប់ផ្តើមទំព័រជីវិតថ្មីដែលពោរពេញដោយសុភមង្គល។',
+  invitation_message:
+    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ សម្ដេច ទ្រង់ ឯកឧត្ដម លោកអ្នកឧកញ៉ា អ្នកឧកញ៉ា ឧកញ៉ា លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និងប្រិយមិត្ត អញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយស ដើម្បីប្រសិទ្ធពរជ័យ សិរីសួស្ដី ជ័យមង្គលក្នុងពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍កូនប្រុស កូនស្រីរបស់យើងខ្ញុំ។',
+  venue: 'មជ្ឈមណ្ឌលសន្និបាត និងពិព័រណ៍ ឌឹ ព្រីមៀ សេនធ័រ សែនសុខ (The Premier Centre Sen Sok)',
+  venue_address: 'ផ្លូវ ១០០៣ សង្កាត់ភ្នំពេញថ្មី ខណ្ឌសែនសុខ រាជធានីភ្នំពេញ (Building C, Phnom Penh)',
+  map_location: 'https://maps.google.com/?q=The+Premier+Centre+Sen+Sok',
+  map_embed_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.5738875560934!2d104.881792!3d11.582352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095175962e2d93%3A0x6b4ef84c4a457599!2sThe%20Premier%20Centre%20Sen%20Sok!5e0!3m2!1sen!2skh!4v1700000000000!5m2!1sen!2skh',
+  dress_code: 'សម្លៀកបំពាក់ប្រពៃណីខ្មែរ ឬ ពណ៌មាស / Champagne (Khmer Traditional or Champagne Gold)',
+  hashtag: '#ChhaiyaThearothWedding2026',
+  rsvp_enabled: true,
+  gift_enabled: true,
+  template_id: 'khmer-etheap',
+  theme: {
+    primary_color: '#EBC070',
+    secondary_color: '#C98C08',
+    accent_color: '#84623A',
+    background_color: '#FFFDF9',
+    card_bg_color: '#FFFCF7',
+    text_primary_color: '#4A351C',
+    font_family: 'Moul',
+    ornament_style: 'luxury-gold',
+  },
+  parents: {
+    groom_father: 'លោក ស៊ិន គឹមហុង',
+    groom_mother: 'លោកស្រី ហេង ស្រីពៅ',
+    bride_father: 'លោក លិញ វ៉ាន់ថន',
+    bride_mother: 'លោកស្រី ស៊ុន ផល្លី',
+    groom_parents_kh: 'លោក ស៊ិន គឹមហុង & លោកស្រី ហេង ស្រីពៅ',
+    bride_parents_kh: 'លោក លិញ វ៉ាន់ថន & លោកស្រី ស៊ុន ផល្លី',
+  },
+  gift_info: {
+    bank_name: 'ABA Bank (KHQR)',
+    account_name: 'SIN CHANCHHAIYA & LINH THEAROTH',
+    account_number: '001 888 999',
+    qr_code_url: 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=ABA_CHHAIYA_THEAROTH_001888999',
+  },
+  events: [
+    {
+      id: 'e1',
+      event_name: 'Morning Blessing Ceremony',
+      event_name_kh: 'ពិធីហែជំនូន & កាត់សក់បង្កក់សិរី',
+      date: '2026-11-28T07:30:00.000Z',
+      start_time: '07:30 ព្រឹក',
+      end_time: '11:00 ព្រឹក',
+      venue: 'គេហដ្ឋានខាងស្រី',
+      address: 'ភ្នំពេញ (Phnom Penh)',
+      description: 'ពិធីហែជំនូន កាត់សក់បង្កក់សិរី និងសំពះផ្ទឹមតាមប្រពៃណីព្រះពុទ្ធសាសនា។',
+    },
+    {
+      id: 'e2',
+      event_name: 'Wedding Banquet & Reception',
+      event_name_kh: 'ពិធីពិសាភោជនាហារ និងរាំកម្សាន្ត',
+      date: '2026-11-28T17:00:00.000Z',
+      start_time: '05:00 ល្ងាច',
+      end_time: '21:30 យប់',
+      venue: 'The Premier Centre Sen Sok (Building C)',
+      address: 'ផ្លូវ ១០០៣ សង្កាត់ភ្នំពេញថ្មី ខណ្ឌសែនសុខ',
+      description: 'សូមគោរពអញ្ជើញភ្ញៀវកិត្តិយសទាំងអស់ ពិសាភោជនាហារ និងរាំកម្សាន្ត។',
+    },
+  ],
+  gallery: [
+    {
+      id: 'g1',
+      image_url: 'https://drxsceol5sg8q.cloudfront.net/images/IMG_FEATURED-1771297399-44efffd2-f650-4783-9c86-bc82a91d3e80.jpg',
+      caption: 'Chhaiya & Thearoth',
+      sort_order: 1,
+    },
+    {
+      id: 'g2',
+      image_url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop',
+      caption: 'Pre-Wedding Bliss',
+      sort_order: 2,
+    },
+    {
+      id: 'g3',
+      image_url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop',
+      caption: 'Romantic Moments',
+      sort_order: 3,
+    },
+    {
+      id: 'g4',
+      image_url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop',
+      caption: 'Forever Together',
+      sort_order: 4,
+    },
+  ],
+  created_at: '2026-03-01T00:00:00.000Z',
+  updated_at: '2026-03-01T00:00:00.000Z',
+};

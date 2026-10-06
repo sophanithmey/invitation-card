@@ -19,7 +19,10 @@ interface ClientPageProps {
   slug: string;
 }
 
-export const WeddingClientPage: React.FC<ClientPageProps> = ({ initialWedding, slug }) => {
+export const WeddingClientPage: React.FC<ClientPageProps> = ({
+  initialWedding,
+  slug,
+}) => {
   const [wedding, setWedding] = useState<Wedding>(initialWedding);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +36,9 @@ export const WeddingClientPage: React.FC<ClientPageProps> = ({ initialWedding, s
     loadLatest();
   }, [slug]);
 
-  const handleRSVPSubmit = async (rsvpData: Omit<RSVPItem, 'id' | 'created_at'>) => {
+  const handleRSVPSubmit = async (
+    rsvpData: Omit<RSVPItem, 'id' | 'created_at'>,
+  ) => {
     const newRSVP = await submitRSVP(weddingRepository, slug, rsvpData);
     if (newRSVP) {
       setWedding((prev) => ({
@@ -43,7 +48,9 @@ export const WeddingClientPage: React.FC<ClientPageProps> = ({ initialWedding, s
     }
   };
 
-  const handleWishSubmit = async (wishData: Omit<WishItem, 'id' | 'created_at'>) => {
+  const handleWishSubmit = async (
+    wishData: Omit<WishItem, 'id' | 'created_at'>,
+  ) => {
     const newWish = await submitWish(weddingRepository, slug, wishData);
     if (newWish) {
       setWedding((prev) => ({
@@ -59,9 +66,9 @@ export const WeddingClientPage: React.FC<ClientPageProps> = ({ initialWedding, s
     <LanguageProvider>
       <ThemeProvider theme={wedding.theme}>
         <EnvelopeModal wedding={wedding} onOpen={() => setIsOpen(true)} />
-        <WeddingTemplateDispatcher 
-          wedding={wedding} 
-          sections={sections} 
+        <WeddingTemplateDispatcher
+          wedding={wedding}
+          sections={sections}
           onRSVPSubmit={handleRSVPSubmit}
           onWishSubmit={handleWishSubmit}
         />
