@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Lock } from 'lucide-react';
+import { verifyAdminPassword } from './actions';
 
 export default function AdminLayout({
   children,
@@ -21,10 +22,10 @@ export default function AdminLayout({
     }
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple hardcoded password for commercial demo (can be moved to env vars later)
-    if (password === 'admin123') {
+    const isValid = await verifyAdminPassword(password);
+    if (isValid) {
       localStorage.setItem('khmer_wedding_admin_auth', 'true');
       setIsAuthenticated(true);
       setError(false);
