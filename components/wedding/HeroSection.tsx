@@ -45,7 +45,9 @@ export default function HeroSection() {
                 : "uppercase tracking-widest text-xs"
             }`}
             style={{
-              fontFamily: isKh ? "'Moulpali', cursive, serif" : undefined,
+              fontFamily: isKh
+                ? "'Moulpali', 'Moul', cursive, serif"
+                : undefined,
             }}
           >
             {t.hero.gettingMarried}
@@ -59,12 +61,12 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.9 }}
           className={`font-bold text-white mb-4 sm:mb-6 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] text-center ${
             isKh
-              ? "font-khmer-moul text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-[1.65]"
+              ? "font-khmer-moul text-2xl xs:text-3xl sm:text-4xl md:text-5xl leading-[1.65] tracking-normal"
               : "font-cursive text-4xl xs:text-5xl sm:text-7xl md:text-8xl leading-tight"
           }`}
           style={{
             fontFamily: isKh
-              ? "'Moulpali', cursive, serif"
+              ? "'Moulpali', 'Moul', cursive, serif"
               : "'Great Vibes', cursive",
           }}
         >

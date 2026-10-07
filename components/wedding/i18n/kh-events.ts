@@ -2,7 +2,7 @@ import { Translations } from "./types";
 
 export const khEvents: Translations["events"] = {
   title: "កម្មវិធីមង្គលការ",
-  subtitle: "កាលវិភាគពិធីមង្គលការរយៈពេល ២ ថ្ងៃ",
+  subtitle: "ម៉ោងនិងកម្មវិធីមង្គលការ",
   day1Tab: "ថ្ងៃទី ១ • ២៤ វិច្ឆិកា",
   day2Tab: "ថ្ងៃទី ២ • ២៥ វិច្ឆិកា",
   day1: {

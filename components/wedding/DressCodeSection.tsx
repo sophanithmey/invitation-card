@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Sparkles, Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 import { motion } from 'framer-motion';
 import { AttireCard } from './dress-code/AttireCard';
@@ -74,9 +74,12 @@ export default function DressCodeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#D4AF37]/40 shadow-sm text-[#7A1624] text-xs font-semibold tracking-[0.25em] uppercase mb-4'
+          className={`inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#D4AF37]/40 shadow-sm text-[#7A1624] text-xs font-semibold uppercase mb-4 ${
+            language === 'kh'
+              ? 'font-khmer-kantumruuy tracking-normal'
+              : 'tracking-[0.25em]'
+          }`}
         >
-          <Sparkles className='w-3.5 h-3.5 text-[#D4AF37]' />
           <span>
             {language === 'kh'
               ? 'ការណែនាំអំពីការស្លៀកពាក់'
@@ -89,7 +92,17 @@ export default function DressCodeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className='font-khmer-moul text-3xl sm:text-5xl text-[#7A1624] mb-4 tracking-wide drop-shadow-xs'
+          className={`font-bold text-[#7A1624] mb-4 drop-shadow-xs ${
+            language === 'kh'
+              ? 'font-khmer-moul text-2xl sm:text-3xl tracking-normal'
+              : 'font-serif text-3xl sm:text-4xl tracking-wide'
+          }`}
+          style={{
+            fontFamily:
+              language === 'kh'
+                ? "'Moulpali', 'Moul', cursive, serif"
+                : 'Playfair Display, serif',
+          }}
         >
           {t.dressCode.title}
         </motion.h2>

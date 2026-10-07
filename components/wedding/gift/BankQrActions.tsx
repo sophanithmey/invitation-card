@@ -27,7 +27,7 @@ export function BankQrActions({
         className='w-full py-3.5 px-5 bg-linear-to-r from-[#8B0000] via-[#A81B26] to-[#5A0000] hover:from-[#730000] hover:to-[#400000] text-[#FFF5C0] font-bold text-sm sm:text-base rounded-2xl shadow-[0_6px_20px_rgba(139,0,0,0.3)] hover:shadow-[0_8px_25px_rgba(139,0,0,0.4)] transition-all duration-300 hover:scale-[1.01] active:scale-98 cursor-pointer flex items-center justify-center gap-2 leading-normal'
         style={{
           fontFamily:
-            language === 'kh' ? "'Moulpali', cursive, serif" : undefined,
+            language === 'kh' ? "'Moulpali', 'Moul', cursive, serif" : undefined,
         }}
       >
         {copied ? (
@@ -54,7 +54,7 @@ export function BankQrActions({
         className='w-full py-3.5 px-5 bg-white hover:bg-[#FFF9EE] border-2 border-[#D4AF37]/70 hover:border-[#D4AF37] text-[#7A1624] font-semibold text-sm sm:text-base rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 hover:scale-[1.01] active:scale-98 cursor-pointer flex items-center justify-center gap-2 leading-normal'
         style={{
           fontFamily:
-            language === 'kh' ? "'Moulpali', cursive, serif" : undefined,
+            language === 'kh' ? "'Moulpali', 'Moul', cursive, serif" : undefined,
         }}
       >
         <Share2 className='w-4 h-4 text-[#C98C08]' />

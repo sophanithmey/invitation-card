@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock } from 'lucide-react';
 import { KbachWing } from './etheap-ornaments';
+import { toKhmerDigits } from '@/lib/utils';
 
 interface EtheapCountdownProps {
   targetDateStr: string;
@@ -78,8 +79,8 @@ export const EtheapCountdown: React.FC<EtheapCountdownProps> = ({
               key={idx}
               className='bg-linear-to-b from-[#FAF4E6] to-[#FFFDF9] rounded-2xl p-2.5 sm:p-3.5 border-2 border-[#EBC070]/70 shadow-xs flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105'
             >
-              <span className='font-mono font-bold text-xl sm:text-2xl text-[#7A1624] leading-tight'>
-                {String(unit.value).padStart(2, '0')}
+              <span className='font-khmer-kantumruuy font-bold text-xl sm:text-2xl text-[#7A1624] leading-tight tracking-normal'>
+                {toKhmerDigits(String(unit.value).padStart(2, '0'))}
               </span>
               <span className='font-khmer-kantumruuy font-semibold text-[11px] sm:text-xs text-[#C98C08] mt-1'>
                 {unit.labelKh}

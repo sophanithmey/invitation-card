@@ -29,10 +29,10 @@ export function VenueBanner({ copied, onCopyAddress }: VenueBannerProps) {
             </div>
             <h3
               className={`text-base sm:text-xl font-bold text-white ${
-                isKh ? 'font-khmer-moul leading-[1.6]' : ''
+                isKh ? 'font-khmer-moul leading-[1.6] tracking-normal' : ''
               }`}
               style={{
-                fontFamily: isKh ? "'Moulpali', cursive, serif" : undefined,
+                fontFamily: isKh ? "'Moulpali', 'Moul', cursive, serif" : undefined,
               }}
             >
               {t.location.venueName}

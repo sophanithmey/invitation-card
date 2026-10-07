@@ -60,21 +60,21 @@ export default function LoveStorySection() {
         >
           <Heart className="w-8 h-8 text-[#8B0000] mx-auto mb-4 animate-pulse" />
           <h2
-            className={`text-3xl sm:text-4xl font-bold text-[#8B0000] mb-4 ${
-              language === "kh" ? "font-khmer-moul" : ""
+            className={`font-bold text-[#8B0000] mb-4 ${
+              language === "kh" ? "font-khmer-moul text-2xl sm:text-3xl tracking-normal" : "text-3xl sm:text-4xl"
             }`}
             style={{
               fontFamily:
                 language === "kh"
-                  ? "'Moulpali', cursive, serif"
+                  ? "'Moulpali', 'Moul', cursive, serif"
                   : "Playfair Display, serif",
             }}
           >
             {t.loveStory.title}
           </h2>
           <p
-            className={`text-slate-500 italic ${
-              language === "kh" ? "font-khmer" : ""
+            className={`text-slate-500 ${
+              language === "kh" ? "font-khmer-kantumruuy" : "italic"
             }`}
           >
             {t.loveStory.subtitle}
@@ -115,7 +115,7 @@ export default function LoveStorySection() {
                           style={{
                             fontFamily:
                               language === "kh"
-                                ? "'Moulpali', cursive, serif"
+                                ? "'Moulpali', 'Moul', cursive, serif"
                                 : "Playfair Display, serif",
                           }}
                         >
@@ -124,7 +124,11 @@ export default function LoveStorySection() {
                         <p className="text-[#D4AF37] text-sm font-bold mb-2">
                           {milestone.date}
                         </p>
-                        <p className="text-slate-600 text-sm leading-relaxed">
+                        <p
+                          className={`text-slate-600 text-sm leading-relaxed ${
+                            language === "kh" ? "font-khmer-kantumruuy" : ""
+                          }`}
+                        >
                           {milestone.description}
                         </p>
                       </div>
@@ -155,7 +159,7 @@ export default function LoveStorySection() {
                           style={{
                             fontFamily:
                               language === "kh"
-                                ? "'Moulpali', cursive, serif"
+                                ? "'Moulpali', 'Moul', cursive, serif"
                                 : "Playfair Display, serif",
                           }}
                         >
@@ -164,7 +168,11 @@ export default function LoveStorySection() {
                         <p className="text-[#D4AF37] text-sm font-bold mb-2">
                           {milestone.date}
                         </p>
-                        <p className="text-slate-600 text-sm leading-relaxed">
+                        <p
+                          className={`text-slate-600 text-sm leading-relaxed ${
+                            language === "kh" ? "font-khmer-kantumruuy" : ""
+                          }`}
+                        >
                           {milestone.description}
                         </p>
                       </div>

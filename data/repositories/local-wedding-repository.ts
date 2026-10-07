@@ -4,7 +4,7 @@ import { RSVPItem } from '@/domain/entities/rsvp';
 import { WishItem } from '@/domain/entities/wish';
 import { SEED_WEDDINGS } from '../sources/seed-weddings';
 
-const STORAGE_KEY = 'khmer_wedding_platform_db_v1';
+const STORAGE_KEY = 'khmer_wedding_platform_db_v2';
 
 export class LocalWeddingRepository implements WeddingRepository {
   private getStorage(): Wedding[] {
@@ -17,7 +17,36 @@ export class LocalWeddingRepository implements WeddingRepository {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_WEDDINGS));
         return SEED_WEDDINGS;
       }
-      return JSON.parse(data);
+      const parsed: Wedding[] = JSON.parse(data);
+      const mergedSeeds = SEED_WEDDINGS.map((seed) => {
+        const stored = parsed.find(
+          (p) =>
+            p.id === seed.id ||
+            p.slug.toLowerCase() === seed.slug.toLowerCase(),
+        );
+        if (!stored) return seed;
+        return {
+          ...seed,
+          ...stored,
+          contact_info: seed.contact_info || stored.contact_info,
+          gift_info: seed.gift_info || stored.gift_info,
+          cover_photo: seed.cover_photo || stored.cover_photo,
+          gallery:
+            stored.gallery && stored.gallery.length > 0
+              ? stored.gallery
+              : seed.gallery,
+          rsvps: stored.rsvps || seed.rsvps,
+          wishes: stored.wishes || seed.wishes,
+        };
+      });
+      const customWeddings = parsed.filter(
+        (p) =>
+          !SEED_WEDDINGS.some(
+            (s) =>
+              s.id === p.id || s.slug.toLowerCase() === p.slug.toLowerCase(),
+          ),
+      );
+      return [...mergedSeeds, ...customWeddings];
     } catch {
       return SEED_WEDDINGS;
     }
@@ -46,7 +75,10 @@ export class LocalWeddingRepository implements WeddingRepository {
 
     if (existingIndex >= 0) {
       updatedList = [...list];
-      updatedList[existingIndex] = { ...wedding, updated_at: new Date().toISOString() };
+      updatedList[existingIndex] = {
+        ...wedding,
+        updated_at: new Date().toISOString(),
+      };
     } else {
       updatedList = [wedding, ...list];
     }
@@ -62,9 +94,14 @@ export class LocalWeddingRepository implements WeddingRepository {
     return true;
   }
 
-  async addRSVP(slug: string, rsvpData: Omit<RSVPItem, 'id' | 'created_at'>): Promise<RSVPItem | null> {
+  async addRSVP(
+    slug: string,
+    rsvpData: Omit<RSVPItem, 'id' | 'created_at'>,
+  ): Promise<RSVPItem | null> {
     const list = this.getStorage();
-    const wedding = list.find((w) => w.slug.toLowerCase() === slug.toLowerCase());
+    const wedding = list.find(
+      (w) => w.slug.toLowerCase() === slug.toLowerCase(),
+    );
     if (!wedding) return null;
 
     const newRSVP: RSVPItem = {
@@ -83,9 +120,14 @@ export class LocalWeddingRepository implements WeddingRepository {
     return newRSVP;
   }
 
-  async addWish(slug: string, wishData: Omit<WishItem, 'id' | 'created_at'>): Promise<WishItem | null> {
+  async addWish(
+    slug: string,
+    wishData: Omit<WishItem, 'id' | 'created_at'>,
+  ): Promise<WishItem | null> {
     const list = this.getStorage();
-    const wedding = list.find((w) => w.slug.toLowerCase() === slug.toLowerCase());
+    const wedding = list.find(
+      (w) => w.slug.toLowerCase() === slug.toLowerCase(),
+    );
     if (!wedding) return null;
 
     const newWish: WishItem = {

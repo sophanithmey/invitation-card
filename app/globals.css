@@ -21,12 +21,13 @@ body {
   overflow-x: hidden;
 }
 
-.font-khmer-moul {
-  font-family: 'Moulpali', 'Moul', cursive, serif;
-  line-height: 1.65;
+.font-khmer {
+  font-family: 'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif;
+  line-height: 1.85;
 }
+.font-khmer-moul,
 .font-khmer-moulpali {
-  font-family: 'Moulpali', cursive, serif;
+  font-family: 'Moulpali', 'Moul', cursive, serif;
   line-height: 1.65;
 }
 .font-cursive {

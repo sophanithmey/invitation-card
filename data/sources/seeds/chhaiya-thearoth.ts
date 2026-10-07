@@ -103,4 +103,9 @@ export const CHHAIYA_THEAROTH_WEDDING: Wedding = {
   ],
   created_at: '2026-03-01T00:00:00.000Z',
   updated_at: '2026-03-01T00:00:00.000Z',
+  contact_info: {
+    phone1: '012 345 678',
+    phone2: '098 765 432',
+    phone3: '011 222 333',
+  },
 };

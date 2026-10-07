@@ -78,14 +78,14 @@ export default function LocationSection() {
             <Compass className='w-6 h-6 text-[#D4AF37]' />
           </div>
           <h2
-            className={`text-3xl sm:text-4xl font-bold text-[#8B0000] mb-2 sm:mb-3 ${
+            className={`font-bold text-[#8B0000] mb-2 sm:mb-3 ${
               isKh
-                ? 'font-khmer-moul leading-[1.65]'
-                : 'font-playfair tracking-wide'
+                ? 'font-khmer-moul text-2xl sm:text-3xl leading-[1.65] tracking-normal'
+                : 'text-3xl sm:text-4xl font-playfair tracking-wide'
             }`}
             style={{
               fontFamily: isKh
-                ? "'Moulpali', cursive, serif"
+                ? "'Moulpali', 'Moul', cursive, serif"
                 : 'Playfair Display, serif',
             }}
           >
@@ -128,17 +128,14 @@ export default function LocationSection() {
           <div className='absolute inset-2 sm:inset-3 border border-dashed border-[#D4AF37]/25 rounded-xl pointer-events-none' />
 
           <div className='relative z-10 space-y-6'>
-            <VenueBanner
-              copied={copied}
-              onCopyAddress={handleCopyAddress}
-            />
+            <VenueBanner copied={copied} onCopyAddress={handleCopyAddress} />
 
             <div className='w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-md border-2 border-[#D4AF37]/45 bg-[#FAF6EE] relative'>
               <WeddingMap
                 lat={lat}
                 lng={lng}
                 venueLabel={t.location.venueName}
-                className='w-full h-[320px] xs:h-[360px] sm:h-[420px] md:h-[460px]'
+                className='w-full h-80 xs:h-90 sm:h-105 md:h-115'
               />
             </div>
 

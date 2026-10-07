@@ -18,6 +18,7 @@ import PreWeddingGallery from "@/components/wedding/PreWeddingGallery";
 import EventsSection from "@/components/wedding/EventsSection";
 import DressCodeSection from "@/components/wedding/DressCodeSection";
 import LocationSection from "@/components/wedding/LocationSection";
+import ContactSection from "@/components/wedding/ContactSection";
 import GiftSection from "@/components/wedding/GiftSection";
 import Footer from "@/components/wedding/Footer";
 import { AudioPlayer } from "@/presentation/components/audio/audio-player";
@@ -127,7 +128,13 @@ export function WeddingInvitationContent(props?: TemplateProps) {
       <div className="h-screen w-screen bg-[#FDFBF7] flex items-center justify-center">
         <div className="animate-pulse flex flex-col items-center gap-4">
           <Heart className="w-12 h-12 text-[#8B0000]" />
-          <p className="text-[#D4AF37] font-serif tracking-widest uppercase text-sm">
+          <p
+            className={`text-[#D4AF37] text-sm ${
+              language === "kh"
+                ? "font-khmer-kantumruuy"
+                : "font-serif tracking-widest uppercase"
+            }`}
+          >
             {t.common.loading}
           </p>
         </div>
@@ -159,6 +166,11 @@ export function WeddingInvitationContent(props?: TemplateProps) {
       <EventsSection />
       <DressCodeSection />
       <LocationSection />
+      <ContactSection 
+        phone1={wedding?.contact_info?.phone1}
+        phone2={wedding?.contact_info?.phone2}
+        phone3={wedding?.contact_info?.phone3}
+      />
       <GiftSection
         bankName={wedding?.gift_info?.bank_name}
         accountName={wedding?.gift_info?.account_name}

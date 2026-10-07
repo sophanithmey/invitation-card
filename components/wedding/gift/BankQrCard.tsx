@@ -43,7 +43,7 @@ export function BankQrCard({
       <FiligreeCorners />
 
       <div>
-        <div className='flex items-center justify-between px-5 py-3 rounded-2xl bg-gradient-to-r from-[#003B5C] via-[#004B75] to-[#002D47] text-white shadow-md mb-6'>
+        <div className='flex items-center justify-between px-5 py-3 rounded-2xl bg-linear-to-r from-[#003B5C] via-[#004B75] to-[#002D47] text-white shadow-md mb-6'>
           <div className='flex items-center gap-2.5'>
             <div className='w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center border border-white/20'>
               <CreditCard className='w-4 h-4 text-[#D4AF37]' />
@@ -76,7 +76,9 @@ export function BankQrCard({
                 <span>{language === 'kh' ? 'ទាញយក QR' : 'Save QR'}</span>
               </button>
               <span className='text-[10px] text-white/80'>
-                {language === 'kh' ? 'ចុចដើម្បីបើករូបភាព' : 'Click to view image'}
+                {language === 'kh'
+                  ? 'ចុចដើម្បីបើករូបភាព'
+                  : 'Click to view image'}
               </span>
             </div>
           </div>
@@ -90,15 +92,17 @@ export function BankQrCard({
 
         <div className='bg-white/90 rounded-2xl p-5 border border-[#EBC070]/50 shadow-inner space-y-3 mb-6'>
           <div>
-            <span className='text-[10px] uppercase tracking-[0.2em] text-[#8F6608] font-bold block mb-1'>
+            <span
+              className={`text-[10px] uppercase text-[#8F6608] font-bold block mb-1 ${language === 'kh' ? 'tracking-normal font-khmer-kantumruuy' : 'tracking-[0.2em]'}`}
+            >
               {language === 'kh' ? 'ឈ្មោះគណនី (Account Name)' : 'Account Name'}
             </span>
             <p
-              className='text-lg sm:text-xl font-bold text-[#7A1624] tracking-wide'
+              className={`text-lg sm:text-xl font-bold text-[#7A1624] ${language === 'kh' ? 'tracking-normal' : 'tracking-wide'}`}
               style={{
                 fontFamily:
                   language === 'kh'
-                    ? "'Moulpali', cursive, serif"
+                    ? "'Moulpali', 'Moul', cursive, serif"
                     : 'Playfair Display, serif',
               }}
             >
@@ -109,7 +113,9 @@ export function BankQrCard({
           <div className='pt-3 border-t border-[#EBC070]/30 flex flex-col sm:flex-row items-center justify-between gap-3'>
             <div className='text-left w-full sm:w-auto'>
               <span className='text-[10px] uppercase tracking-[0.2em] text-[#8F6608] font-bold block'>
-                {language === 'kh' ? 'លេខគណនី (Account Number)' : 'Account Number'}
+                {language === 'kh'
+                  ? 'លេខគណនី (Account Number)'
+                  : 'Account Number'}
               </span>
               <span className='font-mono text-xl sm:text-2xl font-bold text-[#1E293B] tracking-wider block mt-0.5'>
                 {displayAccountNumber}

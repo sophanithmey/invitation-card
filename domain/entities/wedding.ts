@@ -6,6 +6,7 @@ import { ThemeSettings } from './theme';
 import {
   ParentsInfo,
   GiftInfo,
+  ContactInfo,
   Accommodation,
   Transportation,
 } from './details';
@@ -41,6 +42,7 @@ export interface Wedding {
   theme: ThemeSettings;
   parents: ParentsInfo;
   gift_info?: GiftInfo;
+  contact_info?: ContactInfo;
   events: WeddingEvent[];
   gallery: GalleryItem[];
   wedding_party?: WeddingPartyMember[];

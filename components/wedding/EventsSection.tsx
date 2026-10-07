@@ -48,12 +48,12 @@ export default function EventsSection() {
             <Calendar className="w-6 h-6 text-[#D4AF37]" />
           </div>
           <h2
-            className={`text-3xl sm:text-4xl font-bold text-[#8B0000] mb-2 sm:mb-3 ${
-              isKh ? "font-khmer-moul leading-[1.65]" : "font-playfair tracking-wide"
+            className={`font-bold text-[#8B0000] mb-2 sm:mb-3 ${
+              isKh ? "font-khmer-moul text-2xl sm:text-3xl leading-[1.65] tracking-normal" : "text-3xl sm:text-4xl font-playfair tracking-wide"
             }`}
             style={{
               fontFamily: isKh
-                ? "'Moulpali', cursive, serif"
+                ? "'Moulpali', 'Moul', cursive, serif"
                 : "Playfair Display, serif",
             }}
           >
@@ -82,7 +82,7 @@ export default function EventsSection() {
                   : "text-slate-700 hover:text-[#8B0000]"
               }`}
               style={{
-                fontFamily: isKh ? "'Moulpali', cursive, serif" : undefined,
+                fontFamily: isKh ? "'Moulpali', 'Moul', cursive, serif" : undefined,
               }}
             >
               {t.events.day1Tab}
@@ -96,7 +96,7 @@ export default function EventsSection() {
                   : "text-slate-700 hover:text-[#8B0000]"
               }`}
               style={{
-                fontFamily: isKh ? "'Moulpali', cursive, serif" : undefined,
+                fontFamily: isKh ? "'Moulpali', 'Moul', cursive, serif" : undefined,
               }}
             >
               {t.events.day2Tab}

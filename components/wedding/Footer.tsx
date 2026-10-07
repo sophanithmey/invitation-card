@@ -66,12 +66,12 @@ export default function Footer() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className={`font-bold mb-3 sm:mb-4 text-white drop-shadow-md ${
             isKh
-              ? "font-khmer-moul text-3xl sm:text-4xl leading-[1.65]"
+              ? "font-khmer-moul text-3xl sm:text-4xl leading-[1.65] tracking-normal"
               : "font-cursive text-4xl sm:text-6xl"
           }`}
           style={{
             fontFamily: isKh
-              ? "'Moulpali', cursive, serif"
+              ? "'Moulpali', 'Moul', cursive, serif"
               : "'Great Vibes', cursive",
           }}
         >

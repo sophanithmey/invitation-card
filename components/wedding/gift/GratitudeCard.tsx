@@ -25,26 +25,46 @@ export function GratitudeCard() {
           <Gift className='w-9 h-9 text-[#8B0000]' />
         </div>
 
-        {/* Thank You Title in Moulpali */}
+        {/* Thank You Title in Moulpali & Moul */}
         <h3
-          className='font-khmer-moul text-2xl sm:text-3xl text-[#7A1624] mb-3 tracking-wide'
+          className={`font-khmer-moul text-2xl sm:text-3xl text-[#7A1624] mb-3 ${
+            language === 'kh' ? 'tracking-normal' : 'tracking-wide'
+          }`}
           style={{
             fontFamily:
               language === 'kh'
-                ? "'Moulpali', cursive, serif"
+                ? "'Moulpali', 'Moul', cursive, serif"
                 : 'Playfair Display, serif',
           }}
         >
           {t.gift.thanks}
         </h3>
 
-        <p className='text-sm font-semibold uppercase tracking-[0.15em] text-[#C98C08] mb-6'>
+        <p
+          className={`text-sm font-semibold uppercase text-[#C98C08] mb-6 ${
+            language === 'kh'
+              ? 'font-khmer-kantumruuy tracking-normal'
+              : 'tracking-[0.15em]'
+          }`}
+        >
           {t.gift.thanksSubtitle}
         </p>
 
         {/* Heartfelt Blessing Note Box */}
         <div className='bg-white/80 backdrop-blur-sm p-6 sm:p-7 rounded-2xl border border-[#EBC070]/40 shadow-xs space-y-4 my-6'>
-          <p className='text-xs sm:text-sm text-[#4A351C] italic leading-relaxed'>
+          <p
+            className={`text-xs sm:text-sm text-[#4A351C] leading-relaxed ${
+              language === 'kh'
+                ? 'font-khmer-kantumruuy not-italic'
+                : 'italic'
+            }`}
+            style={{
+              fontFamily:
+                language === 'kh'
+                  ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
+                  : undefined,
+            }}
+          >
             {language === 'kh'
               ? '«វត្តមានដ៏ឧត្តុង្គឧត្តម និងការប្រសិទ្ធពរជ័យរបស់លោកអ្នក គឺជាកាដូដ៏ពិសិដ្ឋបំផុតសម្រាប់ថ្ងៃមង្គលការរបស់យើងខ្ញុំ។ ប្រសិនបើលោកអ្នកមានបំណងចូលរួមចំណងដៃជាសក្ខីភាពនៃក្តីស្រឡាញ់ យើងខ្ញុំសូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅបំផុត។»'
               : '"Your presence and warm blessings are the greatest gifts of all for our wedding. If you wish to honor us with a gift of love, your generous contribution is deeply appreciated."'}
@@ -54,7 +74,13 @@ export function GratitudeCard() {
 
       {/* Couple Signature at Bottom */}
       <div className='pt-6 border-t border-[#EBC070]/40 mt-4'>
-        <p className='text-[11px] uppercase tracking-[0.25em] text-[#C98C08] font-bold mb-1'>
+        <p
+          className={`text-[11px] uppercase text-[#C98C08] font-bold mb-1 ${
+            language === 'kh'
+              ? 'font-khmer-kantumruuy tracking-normal'
+              : 'tracking-[0.25em]'
+          }`}
+        >
           {language === 'kh'
             ? 'ដោយក្តីស្រឡាញ់ និងការគោរពដឹងគុណ'
             : 'With Love & Sincere Gratitude'}
@@ -64,7 +90,7 @@ export function GratitudeCard() {
           style={{
             fontFamily:
               language === 'kh'
-                ? "'Moulpali', cursive, serif"
+                ? "'Moulpali', 'Moul', cursive, serif"
                 : 'Great Vibes, cursive',
           }}
         >

@@ -42,3 +42,12 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     return false;
   }
 }
+
+export const KHMER_DIGITS = ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩"] as const;
+
+/**
+ * Converts any string or number containing Arabic digits (0-9) to Khmer digits (០-៩)
+ */
+export function toKhmerDigits(value: number | string): string {
+  return String(value).replace(/\d/g, (digit) => KHMER_DIGITS[parseInt(digit, 10)] ?? digit);
+}

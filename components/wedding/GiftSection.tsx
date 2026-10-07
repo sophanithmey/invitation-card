@@ -88,7 +88,9 @@ export default function GiftSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#D4AF37]/40 shadow-xs text-[#7A1624] text-xs font-semibold tracking-[0.25em] uppercase mb-4'
+          className={`inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#D4AF37]/40 shadow-xs text-[#7A1624] text-xs font-semibold uppercase mb-4 ${
+            language === 'kh' ? 'tracking-normal font-khmer-kantumruuy' : 'tracking-[0.25em]'
+          }`}
         >
           <Sparkles className='w-3.5 h-3.5 text-[#D4AF37]' />
           <span>
@@ -103,11 +105,13 @@ export default function GiftSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className='font-khmer-moul text-3xl sm:text-5xl text-[#7A1624] mb-4 tracking-wide drop-shadow-xs'
+          className={`font-bold text-[#7A1624] mb-4 drop-shadow-xs ${
+            language === 'kh' ? 'font-khmer-moul text-2xl sm:text-3xl tracking-normal' : 'font-serif text-3xl sm:text-4xl tracking-wide'
+          }`}
           style={{
             fontFamily:
               language === 'kh'
-                ? "'Moulpali', cursive, serif"
+                ? "'Moulpali', 'Moul', cursive, serif"
                 : 'Playfair Display, serif',
           }}
         >
@@ -140,7 +144,15 @@ export default function GiftSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className='text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light mb-14'
+          className={`text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light mb-14 ${
+            language === 'kh' ? 'font-khmer-kantumruuy' : ''
+          }`}
+          style={{
+            fontFamily:
+              language === 'kh'
+                ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
+                : undefined,
+          }}
         >
           {t.gift.desc}
         </motion.p>

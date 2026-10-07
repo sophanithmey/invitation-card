@@ -77,4 +77,9 @@ export const SOKHA_DEVI_WEDDING: Wedding = {
   gallery: [],
   created_at: '2026-03-01T00:00:00.000Z',
   updated_at: '2026-03-01T00:00:00.000Z',
+  contact_info: {
+    phone1: '0762199906',
+    phone2: '0972199906',
+    phone3: '0317879000',
+  }
 };

@@ -1,9 +1,9 @@
-import React from "react";
-import { useLanguage } from "./LanguageContext";
-import { motion, Variants } from "framer-motion";
-import { KhmerCornerFrames } from "./intro/KhmerCornerFrames";
-import { ParentsGrid } from "./intro/ParentsGrid";
-import { CoupleHonorBlock } from "./intro/CoupleHonorBlock";
+import React from 'react';
+import { useLanguage } from './LanguageContext';
+import { motion, Variants } from 'framer-motion';
+import { KhmerCornerFrames } from './intro/KhmerCornerFrames';
+import { ParentsGrid } from './intro/ParentsGrid';
+import { CoupleHonorBlock } from './intro/CoupleHonorBlock';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -25,42 +25,51 @@ const itemVariants: Variants = {
 
 export default function IntroductionSection() {
   const { t, language } = useLanguage();
-  const isKh = language === "kh";
+  const isKh = language === 'kh';
 
   return (
-    <section className="pb-20 px-4 relative overflow-hidden">
+    <section className='pb-20 px-4 relative overflow-hidden'>
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true, margin: '-100px' }}
         variants={containerVariants}
-        className="max-w-4xl mx-auto text-center"
+        className='max-w-4xl mx-auto text-center'
       >
         <motion.img
           variants={itemVariants}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          src="/khmer-border.png"
-          className="w-24 h-24 mx-auto mb-6 opacity-60 rotate-180"
-          alt="ornament"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          src='/khmer-border.png'
+          className='w-24 h-24 mx-auto mb-6 opacity-60 rotate-180'
+          alt='ornament'
         />
         <motion.h2
           variants={itemVariants}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`text-3xl sm:text-4xl font-bold text-[#8B0000] mb-8 ${
-            isKh ? "font-khmer-moul" : ""
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className={`font-bold text-[#8B0000] mb-8 ${
+            isKh
+              ? 'font-khmer-moul text-2xl sm:text-3xl tracking-normal'
+              : 'text-3xl sm:text-4xl'
           }`}
           style={{
             fontFamily: isKh
-              ? "'Moulpali', cursive, serif"
-              : "Playfair Display, serif",
+              ? "'Moulpali', 'Moul', cursive, serif"
+              : 'Playfair Display, serif',
           }}
         >
           {t.intro.title}
         </motion.h2>
         <motion.p
           variants={itemVariants}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-slate-600 leading-relaxed text-lg mb-12 max-w-2xl mx-auto"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className={`text-slate-600 leading-relaxed text-lg mb-12 max-w-2xl mx-auto ${
+            isKh ? 'font-khmer-kantumruuy' : ''
+          }`}
+          style={{
+            fontFamily: isKh
+              ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
+              : undefined,
+          }}
         >
           {t.intro.quote}
         </motion.p>
@@ -68,16 +77,16 @@ export default function IntroductionSection() {
         {/* Elegant Invitation Card */}
         <motion.div
           variants={itemVariants}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative bg-white p-8 sm:p-16 rounded-3xl shadow-2xl border border-[#D4AF37]/10 mx-auto overflow-hidden"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className='relative bg-white p-5 xs:p-8 sm:p-16 rounded-3xl shadow-2xl border border-[#D4AF37]/10 mx-auto overflow-hidden'
         >
           <KhmerCornerFrames />
 
-          <div className="relative z-10 space-y-12">
+          <div className='relative z-10 space-y-12'>
             <motion.p
               variants={itemVariants}
-              className={`text-slate-500 uppercase tracking-[0.3em] text-xs sm:text-sm font-medium ${
-                isKh ? "font-khmer-moul" : ""
+              className={`text-slate-500 uppercase text-xs sm:text-sm font-medium ${
+                isKh ? 'font-khmer-moul tracking-normal' : 'tracking-[0.3em]'
               }`}
             >
               {t.intro.together}
@@ -86,19 +95,23 @@ export default function IntroductionSection() {
             <ParentsGrid itemVariants={itemVariants} />
 
             {/* Respectful Request Message */}
-            <motion.div variants={itemVariants} className="py-2 sm:py-3">
-              <p
-                className={`text-slate-600 text-sm sm:text-base md:text-lg leading-[1.85] max-w-xl mx-auto ${
-                  isKh ? "font-khmer-kantumruuy leading-[1.85]" : "font-serif italic"
-                }`}
-                style={{
-                  fontFamily: isKh
-                    ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
-                    : undefined,
-                }}
-              >
-                {t.intro.request}
-              </p>
+            <motion.div variants={itemVariants} className='py-1'>
+              <div className='relative py-3.5 sm:py-4 px-5 sm:px-8 rounded-2xl bg-linear-to-r from-transparent via-[#D4AF37]/10 to-transparent border-y border-[#D4AF37]/35 max-w-xl mx-auto text-center'>
+                <p
+                  className={`text-[#4A3B2C] text-sm sm:text-base leading-[1.9] sm:leading-loose ${
+                    isKh
+                      ? 'font-khmer-kantumruuy font-medium'
+                      : 'font-serif italic'
+                  }`}
+                  style={{
+                    fontFamily: isKh
+                      ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
+                      : undefined,
+                  }}
+                >
+                  {t.intro.request}
+                </p>
+              </div>
             </motion.div>
 
             <CoupleHonorBlock itemVariants={itemVariants} />

@@ -67,4 +67,8 @@ export const DARA_SOPHEA_WEDDING: Wedding = {
   ],
   created_at: '2026-08-02T00:00:00.000Z',
   updated_at: '2026-08-02T00:00:00.000Z',
+  contact_info: {
+    phone1: '012 345 678',
+    phone2: '098 765 432',
+  },
 };

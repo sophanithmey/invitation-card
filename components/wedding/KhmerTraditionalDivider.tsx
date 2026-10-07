@@ -35,13 +35,15 @@ export default function KhmerTraditionalDivider() {
         >
           <Sparkles className='w-3.5 h-3.5 text-[#D4AF37] animate-pulse' />
           <span
-            className={`text-xs sm:text-sm font-semibold tracking-wider text-[#8B0000] ${
+            className={`text-xs sm:text-sm font-semibold text-[#8B0000] ${
               isKh
-                ? 'font-khmer-moul leading-[1.6]'
+                ? 'font-khmer-moul leading-[1.6] tracking-normal'
                 : 'uppercase tracking-[0.25em]'
             }`}
             style={{
-              fontFamily: isKh ? "'Moulpali', cursive, serif" : undefined,
+              fontFamily: isKh
+                ? "'Moulpali', 'Moul', cursive, serif"
+                : undefined,
             }}
           >
             {isKh ? 'សិរីសួស្តី ជ័យមង្គល វិបុលសុខ' : 'Auspicious Celebration'}
@@ -56,18 +58,16 @@ export default function KhmerTraditionalDivider() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#8B0000] mb-2 sm:mb-3 drop-shadow-sm ${
             isKh
-              ? 'font-khmer-moul leading-[1.65]'
+              ? 'font-khmer-moul leading-[1.65] tracking-normal'
               : 'font-playfair tracking-wide'
           }`}
           style={{
             fontFamily: isKh
-              ? "'Moulpali', cursive, serif"
+              ? "'Moulpali', 'Moul', cursive, serif"
               : "'Playfair Display', serif",
           }}
         >
-          {isKh
-            ? 'ពិធីមង្គលការ សុភាព & ច័ន្ទវដ្តី'
-            : 'Wedding Ceremony • Sopheap & Chanvadey'}
+          {isKh ? 'សុភាព & ច័ន្ទវដ្តី' : 'Sopheap & Chanvadey'}
         </motion.h2>
 
         <motion.p

@@ -18,6 +18,12 @@ export interface GiftInfo {
   secondary_qr_code_url?: string;
 }
 
+export interface ContactInfo {
+  phone1?: string;
+  phone2?: string;
+  phone3?: string;
+}
+
 export interface Accommodation {
   id: string;
   hotel_name: string;

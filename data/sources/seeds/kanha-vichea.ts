@@ -57,4 +57,8 @@ export const KANHA_VICHEA_WEDDING: Wedding = {
   ],
   created_at: '2026-08-03T00:00:00.000Z',
   updated_at: '2026-08-03T00:00:00.000Z',
+  contact_info: {
+    phone1: '012 555 666',
+    phone2: '098 555 666',
+  },
 };
