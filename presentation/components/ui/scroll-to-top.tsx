@@ -30,16 +30,18 @@ export const ScrollToTop: React.FC = () => {
 
   return (
     <button
-      type="button"
+      type='button'
       onClick={scrollToTop}
-      aria-label="Scroll to top"
+      aria-label='Scroll to top'
       className={clsx(
-        'fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg',
-        'bg-[var(--primary-color,#7A1624)] text-[var(--secondary-color,#D4AF37)] border-2 border-[var(--secondary-color,#D4AF37)] hover:scale-110 active:scale-95',
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        'fixed bottom-42 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg',
+        'bg-(--primary-color,#7A1624) text-(--secondary-color,#D4AF37) border-2 border-(--secondary-color,#D4AF37) hover:scale-110 active:scale-95',
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-10 pointer-events-none',
       )}
     >
-      <ArrowUp className="w-6 h-6" />
+      <ArrowUp className='w-6 h-6' />
     </button>
   );
 };

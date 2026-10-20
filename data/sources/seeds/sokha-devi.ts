@@ -8,7 +8,7 @@ export const SOKHA_DEVI_WEDDING: Wedding = {
   groom_name_kh: 'សុភាព',
   bride_name_kh: 'ច័ន្ទវដ្តី',
   wedding_date: '2026-11-25T07:00:00.000Z',
-  cover_photo: '/khmer-couple.png',
+  cover_photo: '/vadey/4.JPG',
   groom_photo:
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop',
   bride_photo:
@@ -48,10 +48,11 @@ export const SOKHA_DEVI_WEDDING: Wedding = {
   },
   gift_info: {
     bank_name: 'ABA Bank',
-    account_name: 'Unknown',
-    account_number: '000 111 222',
+    account_name: 'CHANVADEY TIN',
+    account_number: '013 732 452',
+    secondary_account_number: '600 566 363',
     qr_code_url:
-      'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=ABA_CHAN_SOKHA_000111222',
+      '00020101021129450016abaakhppxxx@abaa01096005663630208ABA Bank40600006abaP2P0112A6BA11641BF7020960056636303090137324520404Dual5204599953031165802KH5913CHANVADEY TIN6010Phnom Penh630436D5',
   },
   events: [
     {
@@ -74,7 +75,14 @@ export const SOKHA_DEVI_WEDDING: Wedding = {
       description: 'Dinner, live music and celebration.',
     },
   ],
-  gallery: [],
+  gallery: [
+    { id: 'g-1', image_url: '/vadey/1.JPG', caption: 'សម្លៀកបំពាក់ប្រពៃណីខ្មែរ • Khmer Traditional Dress', sort_order: 1 },
+    { id: 'g-2', image_url: '/vadey/2.JPG', caption: 'Pre-wedding Photoshoot • ថតរូបត្រៀមអាពាហ៍ពិពាហ៍', sort_order: 2 },
+    { id: 'g-3', image_url: '/vadey/3.JPG', caption: 'Sweet Moments • វេលាដ៏ផ្អែមល្ហែម', sort_order: 3 },
+    { id: 'g-4', image_url: '/vadey/4.JPG', caption: 'Timeless Romance • សេចក្តីស្រឡាញ់អមតៈ', sort_order: 4 },
+    { id: 'g-5', image_url: '/vadey/5.JPG', caption: 'Walking Together • ដំណើរជីវិតរួមគ្នា', sort_order: 5 },
+    { id: 'g-6', image_url: '/vadey/6.JPG', caption: 'Forever & Always • ស្រឡាញ់ជារៀងរហូត', sort_order: 6 },
+  ],
   created_at: '2026-03-01T00:00:00.000Z',
   updated_at: '2026-03-01T00:00:00.000Z',
   contact_info: {

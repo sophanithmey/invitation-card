@@ -54,19 +54,11 @@ export function GratitudeCard() {
         <div className='bg-white/80 backdrop-blur-sm p-6 sm:p-7 rounded-2xl border border-[#EBC070]/40 shadow-xs space-y-4 my-6'>
           <p
             className={`text-xs sm:text-sm text-[#4A351C] leading-relaxed ${
-              language === 'kh'
-                ? 'font-khmer-kantumruuy not-italic'
-                : 'italic'
-            }`}
-            style={{
-              fontFamily:
-                language === 'kh'
-                  ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
-                  : undefined,
-            }}
+              language === 'kh' ? 'font-khmer not-italic' : 'italic'
+            } text-justify`}
           >
             {language === 'kh'
-              ? '«វត្តមានដ៏ឧត្តុង្គឧត្តម និងការប្រសិទ្ធពរជ័យរបស់លោកអ្នក គឺជាកាដូដ៏ពិសិដ្ឋបំផុតសម្រាប់ថ្ងៃមង្គលការរបស់យើងខ្ញុំ។ ប្រសិនបើលោកអ្នកមានបំណងចូលរួមចំណងដៃជាសក្ខីភាពនៃក្តីស្រឡាញ់ យើងខ្ញុំសូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅបំផុត។»'
+              ? 'យើងខ្ញុំទាំងពីរនាក់ ព្រមទាំងគ្រួសារសងខាង សូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅបំផុតចំពោះ ញាតិមិត្តជិតឆ្ងាយ និងភ្ញៀវកិត្តិយសទាំងអស់ ដែលបានអញ្ជើញចូលរួម និងជូនពរជ័យក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ។ រាល់កាយវិការ និងពរជ័យដ៏ល្អប្រពៃនេះ គឺជាអនុស្សាវរីយ៍ដ៏មានតម្លៃបំផុតក្នុងជីវិតយើងខ្ញុំ។ សូមជូនពរលោកអ្នកជួបតែសេចក្តីសុខ និងសំណាងល្អជានិច្ចនិរន្តរ៍!'
               : '"Your presence and warm blessings are the greatest gifts of all for our wedding. If you wish to honor us with a gift of love, your generous contribution is deeply appreciated."'}
           </p>
         </div>
@@ -77,23 +69,15 @@ export function GratitudeCard() {
         <p
           className={`text-[11px] uppercase text-[#C98C08] font-bold mb-1 ${
             language === 'kh'
-              ? 'font-khmer-kantumruuy tracking-normal'
+              ? 'font-khmer tracking-normal'
               : 'tracking-[0.25em]'
           }`}
         >
           {language === 'kh'
-            ? 'ដោយក្តីស្រឡាញ់ និងការគោរពដឹងគុណ'
+            ? 'ដោយក្តីស្រឡាញ់'
             : 'With Love & Sincere Gratitude'}
         </p>
-        <p
-          className='text-xl sm:text-2xl text-[#7A1624]'
-          style={{
-            fontFamily:
-              language === 'kh'
-                ? "'Moulpali', 'Moul', cursive, serif"
-                : 'Great Vibes, cursive',
-          }}
-        >
+        <p className='font-khmer-moul text-xl sm:text-2xl text-[#7A1624]'>
           {language === 'kh' ? 'សុភាព & ច័ន្ទវដ្តី' : 'Sopheap & Chanvadey'}
         </p>
       </div>

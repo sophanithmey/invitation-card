@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Calendar, Clock, Sparkles } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 import { CornerFiligree } from './CornerFiligree';
@@ -39,7 +39,7 @@ export function Day1Card({ containerVariants, itemVariants }: Day1CardProps) {
 
       <div className='relative z-10 text-center mb-8 pb-4 border-b border-[#D4AF37]/25'>
         <div className='inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8B0000]/10 border border-[#8B0000]/30 text-[#8B0000] text-xs font-semibold mb-2'>
-          <Sparkles className='w-3.5 h-3.5 text-[#D4AF37]' />
+          <Calendar className='w-3.5 h-3.5 text-[#D4AF37]' />
           <span
             className={
               isKh

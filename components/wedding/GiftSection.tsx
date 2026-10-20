@@ -1,72 +1,118 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 import { copyToClipboard } from '@/lib/utils';
 import { GratitudeCard } from './gift/GratitudeCard';
 import { BankQrCard } from './gift/BankQrCard';
+import { GiftHeader } from './gift/GiftHeader';
+import { shareQrImage } from './gift/share-qr';
+import { generateQrCardBlob, downloadBlob } from './gift/qr-card-generator';
 
 export interface GiftSectionProps {
+  /** Bank institution name */
   bankName?: string;
+  /** Account holder name */
   accountName?: string;
+  /** Primary account number (USD) */
   accountNumber?: string;
+  /** Secondary account number (KHR) */
+  secondaryAccountNumber?: string;
+  /** KHQR payload or QR image URL */
   qrCodeUrl?: string;
+  /** QR center icon URL (e.g. /vadey/couple.svg) */
+  qrIconUrl?: string;
 }
 
 export default function GiftSection({
   bankName,
   accountName,
-  accountNumber = '000 111 222',
+  accountNumber,
+  secondaryAccountNumber,
   qrCodeUrl,
+  qrIconUrl = '/vadey/couple.svg',
 }: GiftSectionProps) {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [sharedToast, setSharedToast] = useState(false);
 
-  const displayBank = bankName || t.gift.bank || 'ធនាគារ ABA';
-  const displayAccountName =
-    accountName || (language === 'kh' ? 'ចាន់ សុខា' : 'Chan Sokha');
-  const displayAccountNumber = accountNumber || '000 111 222';
-  const displayQrCode =
-    qrCodeUrl ||
-    `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ABA_PAY_${encodeURIComponent(
-      displayAccountName,
-    )}_${displayAccountNumber.replace(/\s+/g, '')}&color=003B5C`;
+  const displayBank = bankName;
+  const displayAccountName = accountName;
+  const displayAccountNumber = accountNumber || '';
+  const displaySecondaryAccountNumber = secondaryAccountNumber || '600 566 363';
+  const displayQrCode = qrCodeUrl;
+  const displayQrIcon = qrIconUrl || '/vadey/couple.svg';
 
-  const handleCopy = async () => {
-    await copyToClipboard(displayAccountNumber.replace(/\s+/g, ''));
+  const handleCopy = async (targetNum?: string) => {
+    const numToCopy = targetNum || displayAccountNumber;
+    await copyToClipboard(numToCopy.replace(/\s+/g, ''));
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
   const handleShare = async () => {
-    const shareText = `${displayBank}\n${
-      language === 'kh' ? 'ឈ្មោះគណនី' : 'Account Name'
-    }: ${displayAccountName}\n${
-      language === 'kh' ? 'លេខគណនី' : 'Account Number'
-    }: ${displayAccountNumber}`;
+    const svg = document.querySelector(
+      '#wedding-qr-code, #wedding-qr-container svg, .group\\/qr svg',
+    ) as SVGSVGElement | null;
 
-    if (typeof navigator !== 'undefined' && navigator.share) {
-      try {
-        await navigator.share({
-          title: `Wedding Gift - ${displayAccountName}`,
-          text: shareText,
-        });
-        return;
-      } catch {
-        // Fallback to copy if user cancelled or not supported
+    if (svg) {
+      const shared = await shareQrImage({
+        svgElement: svg,
+        accountName: displayAccountName,
+        bankName: displayBank,
+        accountNumber: displayAccountNumber,
+        secondaryAccountNumber: displaySecondaryAccountNumber,
+        coupleNames:
+          language === 'kh' ? 'សុភាព & ច័ន្ទវដ្តី' : 'Sopheap & Chanvadey',
+        iconUrl: displayQrIcon,
+        language,
+        onFallbackDownload: handleDownloadQr,
+      });
+      if (shared) {
+        setSharedToast(true);
+        setTimeout(() => setSharedToast(false), 3000);
       }
+      return;
     }
 
-    await copyToClipboard(shareText);
-    setSharedToast(true);
-    setTimeout(() => setSharedToast(false), 3000);
+    handleDownloadQr();
   };
 
-  const handleDownloadQr = () => {
-    window.open(displayQrCode, '_blank');
+  const handleDownloadQr = async () => {
+    const svg = document.querySelector(
+      '#wedding-qr-code, #wedding-qr-container svg, .group\\/qr svg',
+    ) as SVGSVGElement | null;
+
+    if (!svg) {
+      if (displayQrCode) window.open(displayQrCode, '_blank');
+      return;
+    }
+
+    const cleanName = (displayAccountName || 'wedding')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-');
+
+    const blob = await generateQrCardBlob({
+      svgElement: svg,
+      accountName: displayAccountName,
+      bankName: displayBank,
+      accountNumber: displayAccountNumber,
+      secondaryAccountNumber: displaySecondaryAccountNumber,
+      coupleNames:
+        language === 'kh' ? 'សុភាព & ច័ន្ទវដ្តី' : 'Sopheap & Chanvadey',
+      iconUrl: displayQrIcon,
+      language,
+    });
+
+    if (blob) {
+      downloadBlob(blob, `${cleanName}-qr-card.png`);
+      return;
+    }
+
+    const svgBlob = new Blob([new XMLSerializer().serializeToString(svg)], {
+      type: 'image/svg+xml;charset=utf-8',
+    });
+    downloadBlob(svgBlob, `${cleanName}-qr.svg`);
   };
 
   return (
@@ -83,87 +129,17 @@ export default function GiftSection({
       </div>
 
       <div className='max-w-5xl mx-auto relative z-10 text-center'>
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#D4AF37]/40 shadow-xs text-[#7A1624] text-xs font-semibold uppercase mb-4 ${
-            language === 'kh' ? 'tracking-normal font-khmer-kantumruuy' : 'tracking-[0.25em]'
-          }`}
-        >
-          <Sparkles className='w-3.5 h-3.5 text-[#D4AF37]' />
-          <span>
-            {language === 'kh'
-              ? 'ចំណងដៃ និង ការជូនពរ'
-              : 'Wedding Gift & Blessings'}
-          </span>
-        </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className={`font-bold text-[#7A1624] mb-4 drop-shadow-xs ${
-            language === 'kh' ? 'font-khmer-moul text-2xl sm:text-3xl tracking-normal' : 'font-serif text-3xl sm:text-4xl tracking-wide'
-          }`}
-          style={{
-            fontFamily:
-              language === 'kh'
-                ? "'Moulpali', 'Moul', cursive, serif"
-                : 'Playfair Display, serif',
-          }}
-        >
-          {t.gift.title}
-        </motion.h2>
-
-        <div className='flex items-center justify-center gap-3 mb-8 opacity-80'>
-          <div className='h-px w-16 sm:w-28 bg-linear-to-r from-transparent to-[#D4AF37]' />
-          <svg
-            className='w-6 h-6 text-[#D4AF37]'
-            viewBox='0 0 100 100'
-            fill='none'
-          >
-            <rect
-              x='50'
-              y='15'
-              width='49.5'
-              height='49.5'
-              transform='rotate(45 50 15)'
-              stroke='currentColor'
-              strokeWidth='2.5'
-            />
-            <circle cx='50' cy='50' r='9' fill='currentColor' />
-          </svg>
-          <div className='h-px w-16 sm:w-28 bg-linear-to-l from-transparent to-[#D4AF37]' />
-        </div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className={`text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light mb-14 ${
-            language === 'kh' ? 'font-khmer-kantumruuy' : ''
-          }`}
-          style={{
-            fontFamily:
-              language === 'kh'
-                ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
-                : undefined,
-          }}
-        >
-          {t.gift.desc}
-        </motion.p>
+        <GiftHeader />
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch'>
           <GratitudeCard />
           <BankQrCard
-            displayBank={displayBank}
-            displayAccountName={displayAccountName}
-            displayAccountNumber={displayAccountNumber}
-            displayQrCode={displayQrCode}
+            displayBank={displayBank ?? ''}
+            displayAccountName={displayAccountName ?? ''}
+            displayAccountNumber={displayAccountNumber ?? ''}
+            secondaryAccountNumber={displaySecondaryAccountNumber}
+            displayQrCode={displayQrCode ?? ''}
+            qrIconUrl={displayQrIcon}
             copied={copied}
             sharedToast={sharedToast}
             onCopy={handleCopy}

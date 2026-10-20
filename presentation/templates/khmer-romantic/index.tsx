@@ -175,6 +175,7 @@ export function WeddingInvitationContent(props?: TemplateProps) {
         bankName={wedding?.gift_info?.bank_name}
         accountName={wedding?.gift_info?.account_name}
         accountNumber={wedding?.gift_info?.account_number}
+        secondaryAccountNumber={wedding?.gift_info?.secondary_account_number}
         qrCodeUrl={wedding?.gift_info?.qr_code_url}
       />
       <Footer />

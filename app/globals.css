@@ -25,10 +25,11 @@ body {
   font-family: 'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif;
   line-height: 1.85;
 }
+
 .font-khmer-moul,
 .font-khmer-moulpali {
-  font-family: 'Moulpali', 'Moul', cursive, serif;
-  line-height: 1.65;
+  font-family: 'Moulpali', 'Moul', cursive, serif !important;
+  line-height: 1.65 !important;
 }
 .font-cursive {
   font-family: 'Great Vibes', cursive;

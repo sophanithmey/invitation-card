@@ -6,15 +6,19 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 import { FiligreeCorners } from './FiligreeCorners';
 import { BankQrActions } from './BankQrActions';
+import { AccountNumberRow } from './AccountNumberRow';
+import { QRCodeSVG } from 'qrcode.react';
 
 export interface BankQrCardProps {
   displayBank: string;
   displayAccountName: string;
   displayAccountNumber: string;
+  secondaryAccountNumber?: string;
   displayQrCode: string;
+  qrIconUrl?: string;
   copied: boolean;
   sharedToast: boolean;
-  onCopy: () => void;
+  onCopy: (targetNum?: string) => void;
   onShare: () => void;
   onDownloadQr: () => void;
 }
@@ -23,7 +27,9 @@ export function BankQrCard({
   displayBank,
   displayAccountName,
   displayAccountNumber,
+  secondaryAccountNumber,
   displayQrCode,
+  qrIconUrl = '/vadey/couple.svg',
   copied,
   sharedToast,
   onCopy,
@@ -31,6 +37,13 @@ export function BankQrCard({
   onDownloadQr,
 }: BankQrCardProps) {
   const { language } = useLanguage();
+  const [copiedTarget, setCopiedTarget] = React.useState<string | null>(null);
+
+  const handleCopyTarget = (num: string) => {
+    onCopy(num);
+    setCopiedTarget(num);
+    setTimeout(() => setCopiedTarget(null), 2500);
+  };
 
   return (
     <motion.div
@@ -61,10 +74,23 @@ export function BankQrCard({
           <div className='absolute inset-1.5 border border-[#EBC070]/40 rounded-xl pointer-events-none' />
 
           <div className='w-full h-full relative rounded-lg overflow-hidden flex items-center justify-center bg-white'>
-            <img
-              src={displayQrCode}
-              alt='ABA KHQR Code'
-              className='w-full h-full object-contain p-1 rounded-md'
+            <QRCodeSVG
+              id='wedding-qr-code'
+              value={displayQrCode}
+              title={'Gift'}
+              size={200}
+              bgColor={'#ffffff'}
+              fgColor={'#000000'}
+              level={'Q'}
+              imageSettings={{
+                src: qrIconUrl || '/vadey/couple.svg',
+                x: undefined,
+                y: undefined,
+                height: 40,
+                width: 40,
+                opacity: 1,
+                excavate: true,
+              }}
             />
 
             <div className='absolute inset-0 bg-black/60 opacity-0 group-hover/qr:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 backdrop-blur-xs rounded-lg text-white'>
@@ -110,38 +136,33 @@ export function BankQrCard({
             </p>
           </div>
 
-          <div className='pt-3 border-t border-[#EBC070]/30 flex flex-col sm:flex-row items-center justify-between gap-3'>
-            <div className='text-left w-full sm:w-auto'>
-              <span className='text-[10px] uppercase tracking-[0.2em] text-[#8F6608] font-bold block'>
-                {language === 'kh'
-                  ? 'លេខគណនី (Account Number)'
-                  : 'Account Number'}
-              </span>
-              <span className='font-mono text-xl sm:text-2xl font-bold text-[#1E293B] tracking-wider block mt-0.5'>
-                {displayAccountNumber}
-              </span>
-            </div>
+          <AccountNumberRow
+            label={language === 'kh' ? 'លេខគណនី (USD)' : 'Account Number (USD)'}
+            // badge='USD'
+            badgeColor='bg-amber-100 text-amber-900 border border-amber-300'
+            accountNumber={displayAccountNumber}
+            copied={
+              copiedTarget === displayAccountNumber || (copied && !copiedTarget)
+            }
+            onCopy={() => handleCopyTarget(displayAccountNumber)}
+            copyText={language === 'kh' ? 'ចម្លងលេខ' : 'Copy'}
+            copiedText={language === 'kh' ? 'បានចម្លង!' : 'Copied!'}
+          />
 
-            <button
-              onClick={onCopy}
-              className='w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#FFFDF9] hover:bg-[#FCEEC8] border border-[#D4AF37]/60 text-[#7A1624] font-semibold text-xs transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-xs flex items-center justify-center gap-1.5 cursor-pointer shrink-0'
-              title='Copy Account Number'
-            >
-              {copied ? (
-                <>
-                  <Check className='w-4 h-4 text-emerald-600' />
-                  <span className='text-emerald-700 font-bold'>
-                    {language === 'kh' ? 'បានចម្លង!' : 'Copied!'}
-                  </span>
-                </>
-              ) : (
-                <>
-                  <Copy className='w-4 h-4 text-[#C98C08]' />
-                  <span>{language === 'kh' ? 'ចម្លងលេខ' : 'Copy'}</span>
-                </>
-              )}
-            </button>
-          </div>
+          {secondaryAccountNumber && (
+            <AccountNumberRow
+              label={
+                language === 'kh' ? 'លេខគណនី (KHR)' : 'Account Number (KHR)'
+              }
+              // badge='KHR'
+              badgeColor='bg-emerald-100 text-emerald-900 border border-emerald-300'
+              accountNumber={secondaryAccountNumber}
+              copied={copiedTarget === secondaryAccountNumber}
+              onCopy={() => handleCopyTarget(secondaryAccountNumber)}
+              copyText={language === 'kh' ? 'ចម្លងលេខ' : 'Copy'}
+              copiedText={language === 'kh' ? 'បានចម្លង!' : 'Copied!'}
+            />
+          )}
         </div>
       </div>
 

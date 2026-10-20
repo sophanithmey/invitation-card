@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Sparkles, Check, Copy } from 'lucide-react';
+import { MapPin, Check, Copy, Home } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export interface VenueBannerProps {
@@ -24,16 +24,13 @@ export function VenueBanner({ copied, onCopyAddress }: VenueBannerProps) {
           </div>
           <div>
             <div className='inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-[#FFF2B2] text-[11px] font-semibold mb-1'>
-              <Sparkles className='w-3 h-3 text-[#FFF2B2]' />
+              <Home className='w-3 h-3 text-[#FFF2B2]' />
               <span>{t.location.venueTag}</span>
             </div>
             <h3
               className={`text-base sm:text-xl font-bold text-white ${
                 isKh ? 'font-khmer-moul leading-[1.6] tracking-normal' : ''
               }`}
-              style={{
-                fontFamily: isKh ? "'Moulpali', 'Moul', cursive, serif" : undefined,
-              }}
             >
               {t.location.venueName}
             </h3>
@@ -41,11 +38,6 @@ export function VenueBanner({ copied, onCopyAddress }: VenueBannerProps) {
               className={`text-xs sm:text-sm text-white/85 mt-1 leading-relaxed max-w-xl ${
                 isKh ? 'font-khmer-kantumruuy leading-[1.7]' : ''
               }`}
-              style={{
-                fontFamily: isKh
-                  ? "'Kantumruuy Pro', 'Noto Sans Khmer', sans-serif"
-                  : undefined,
-              }}
             >
               {t.location.address}
             </p>

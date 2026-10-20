@@ -14,6 +14,7 @@ interface GiftSectionProps {
 
 export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) => {
   const [copied, setCopied] = useState(false);
+  const [copiedSecondary, setCopiedSecondary] = useState(false);
   const { lang } = useLanguage();
 
   if (!enabled || !giftInfo) return null;
@@ -28,6 +29,12 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
     }
   };
 
+  const handleCopySecondary = async (num: string) => {
+    await copyToClipboard(`${giftInfo.bank_name} - ${giftInfo.account_name}: ${num}`);
+    setCopiedSecondary(true);
+    setTimeout(() => setCopiedSecondary(false), 2500);
+  };
+
   return (
     <section className="py-16 px-4 max-w-3xl mx-auto text-center font-khmer-kantumruuy relative">
       <h2 className="font-khmer-moul text-2xl md:text-3xl text-[#8B0000] mb-2 drop-shadow-sm">
@@ -38,8 +45,8 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
       </p>
       <KhmerOrnament variant="divider" />
 
-      <div className="glass-panel rounded-[2rem] p-8 md:p-10 shadow-xl relative max-w-lg mx-auto mt-10 transition-all duration-700 hover:shadow-[0_12px_40px_rgba(212,175,55,0.15)] group">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#8B0000] to-[#5A0000] text-[#D4AF37] flex items-center justify-center shadow-[0_4px_20px_rgba(139,0,0,0.3)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+      <div className="glass-panel rounded-4xl p-8 md:p-10 shadow-xl relative max-w-lg mx-auto mt-10 transition-all duration-700 hover:shadow-[0_12px_40px_rgba(212,175,55,0.15)] group">
+        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-linear-to-br from-[#8B0000] to-[#5A0000] text-[#D4AF37] flex items-center justify-center shadow-[0_4px_20px_rgba(139,0,0,0.3)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
           <Gift className="w-7 h-7" />
         </div>
 
@@ -70,10 +77,13 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
               {giftInfo.account_name}
             </p>
             <div className="flex items-center justify-between text-sm md:text-base font-semibold pt-4 mt-2 border-t border-[#D4AF37]/20">
-              <span className="tracking-wider drop-shadow-sm">{giftInfo.account_number}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">USD</span>
+                <span className="tracking-wider drop-shadow-sm">{giftInfo.account_number}</span>
+              </div>
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1.5 text-xs py-2 px-5 bg-gradient-to-r from-[#8B0000] to-[#5A0000] text-[#D4AF37] rounded-full shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_4px_15px_rgba(139,0,0,0.4)] active:scale-95 cursor-pointer font-medium"
+                className="flex items-center gap-1.5 text-xs py-2 px-5 bg-linear-to-r from-[#8B0000] to-[#5A0000] text-[#D4AF37] rounded-full shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_4px_15px_rgba(139,0,0,0.4)] active:scale-95 cursor-pointer font-medium"
               >
                 {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>
@@ -83,6 +93,26 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
                 </span>
               </button>
             </div>
+
+            {giftInfo.secondary_account_number && (
+              <div className="flex items-center justify-between text-sm md:text-base font-semibold pt-3 mt-2 border-t border-[#D4AF37]/20">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">KHR</span>
+                  <span className="tracking-wider drop-shadow-sm">{giftInfo.secondary_account_number}</span>
+                </div>
+                <button
+                  onClick={() => handleCopySecondary(giftInfo.secondary_account_number!)}
+                  className="flex items-center gap-1.5 text-xs py-2 px-5 bg-linear-to-r from-[#8B0000] to-[#5A0000] text-[#D4AF37] rounded-full shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_4px_15px_rgba(139,0,0,0.4)] active:scale-95 cursor-pointer font-medium"
+                >
+                  {copiedSecondary ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>
+                    {copiedSecondary
+                      ? lang === 'kh' ? 'បានចម្លង!' : 'Copied!'
+                      : lang === 'kh' ? 'ចម្លងលេខ' : 'Copy'}
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

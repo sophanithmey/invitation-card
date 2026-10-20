@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { MapPin, ExternalLink, Loader2 } from 'lucide-react';
+import React from 'react';
+import {  ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface WeddingMapProps {
@@ -17,7 +17,6 @@ export default function WeddingMap({
   className,
   venueLabel = 'គេហដ្ឋានខាងស្រី',
 }: WeddingMapProps) {
-  const [isLoading, setIsLoading] = useState(true);
 
   // OpenStreetMap Bounding Box around Kampong Trach center
   // Optimal bounding box for street-level view (~zoom 15-16)
@@ -32,22 +31,10 @@ export default function WeddingMap({
   return (
     <div
       className={cn(
-        'relative w-full h-[320px] xs:h-[360px] sm:h-[420px] md:h-[460px] overflow-hidden bg-[#FAF6EE] select-none rounded-xl sm:rounded-2xl',
+        'relative w-full h-80 xs:h-90 sm:h-105 md:h-115 overflow-hidden bg-[#FAF6EE] select-none rounded-xl sm:rounded-2xl',
         className,
       )}
     >
-      {/* Loading Skeleton */}
-      {isLoading && (
-        <div className='absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#FAF6EE] text-[#8B0000] gap-2.5 p-4'>
-          <div className='w-11 h-11 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center animate-pulse'>
-            <MapPin className='w-5 h-5 text-[#8B0000] animate-bounce' />
-          </div>
-          <div className='flex items-center gap-2 text-xs font-semibold text-slate-600'>
-            <Loader2 className='w-3.5 h-3.5 animate-spin text-[#D4AF37]' />
-            <span>កំពុងផ្ទុកផែនទី...</span>
-          </div>
-        </div>
-      )}
 
       {/* OpenStreetMap Iframe: Using absolute inset-0 guarantees 100% full height & width on all mobile browsers */}
       <iframe
@@ -57,7 +44,6 @@ export default function WeddingMap({
         referrerPolicy='no-referrer-when-downgrade'
         title='Wedding Venue Map - OpenStreetMap'
         className='absolute inset-0 w-full h-full z-10 transition-opacity duration-500'
-        onLoad={() => setIsLoading(false)}
       />
 
       {/* Floating Venue Marker Badge */}
