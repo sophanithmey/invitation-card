@@ -5,11 +5,11 @@ export const CHHAIYA_THEAROTH_WEDDING: Wedding = {
   slug: 'chhaiya-thearoth',
   groom_name: 'Chanchhaiya',
   bride_name: 'Thearoth',
-  groom_name_kh: 'ស៊ិន ចាន់ឆៃយ៉ា',
-  bride_name_kh: 'លិញ ធារ័ត្ន',
-  wedding_date: '2026-11-28T07:30:00.000Z',
+  groom_name_kh: 'កែវ បញ្ញា',
+  bride_name_kh: 'លី ផល្លីកា',
+  wedding_date: '2026-12-01T07:30:00.000Z',
   cover_photo:
-    'https://drxsceol5sg8q.cloudfront.net/images/IMG_FEATURED-1771297399-44efffd2-f650-4783-9c86-bc82a91d3e80.jpg',
+    'https://images.unsplash.com/photo-1591969851586-adbbd4accf81?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
   groom_photo:
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop',
   bride_photo:

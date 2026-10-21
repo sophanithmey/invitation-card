@@ -38,7 +38,9 @@ export interface Wedding {
     | 'khmer-modern'
     | 'khmer-floral'
     | 'khmer-etheap'
-    | 'khmer-romantic';
+    | 'khmer-romantic'
+    | 'european-villa'
+    | 'khmer-traditional';
   theme: ThemeSettings;
   parents: ParentsInfo;
   gift_info?: GiftInfo;

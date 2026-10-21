@@ -1,0 +1,91 @@
+import { Wedding } from '@/domain/entities/wedding';
+
+export const VIRAK_KEOMONY_WEDDING: Wedding = {
+  id: 'w-008',
+  slug: 'virak-keomony',
+  groom_name: 'Virak',
+  bride_name: 'Keomony',
+  groom_name_kh: 'វីរៈ',
+  bride_name_kh: 'គឹមមួយ',
+  wedding_date: '2026-11-28T07:00:00.000Z',
+  cover_photo: '/templates/khmer-traditional/arch-scene.webp',
+  groom_photo: '/templates/khmer-traditional/arch-scene.webp',
+  bride_photo: '/templates/khmer-traditional/arch-scene.webp',
+  story:
+    'សេចក្តីស្រឡាញ់ដែលផ្តើមចេញពីការយល់ចិត្ត ការគោរព និងការថ្នាក់ថ្នម បានរីកដុះដាលក្លាយជាចំណងអាពាហ៍ពិពាហ៍ដ៏ពិសិដ្ឋ។',
+  invitation_message:
+    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ។',
+  venue: 'មណ្ឌលសន្និបាត និងពិព័រណ៍កោះពេជ្រ (Diamond Island Convention & Exhibition Center)',
+  venue_address: 'អាគារ G សាលមហោស្រព កោះពេជ្រ រាជធានីភ្នំពេញ (Building G, Koh Pich, Phnom Penh)',
+  map_location: 'https://maps.google.com/?q=Koh+Pich+Phnom+Penh',
+  dress_code: 'សម្លៀកបំពាក់ប្រពៃណីខ្មែរ ឬសមរម្យ (Khmer Traditional or Formal Evening Attire)',
+  hashtag: '#VirakKeomonyWedding',
+  rsvp_enabled: true,
+  gift_enabled: true,
+  template_id: 'khmer-traditional',
+  theme: {
+    primary_color: '#7A1624',
+    secondary_color: '#D4AF37',
+    accent_color: '#FBF3D5',
+    background_color: '#3B090F',
+    card_bg_color: '#520D15',
+    text_primary_color: '#FBF3D5',
+    font_family: 'Moul',
+    ornament_style: 'traditional-gold',
+    hero_style: 'full-cover',
+    button_style: 'gold-border',
+  },
+  parents: {
+    groom_father: 'លោក ស៊ុន វីរៈបុត្រ',
+    groom_mother: 'លោកស្រី ម៉ៅ សុខជា',
+    bride_father: 'លោក គង់ គឹមស្រ៊ុន',
+    bride_mother: 'លោកស្រី ហែម ចរិយា',
+  },
+  gift_info: {
+    bank_name: 'ABA Bank',
+    account_name: 'VIRAK & KEOMONY',
+    account_number: '003 999 888',
+    qr_code_url:
+      '00020101021129450016abaakhppxxx@abaa01096005663630208ABA Bank40600006abaP2P0112A6BA11641BF7020960056636303090039998880404Dual5204599953031165802KH5915VIRAK KEOMONY6010Phnom Penh630436D5',
+  },
+  events: [
+    {
+      id: 'e-1',
+      event_name: "Groom's Procession & Hair Cutting Ceremony",
+      event_name_kh: 'ពិធីហែជំនូន ពិធីកាត់សក់បង្កក់សិរី និងពិធីសំពះផ្ទឹម',
+      date: '2026-11-28',
+      start_time: '07:30 AM',
+      venue: 'គេហដ្ឋានខាងស្រី (Bride Residence, Koh Pich)',
+      description: 'ពិធីតាមទំនៀមទម្លាប់ប្រពៃណីព្រះពុទ្ធសាសនា និងទំនៀមខ្មែរបុរាណ',
+    },
+    {
+      id: 'e-2',
+      event_name: 'Grand Wedding Banquet & Reception',
+      event_name_kh: 'ពិធីពិសារភោជនីយអាហារ និងរាំកម្សាន្តអបអរសាទរ',
+      date: '2026-11-28',
+      start_time: '05:30 PM',
+      venue: 'មណ្ឌលកោះពេជ្រ សាល G (Koh Pich Grand Ballroom G)',
+      description: 'ពិធីលៀងសាយភោជន៍ ជួបជុំញាតិមិត្ត និងរាំកម្សាន្តអបអរសាទរ',
+    },
+  ],
+  gallery: [
+    {
+      id: 'g-1',
+      image_url: '/templates/khmer-traditional/arch-scene.webp',
+      caption: 'Royal Archway • រោងជ័យមង្គល',
+      sort_order: 1,
+    },
+    {
+      id: 'g-2',
+      image_url: '/templates/khmer-traditional/altar-scene.webp',
+      caption: 'Golden Stage • វេទិកាសិរីមង្គល',
+      sort_order: 2,
+    },
+  ],
+  contact_info: {
+    phone1: '012 345 678',
+    phone2: '098 765 432',
+  },
+  created_at: '2026-10-21T00:00:00.000Z',
+  updated_at: '2026-10-21T00:00:00.000Z',
+};

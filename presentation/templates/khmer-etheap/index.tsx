@@ -105,7 +105,9 @@ export const KhmerEtheapTemplate: React.FC<TemplateProps> = ({
           </RevealSection>
 
           <RevealSection>
-            <EtheapFooter wedding={wedding} />
+            <p className='text-center text-xs text-gray-500'>
+              Build with ❤️ by Soursdey Digital
+            </p>
           </RevealSection>
         </div>
       </div>

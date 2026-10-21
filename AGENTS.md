@@ -10,8 +10,8 @@
 
 ## Tooling & Execution
 - **Package Manager**: Use `yarn` exclusively.
-- **Node Version**: Governed by `.nvmrc` (v20).
-- **Verification**: Run `yarn build` for verification. No live server execution needed.
+- **Node Version**: Governed by `.nvmrc` (v22).
+- **Verification**: No live server execution needed.
 
 ## Code Quality & Khmer Typography
 - Zero duplicate files or copy-pasted implementations.

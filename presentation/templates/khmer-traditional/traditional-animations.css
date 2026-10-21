@@ -1,0 +1,101 @@
+/* Khmer Traditional Royal Motion & Typography */
+
+.traditional-stage {
+  container-type: size;
+}
+
+.traditional-stage[data-paused='true'] *,
+.traditional-stage[data-paused='true'] *::before {
+  animation-play-state: paused !important;
+}
+
+.traditional-gold {
+  background-image: linear-gradient(
+    115deg,
+    #cf9b3a 0%,
+    #fef2b8 25%,
+    #edd585 45%,
+    #b27b23 60%,
+    #fff5cc 78%,
+    #cf9b3a 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(45, 10, 5, 0.75))
+    drop-shadow(0 0 12px rgba(220, 165, 50, 0.4));
+  animation: traditional-foil 8s ease-in-out infinite alternate;
+}
+
+.traditional-gold-frame {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 248, 235, 0.9) 100%);
+  border: 1.5px solid #d4af37;
+  box-shadow:
+    0 4px 20px rgba(74, 13, 21, 0.35),
+    inset 0 0 8px rgba(212, 175, 55, 0.25);
+}
+
+.traditional-kenburns {
+  transform: scale(1.04);
+  animation: traditional-kenburns 18s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.traditional-text {
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.traditional-text[data-phase='out'] {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-2.5cqh);
+}
+
+.traditional-sparkle {
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7d6 20%, #e0ab39 70%, transparent 100%);
+  box-shadow: 0 0 6px rgba(235, 185, 65, 0.8);
+  opacity: 0;
+  animation: traditional-rise var(--rise-dur) ease-in-out var(--rise-delay) infinite;
+}
+
+.traditional-progress {
+  transform-origin: 0% 50%;
+  animation: traditional-prog var(--scene-dur) linear both;
+}
+
+@keyframes traditional-foil {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+@keyframes traditional-kenburns {
+  from { transform: scale(1.15) translateY(2%); }
+  to { transform: scale(1.02) translateY(0); }
+}
+
+@keyframes traditional-rise {
+  0% { opacity: 0; transform: translate3d(0, 10cqh, 0) scale(0.6); }
+  25% { opacity: 0.85; }
+  75% { opacity: 0.7; }
+  100% { opacity: 0; transform: translate3d(var(--rise-sway), -45cqh, 0) scale(1.2); }
+}
+
+@keyframes traditional-prog {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traditional-stage *,
+  .traditional-stage *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+  .traditional-sparkle {
+    display: none;
+  }
+}

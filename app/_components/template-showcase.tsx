@@ -60,6 +60,22 @@ export const TEMPLATES: TemplateShowcaseItem[] = [
     color: 'from-[#D2FFF9] to-[#E8F9FA]',
     textColor: 'text-[#032F2D]',
   },
+  {
+    slug: 'virak-keomony',
+    names: 'វីរៈ & គឹមមួយ',
+    style: 'Khmer Traditional',
+    desc: 'Royal crimson velvet with Angkorian golden arches and palace lanterns.',
+    color: 'from-[#660C18] to-[#2E050B]',
+    textColor: 'text-[#E5C158]',
+  },
+  {
+    slug: 'rithy-sreypov',
+    names: 'ឫទ្ធី & ស្រីពៅ',
+    style: 'European Villa',
+    desc: 'A watercolor villa garden save the date that plays like a short film.',
+    color: 'from-[#DFEAF3] to-[#F6E7DC]',
+    textColor: 'text-[#B8863B]',
+  },
 ];
 
 export function TemplateShowcase() {
@@ -79,7 +95,8 @@ export function TemplateShowcase() {
           {TEMPLATES.map((template) => {
             const isLight =
               template.slug === 'dara-sophea' ||
-              template.slug === 'cheata-piseth';
+              template.slug === 'cheata-piseth' ||
+              template.slug === 'rithy-sreypov';
             const textPrimary = isLight ? 'text-[#2C1810]' : 'text-white';
             const textSecondary = isLight ? 'text-gray-600' : 'text-white/80';
             const badgeBg = isLight

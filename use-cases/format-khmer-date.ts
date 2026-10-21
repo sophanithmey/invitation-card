@@ -1,3 +1,9 @@
+const KHMER_DIGITS = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩'];
+
+export function toKhmerDigits(value: string | number): string {
+  return String(value).replace(/\d/g, (digit) => KHMER_DIGITS[Number(digit)]);
+}
+
 export function formatKhmerDate(dateStr: string): string {
   if (!dateStr) return '';
   try {
@@ -19,21 +25,9 @@ export function formatKhmerDate(dateStr: string): string {
       'ធ្នូ',
     ];
 
-    const khmerDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩'];
-
-    const dayNum = d.getDate();
-    const dayStr = String(dayNum)
-      .padStart(2, '0')
-      .split('')
-      .map((ch) => khmerDigits[parseInt(ch, 10)] || ch)
-      .join('');
-
+    const dayStr = toKhmerDigits(String(d.getDate()).padStart(2, '0'));
     const monthStr = khmerMonths[d.getMonth()] || '';
-
-    const yearStr = String(d.getFullYear())
-      .split('')
-      .map((ch) => khmerDigits[parseInt(ch, 10)] || ch)
-      .join('');
+    const yearStr = toKhmerDigits(d.getFullYear());
 
     return `ថ្ងៃទី ${dayStr} ខែ ${monthStr} ឆ្នាំ ${yearStr}`;
   } catch {
