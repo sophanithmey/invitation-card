@@ -1152,6 +1152,11 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+classnames@^2.3.2:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
+
 client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz"
@@ -2772,6 +2777,13 @@ react-player@^3.4.0:
     vimeo-video-element "^1.6.1"
     wistia-video-element "^1.3.5"
     youtube-video-element "^1.8.0"
+
+react-share@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-share/-/react-share-6.1.0.tgz#f607be7174a80b837b319f7f0424bc6f3f1a5118"
+  integrity sha512-5+do0CzuHxMTplqBLPFsnN8SQT+2Jf2AdLK0OJDXdd+/dSjzn0/a5CYVpxK3PI1HInspkLtreVGYlp2W8X9SjA==
+  dependencies:
+    classnames "^2.3.2"
 
 react@^19.0.0:
   version "19.2.8"

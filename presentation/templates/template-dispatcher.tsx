@@ -14,7 +14,7 @@ import { WishItem } from '@/domain/entities/wish';
 import { LanguageProvider } from '@/presentation/context/language-context';
 import { LanguageSwitcher } from '@/presentation/components/ui/language-switcher';
 import { ScrollToTop } from '../components/ui/scroll-to-top';
-import { FacebookShareButton } from '../components/ui/facebook-share-button';
+// import { FacebookShareButton } from '../components/ui/facebook-share-button';
 
 interface DispatcherProps {
   wedding: Wedding;
@@ -48,7 +48,7 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
     <LanguageProvider>
       {template_id !== 'khmer-romantic' && <LanguageSwitcher />}
       <ScrollToTop />
-      <FacebookShareButton />
+      {/* <FacebookShareButton /> */}
       {renderTemplate()}
     </LanguageProvider>
   );

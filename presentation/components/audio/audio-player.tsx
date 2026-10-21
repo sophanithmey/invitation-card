@@ -4,14 +4,15 @@ import React, { useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import ReactPlayer from 'react-player';
 
-const YOUTUBE_URL =
-  'https://www.youtube.com/embed/Mn_qLC7_ueA?si=7Tbhr7z-78IOHsN7';
+const YOUTUBE_URL = 'https://youtu.be/XKNgycbj1qo';
 
 interface AudioPlayerProps {
   autoPlay?: boolean;
 }
 
-export const AudioPlayer: React.FC<AudioPlayerProps> = ({ autoPlay = false }) => {
+export const AudioPlayer: React.FC<AudioPlayerProps> = ({
+  autoPlay = false,
+}) => {
   const [isPlaying, setIsPlaying] = useState(autoPlay);
 
   React.useEffect(() => {
