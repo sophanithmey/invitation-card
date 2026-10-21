@@ -101,14 +101,9 @@ export function GuestInvitationCard({
         <h1
           className={`font-bold text-[#8B0000] wrap-break text-balance px-1 transition-all duration-300 drop-shadow-[0_1px_2px_rgba(139,0,0,0.1)] ${
             isKhmerGuest
-              ? 'font-khmer-moul text-2xl sm:text-3xl md:text-4xl py-1 sm:py-2 leading-[1.65] tracking-normal'
-              : 'font-cursive text-4xl sm:text-5xl md:text-6xl py-2 leading-tight'
+              ? 'font-khmer-moul text-lg sm:text-xl md:text-lg py-1 sm:py-2 leading-[1.65] tracking-normal'
+              : 'font-cursive text-xl sm:text-2xl md:text-3xl py-2 leading-tight'
           }`}
-          style={{
-            fontFamily: isKhmerGuest
-              ? "'Moulpali', 'Moul', cursive, serif"
-              : "'Great Vibes', cursive",
-          }}
         >
           {guestName}
         </h1>
