@@ -22,6 +22,11 @@ export const enEvents: Translations["events"] = {
         desc: "Sacred prayer and offering rituals to invite divine blessings and guardian spirit protection.",
       },
       {
+        time: "04:00 PM",
+        title: "Monk Blessing (Soat Mun)",
+        desc: "Monk chanting ceremony to ward off evil spirits and bring good fortune and spiritual strength to the newlyweds before starting the traditional planning ceremonies.",
+      },
+      {
         time: "05:00 PM",
         title: "Pithi Jeav Khan Sla (Honoring Parents)",
         desc: "The bride and groom express profound gratitude to their parents for endless love and nurturing care.",
@@ -72,8 +77,13 @@ export const enEvents: Translations["events"] = {
       },
       {
         time: "11:30 AM",
-        title: "Blessing of Areca Flowers (Baach Pka Sla) & Lunch",
-        desc: "Scattering sacred areca flowers to conclude the traditional wedding rites, followed by lunch for all guests.",
+        title: "Blessing of Areca Flowers (Baach Pka Sla)",
+        desc: "Scattering sacred areca flowers to conclude the traditional wedding rites",
+      },
+      {
+        time: "11:50 AM",
+        title: "Lunch Reception",
+        desc: "Honored guests are cordially invited to enjoy a lunch reception.",
       },
     ],
     eveningTitle: "Evening Reception & Banquet",
