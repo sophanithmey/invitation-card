@@ -9,6 +9,7 @@ import { KhmerRomanticTemplate } from './khmer-romantic';
 import { EuropeanVillaTemplate } from './european-villa';
 import { KhmerTraditionalTemplate } from './khmer-traditional';
 import { CelestialDreamTemplate } from './celestial-dream';
+import { GrandEveningTemplate } from './grand-evening';
 import { RSVPItem } from '@/domain/entities/rsvp';
 import { WishItem } from '@/domain/entities/wish';
 import { LanguageProvider } from '@/presentation/context/language-context';
@@ -38,6 +39,8 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
         return <KhmerTraditionalTemplate wedding={props.wedding} />;
       case 'celestial-dream':
         return <CelestialDreamTemplate {...props} />;
+      case 'grand-evening':
+        return <GrandEveningTemplate {...props} />;
       case 'khmer-luxury':
       default:
         return <KhmerLuxuryTemplate {...props} />;

@@ -1,140 +1,158 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ArrowRight, Eye } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { AlbumIcon, ArrowLeft, ArrowRight } from 'lucide-react';
 import { TemplatePreviewModal } from './preview-modal/template-preview-modal';
 import { TemplatePreviewItem } from './preview-modal/preview-types';
+import { TEMPLATES } from './template-showcase-data';
+import { TemplateCoverflowCard } from './template-coverflow-card';
 
-export const TEMPLATES: TemplatePreviewItem[] = [
-  {
-    slug: 'serey-mongkul',
-    names: 'សិរី & មង្គល',
-    style: 'Khmer Luxury',
-    desc: 'A rich burgundy and gold aesthetic for the most majestic celebrations.',
-    color: 'from-[#7A1624] to-[#4A0D15]',
-    textColor: 'text-[#D4AF37]',
-  },
-  {
-    slug: 'celestial-dream',
-    names: 'ម៉ាកូ & អានណា',
-    style: 'Celestial Dream',
-    desc: 'An enchanting starlight navy and gold invitation with an interactive astrolabe compass.',
-    color: 'from-[#0F1833] to-[#18254A]',
-    textColor: 'text-[#C9A45C]',
-  },
-  {
-    slug: 'sopheap-chanvadey',
-    names: 'សុភាព & ច័ន្ទវដ្តី',
-    style: 'Khmer Romantic',
-    desc: 'សិរីសួស្តីថ្ងៃមង្គលជ័យរបស់យើងខ្ញុំ សុភាព និង ច័ន្ទវដ្តី',
-    color: 'from-[#8B0000] to-[#4A0000]',
-    textColor: 'text-[#D4AF37]',
-  },
-  {
-    slug: 'chhaiya-thearoth',
-    names: 'ឆាយា & ថារ័ត្ន',
-    style: 'Khmer Minimal',
-    desc: 'Soft rose and champagne hues that bring a delicate, romantic touch.',
-    color: 'from-[#D2FFF9] to-[#E8F9FA]',
-    textColor: 'text-[#032F2D]',
-  },
-  {
-    slug: 'virak-keomony',
-    names: 'វីរៈ & គឹមមួយ',
-    style: 'Khmer Traditional',
-    desc: 'Royal crimson velvet with Angkorian golden arches and palace lanterns.',
-    color: 'from-[#660C18] to-[#2E050B]',
-    textColor: 'text-[#E5C158]',
-  },
-  {
-    slug: 'rithy-sreypov',
-    names: 'ឫទ្ធី & ស្រីពៅ',
-    style: 'European Villa',
-    desc: 'A watercolor villa garden save the date that plays like a short film.',
-    color: 'from-[#DFEAF3] to-[#F6E7DC]',
-    textColor: 'text-[#B8863B]',
-  },
-];
+export { TEMPLATES };
 
 export function TemplateShowcase() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [previewTemplate, setPreviewTemplate] =
     useState<TemplatePreviewItem | null>(null);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const total = TEMPLATES.length;
+
+  const handlePrev = useCallback(() => {
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : total - 1));
+  }, [total]);
+
+  const handleNext = useCallback(() => {
+    setActiveIndex((prev) => (prev < total - 1 ? prev + 1 : 0));
+  }, [total]);
+
+  // Keyboard navigation support
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handlePrev, handleNext]);
+
+  // Mobile Touch Swipe Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 45) {
+      handleNext();
+    } else if (distance < -45) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  const currentTemplate = TEMPLATES[activeIndex];
+
   return (
-    <section id='templates' className='py-24 px-4'>
+    <section id='templates' className='py-20 md:py-28 px-4 overflow-hidden relative'>
       <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-16 flex flex-col items-center justify-center pt-8'>
-          <div className='text-[#D4AF37] font-bold tracking-widest uppercase text-sm mb-6'>
-            Collections
+        {/* Section Header */}
+        <div className='text-center mb-10 md:mb-14 flex flex-col items-center justify-center'>
+          <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#7A1624] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs'>
+            <AlbumIcon className='w-3.5 h-3.5 text-[#D4AF37]' />
+            <span>Collections</span>
           </div>
-          <h2 className='font-khmer text-3xl md:text-5xl text-[#7A1624]'>
+
+          <h2 className='font-khmer text-3xl sm:text-4xl md:text-5xl text-[#7A1624] leading-tight'>
             ស្វែងយល់ពីម៉ូតរបស់យើង
           </h2>
+
+          <p className='text-sm sm:text-base text-gray-600 font-khmer mt-3 max-w-lg mx-auto'>
+            រំកិលមើលគំរូសំបុត្រមង្គលការ 3D Coverflow ដ៏ប្រណីត និងជ្រើសរើសម៉ូតដែលអ្នកពេញចិត្ត
+          </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          {TEMPLATES.map((template) => {
-            const isLight =
-              template.slug === 'rithy-sreypov' ||
-              template.slug === 'chhaiya-thearoth';
-            const textPrimary = isLight ? 'text-[#2C1810]' : 'text-white';
-            const textSecondary = isLight ? 'text-gray-600' : 'text-white/80';
-            const badgeBg = isLight
-              ? 'bg-[#7A1624]/10 border-[#7A1624]/20 text-[#7A1624]'
-              : 'bg-white/20 border-white/20 text-white/90';
+        {/* 3D Coverflow Perspective Stage */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ perspective: '1100px', transformStyle: 'preserve-3d' }}
+          className='relative w-full h-[510px] sm:h-[570px] flex items-center justify-center my-4 overflow-visible'
+        >
+          {TEMPLATES.map((template, index) => {
+            let offset = (index - activeIndex) % total;
+            if (offset > total / 2) offset -= total;
+            if (offset < -total / 2) offset += total;
 
             return (
-              <div
+              <TemplateCoverflowCard
                 key={template.slug}
-                onClick={() => setPreviewTemplate(template)}
-                className='group relative h-[420px] rounded-3xl overflow-hidden flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer'
-              >
-                <div
-                  className={`absolute inset-0 bg-linear-to-br ${template.color} opacity-90 group-hover:opacity-100 transition-opacity duration-500`}
-                />
-
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 mix-blend-overlay pointer-events-none" />
-
-                <div className='relative z-10 flex flex-col h-full justify-between'>
-                  <div className='flex justify-end'>
-                    <div
-                      className={`inline-block px-4 py-1.5 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider border ${badgeBg}`}
-                    >
-                      {template.style}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3
-                      className={`font-khmer text-4xl ${textPrimary} mb-3 drop-shadow-sm group-hover:scale-105 transform origin-left transition-transform duration-500`}
-                    >
-                      {template.names}
-                    </h3>
-                    <p
-                      className={`${textSecondary} max-w-sm mb-8 leading-relaxed`}
-                    >
-                      {template.desc}
-                    </p>
-
-                    <button
-                      type='button'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setPreviewTemplate(template);
-                      }}
-                      className={`flex items-center gap-2 ${template.textColor} font-bold text-left cursor-pointer group/btn`}
-                    >
-                      <Eye className='w-4 h-4 text-inherit shrink-0' />
-                      <span className='group-hover/btn:mr-2 transition-all duration-300'>
-                        Preview Design
-                      </span>
-                      <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-2 transition-transform duration-300' />
-                    </button>
-                  </div>
-                </div>
-              </div>
+                template={template}
+                offset={offset}
+                isActive={index === activeIndex}
+                onSelect={() => setActiveIndex(index)}
+                onPreview={() => setPreviewTemplate(template)}
+              />
             );
           })}
+        </div>
+
+        {/* Bottom Navigation Controls: Previous / Dots / Next */}
+        <div className='flex items-center justify-center gap-6 mt-8 sm:mt-12 select-none'>
+          {/* Previous Arrow Button */}
+          <button
+            type='button'
+            onClick={handlePrev}
+            aria-label='Previous Template'
+            className='w-12 h-12 rounded-full border border-gray-200/80 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center text-stone-800 hover:text-[#7A1624] hover:border-[#D4AF37]/50 hover:scale-105 active:scale-95 transition-all cursor-pointer'
+          >
+            <ArrowLeft className='w-5 h-5' />
+          </button>
+
+          {/* Pagination Indicators */}
+          <div className='flex items-center gap-2'>
+            {TEMPLATES.map((tpl, i) => {
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={tpl.slug}
+                  type='button'
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Go to template ${i + 1}`}
+                  className={`transition-all duration-400 cursor-pointer ${
+                    isActive
+                      ? 'w-7 sm:w-8 h-2.5 rounded-full bg-stone-900 shadow-xs'
+                      : 'w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-stone-300 hover:bg-stone-400'
+                  }`}
+                />
+              );
+            })}
+          </div>
+
+          {/* Next Arrow Button */}
+          <button
+            type='button'
+            onClick={handleNext}
+            aria-label='Next Template'
+            className='w-12 h-12 rounded-full border border-gray-200/80 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] flex items-center justify-center text-stone-800 hover:text-[#7A1624] hover:border-[#D4AF37]/50 hover:scale-105 active:scale-95 transition-all cursor-pointer'
+          >
+            <ArrowRight className='w-5 h-5' />
+          </button>
+        </div>
+
+        {/* Active Template Quick Info Badge */}
+        <div className='text-center mt-6'>
+          <p className='text-xs text-gray-500 font-khmer'>
+            {currentTemplate.names} • {currentTemplate.style}
+          </p>
         </div>
       </div>
 

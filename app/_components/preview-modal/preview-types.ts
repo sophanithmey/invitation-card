@@ -7,4 +7,8 @@ export interface TemplatePreviewItem {
   desc: string;
   color: string;
   textColor: string;
+  isMostUsed?: boolean;
+  coverPhoto?: string;
+  badgeLabel?: string;
+  subtitle?: string;
 }

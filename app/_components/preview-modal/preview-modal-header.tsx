@@ -9,6 +9,7 @@ import {
   ExternalLink,
   X,
   Sparkles,
+  Flame,
 } from 'lucide-react';
 import { PreviewDevice, TemplatePreviewItem } from './preview-types';
 
@@ -49,6 +50,12 @@ export const PreviewModalHeader: React.FC<PreviewModalHeaderProps> = ({
             <span className='font-khmer text-sm sm:text-base font-bold text-white truncate'>
               {template.names}
             </span>
+            {template.isMostUsed && (
+              <span className='inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/45 text-[#F5DE98] text-[10px] font-semibold whitespace-nowrap shrink-0'>
+                <Flame className='w-3 h-3 fill-[#D4AF37] text-[#D4AF37]' />
+                <span className='font-khmer'>ពេញនិយមបំផុត</span>
+              </span>
+            )}
             <span className='hidden xs:inline-block px-2 py-0.5 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#D4AF37] text-[10px] font-semibold uppercase tracking-wider'>
               {template.style}
             </span>

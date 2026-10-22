@@ -10,7 +10,8 @@ export interface ThemeSettings {
     | 'luxury-gold'
     | 'watercolor-garden'
     | 'traditional-gold'
-    | 'celestial-astrolabe';
+    | 'celestial-astrolabe'
+    | 'opera-evening';
   hero_style?: 'full-cover' | 'framed-card' | 'split-view';
   button_style?: 'gold-border' | 'solid-burgundy' | 'emerald-glow';
 }

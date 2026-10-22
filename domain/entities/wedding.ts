@@ -38,7 +38,8 @@ export interface Wedding {
     | 'khmer-romantic'
     | 'european-villa'
     | 'khmer-traditional'
-    | 'celestial-dream';
+    | 'celestial-dream'
+    | 'grand-evening';
   theme: ThemeSettings;
   parents: ParentsInfo;
   gift_info?: GiftInfo;

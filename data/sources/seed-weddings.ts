@@ -5,8 +5,10 @@ import { SOKHA_DEVI_WEDDING } from './seeds/sokha-devi';
 import { RITHY_SREYPOV_WEDDING } from './seeds/rithy-sreypov';
 import { VIRAK_KEOMONY_WEDDING } from './seeds/virak-keomony';
 import { CELESTIAL_DREAM_WEDDING } from './seeds/celestial-dream';
+import { GRAND_EVENING_WEDDING } from './seeds/grand-evening';
 
 export const SEED_WEDDINGS: Wedding[] = [
+  GRAND_EVENING_WEDDING,
   CELESTIAL_DREAM_WEDDING,
   VIRAK_KEOMONY_WEDDING,
   SOKHA_DEVI_WEDDING,

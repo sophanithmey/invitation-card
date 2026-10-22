@@ -118,6 +118,7 @@ export const BuilderForm: React.FC<BuilderFormProps> = ({
             <option value="khmer-traditional">🏛️ Khmer Traditional (Royal Crimson & Golden Arch)</option>
             <option value="european-villa">🏰 European Villa (Watercolor Save the Date)</option>
             <option value="celestial-dream">✨ Celestial Dream (Starry Midnight & Astrolabe)</option>
+            <option value="grand-evening">🎭 The Grand Evening (Opera Black & Gold)</option>
           </select>
         </div>
       </div>
