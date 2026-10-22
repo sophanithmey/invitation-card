@@ -47,7 +47,7 @@ export const TraditionalEventsScene: React.FC<TraditionalEventsSceneProps> = ({
 
           return (
             <Reveal key={evt.id || idx} delay={delay} className='flex flex-col items-center'>
-              <span className='rounded-full bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/40 to-[#d4af37]/20 px-3 py-0.5 text-[min(3.2cqw,1.7cqh)] font-bold text-[#fef2b8] shadow-xs backdrop-blur-xs ring-1 ring-[#d4af37]/60'>
+              <span className='rounded-full bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/40 to-[#d4af37]/20 px-3 py-0.5 text-[min(3.2cqw,1.7cqh)] font-bold text-[#fef2b8] shadow-sm backdrop-blur-sm ring-1 ring-[#d4af37]/60'>
                 {evt.start_time}
               </span>
 

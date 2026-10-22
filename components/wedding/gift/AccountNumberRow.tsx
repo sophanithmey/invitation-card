@@ -47,7 +47,7 @@ export const AccountNumberRow: React.FC<AccountNumberRowProps> = ({
       <button
         type='button'
         onClick={onCopy}
-        className='w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#FFFDF9] hover:bg-[#FCEEC8] border border-[#D4AF37]/60 text-[#7A1624] font-semibold text-xs transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-xs flex items-center justify-center gap-1.5 cursor-pointer shrink-0'
+        className='w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#FFFDF9] hover:bg-[#FCEEC8] border border-[#D4AF37]/60 text-[#7A1624] font-semibold text-xs transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-sm flex items-center justify-center gap-1.5 cursor-pointer shrink-0'
         title='Copy Account Number'
       >
         {copied ? (

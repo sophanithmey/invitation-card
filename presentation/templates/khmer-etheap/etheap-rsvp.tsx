@@ -98,7 +98,7 @@ export const EtheapRsvp: React.FC<EtheapRsvpProps> = ({
                 onClick={() => setAttending(true)}
                 className={`py-2.5 px-2 rounded-xl border font-semibold text-xs transition-all cursor-pointer ${
                   attending === true
-                    ? 'border-[#C98C08] bg-linear-to-r from-[#C98C08] to-[#EBC070] text-white shadow-xs'
+                    ? 'border-[#C98C08] bg-linear-to-r from-[#C98C08] to-[#EBC070] text-white shadow-sm'
                     : 'border-[#EBC070]/60 bg-[#FAF4E6]/40 text-[#4A351C] hover:bg-[#FAF4E6]'
                 }`}
               >
@@ -109,7 +109,7 @@ export const EtheapRsvp: React.FC<EtheapRsvpProps> = ({
                 onClick={() => setAttending(false)}
                 className={`py-2.5 px-2 rounded-xl border font-semibold text-xs transition-all cursor-pointer ${
                   attending === false
-                    ? 'border-stone-400 bg-stone-700 text-white shadow-xs'
+                    ? 'border-stone-400 bg-stone-700 text-white shadow-sm'
                     : 'border-[#EBC070]/60 bg-[#FAF4E6]/40 text-[#4A351C] hover:bg-[#FAF4E6]'
                 }`}
               >

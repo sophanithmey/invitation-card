@@ -36,12 +36,12 @@ export const KhmerEtheapTemplate: React.FC<TemplateProps> = ({
     <main className='h-screen w-full bg-linear-to-b from-[#FAF7F2] via-[#F4EDE1] to-[#FAF7F2] flex items-center justify-center p-0 sm:p-4 overflow-hidden relative'>
       {/* Background Ambient Glow for Desktop */}
       <div className='fixed inset-0 pointer-events-none overflow-hidden opacity-70'>
-        <div className='absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-150 max-h-150 bg-linear-to-br from-[#EBC070]/35 to-transparent rounded-full blur-[100px]' />
-        <div className='absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] max-w-175 max-h-175 bg-linear-to-tl from-[#C98C08]/25 to-transparent rounded-full blur-[120px]' />
+        <div className='absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-linear-to-br from-[#EBC070]/35 to-transparent rounded-full blur-[100px]' />
+        <div className='absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-linear-to-tl from-[#C98C08]/25 to-transparent rounded-full blur-[120px]' />
       </div>
 
       {/* Centered Scrollable Invitation Card Container */}
-      <div className='w-full max-w-md h-full sm:h-[94vh] sm:max-h-230 bg-linear-to-b from-[#FFFFFF] via-[#FFFDF9] to-[#FAF6EE] text-[#4A351C] relative flex flex-col sm:rounded-[2.5rem] sm:border-2 sm:border-[#EBC070]/70 sm:shadow-[0_20px_60px_rgba(201,140,8,0.18)] overflow-hidden'>
+      <div className='w-full max-w-md h-full sm:h-[94vh] sm:max-h-[920px] bg-linear-to-b from-[#FFFFFF] via-[#FFFDF9] to-[#FAF6EE] text-[#4A351C] relative flex flex-col sm:rounded-[2.5rem] sm:border-2 sm:border-[#EBC070]/70 sm:shadow-[0_20px_60px_rgba(201,140,8,0.18)] overflow-hidden'>
         {/* Khmer Traditional Kbach Frieze Header Ribbon */}
         <div className='w-full shrink-0 relative z-20 bg-[#FAF4E6]/90 border-b border-[#EBC070]/60 py-0.5 shadow-2xs'>
           <KbachFrieze className='h-4 w-full text-[#C98C08]' />

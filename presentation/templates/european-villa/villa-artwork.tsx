@@ -51,7 +51,7 @@ export const VillaArtwork: React.FC = () => (
 
     <div className='villa-enter-bottom absolute bottom-[-9%] left-[-8%] w-[116%]'>
       <div
-        className='villa-sway-bottom relative aspect-1264/848 w-full'
+        className='villa-sway-bottom relative aspect-[1264/848] w-full'
         style={{ maskImage: FLOWER_MASK, WebkitMaskImage: FLOWER_MASK }}
       >
         <Image

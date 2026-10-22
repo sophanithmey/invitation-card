@@ -14,7 +14,7 @@ export function Day2VenueCard() {
         <div className='absolute top-0 right-0 w-36 h-36 bg-[#D4AF37]/15 rounded-full blur-2xl pointer-events-none' />
 
         <div className='relative z-10 flex items-start gap-3.5 sm:gap-4'>
-          <div className='w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-[#FFF2B2]/60 flex items-center justify-center text-[#FFF2B2] shrink-0 mt-0.5 shadow-xs'>
+          <div className='w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-[#FFF2B2]/60 flex items-center justify-center text-[#FFF2B2] shrink-0 mt-0.5 shadow-sm'>
             <MapPin className='w-5 h-5 text-[#FFF2B2]' />
           </div>
           <div className='flex-1'>

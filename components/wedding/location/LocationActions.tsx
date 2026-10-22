@@ -37,7 +37,7 @@ export function LocationActions({
           variant='outline'
           size='lg'
           onClick={() => window.open(googleMapsDirectionsUrl, '_blank')}
-          className='w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border-[#8B0000]/40 text-[#8B0000] hover:bg-[#8B0000]/10 bg-white/80 shadow-xs transition-all duration-300 font-semibold cursor-pointer flex items-center justify-center gap-2 group text-sm'
+          className='w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border-[#8B0000]/40 text-[#8B0000] hover:bg-[#8B0000]/10 bg-white/80 shadow-sm transition-all duration-300 font-semibold cursor-pointer flex items-center justify-center gap-2 group text-sm'
           style={{
             fontFamily: isKh ? "'Kantumruuy Pro', sans-serif" : undefined,
           }}

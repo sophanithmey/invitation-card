@@ -67,7 +67,7 @@ export const VillaParentsScene: React.FC<VillaParentsSceneProps> = ({
 
       {dressCode && (
         <Reveal delay={1.2} className='mt-[2.5cqh] max-w-[76cqw] flex flex-col items-center'>
-          <span className='rounded-full bg-white/50 px-3 py-0.5 text-[min(2.8cqw,1.5cqh)] font-semibold text-[#4f7fa3] shadow-xs backdrop-blur-xs ring-1 ring-white/60'>
+          <span className='rounded-full bg-white/50 px-3 py-0.5 text-[min(2.8cqw,1.5cqh)] font-semibold text-[#4f7fa3] shadow-sm backdrop-blur-sm ring-1 ring-white/60'>
             {copy.dressCodeTitle}
           </span>
           <p
@@ -84,7 +84,7 @@ export const VillaParentsScene: React.FC<VillaParentsSceneProps> = ({
 
       {hashtag && (
         <Reveal delay={1.5} className='mt-[2cqh]'>
-          <span className='font-serif-display text-[min(3.6cqw,2cqh)] font-bold text-[#b8863b] drop-shadow-xs'>
+          <span className='font-serif-display text-[min(3.6cqw,2cqh)] font-bold text-[#b8863b] drop-shadow-sm'>
             {hashtag}
           </span>
         </Reveal>

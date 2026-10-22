@@ -74,7 +74,7 @@ export default function LocationSection() {
           transition={{ duration: 0.8 }}
           className='text-center mb-8 sm:mb-12'
         >
-          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-xs'>
+          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-sm'>
             <Compass className='w-6 h-6 text-[#D4AF37]' />
           </div>
           <h2
@@ -135,7 +135,7 @@ export default function LocationSection() {
                 lat={lat}
                 lng={lng}
                 venueLabel={t.location.venueName}
-                className='w-full h-80 xs:h-90 sm:h-105 md:h-115'
+                className='w-full h-80 xs:h-[360px] sm:h-105 md:h-115'
               />
             </div>
 

@@ -1,17 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+'use client';
 
-export interface TemplateShowcaseItem {
-  slug: string;
-  names: string;
-  style: string;
-  desc: string;
-  color: string;
-  textColor: string;
-}
+import React, { useState } from 'react';
+import { ArrowRight, Eye } from 'lucide-react';
+import { TemplatePreviewModal } from './preview-modal/template-preview-modal';
+import { TemplatePreviewItem } from './preview-modal/preview-types';
 
-export const TEMPLATES: TemplateShowcaseItem[] = [
+export const TEMPLATES: TemplatePreviewItem[] = [
   {
     slug: 'serey-mongkul',
     names: 'សិរី & មង្គល',
@@ -21,28 +15,12 @@ export const TEMPLATES: TemplateShowcaseItem[] = [
     textColor: 'text-[#D4AF37]',
   },
   {
-    slug: 'dara-sophea',
-    names: 'ដារ៉ា & សុភា',
-    style: 'Khmer Classic',
-    desc: 'Timeless ivory and subtle gold elements, perfect for a traditional feel.',
-    color: 'from-[#FDFBF7] to-[#EAE3D9]',
-    textColor: 'text-[#8B0000]',
-  },
-  {
-    slug: 'kanha-vichea',
-    names: 'វិជ្ជា & កញ្ញា',
-    style: 'Khmer Modern',
-    desc: 'Sleek emerald tones with glowing accents for the contemporary couple.',
-    color: 'from-[#080F0C] to-[#040806]',
-    textColor: 'text-emerald-400',
-  },
-  {
-    slug: 'cheata-piseth',
-    names: 'ពិសិដ្ឋ & ជាតា',
-    style: 'Khmer Floral',
-    desc: 'Soft rose and champagne hues that bring a delicate, romantic touch.',
-    color: 'from-[#FFF8F5] to-[#FDEBE7]',
-    textColor: 'text-[#E8B4B8]',
+    slug: 'celestial-dream',
+    names: 'ម៉ាកូ & អានណា',
+    style: 'Celestial Dream',
+    desc: 'An enchanting starlight navy and gold invitation with an interactive astrolabe compass.',
+    color: 'from-[#0F1833] to-[#18254A]',
+    textColor: 'text-[#C9A45C]',
   },
   {
     slug: 'sopheap-chanvadey',
@@ -79,14 +57,17 @@ export const TEMPLATES: TemplateShowcaseItem[] = [
 ];
 
 export function TemplateShowcase() {
+  const [previewTemplate, setPreviewTemplate] =
+    useState<TemplatePreviewItem | null>(null);
+
   return (
-    <section className='py-24 px-4'>
+    <section id='templates' className='py-24 px-4'>
       <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-16 flex flex-col items-center justify-center pt-8'>
           <div className='text-[#D4AF37] font-bold tracking-widest uppercase text-sm mb-6'>
             Collections
           </div>
-          <h2 className='font-khmer-moul text-3xl md:text-5xl text-[#7A1624]'>
+          <h2 className='font-khmer text-3xl md:text-5xl text-[#7A1624]'>
             ស្វែងយល់ពីម៉ូតរបស់យើង
           </h2>
         </div>
@@ -94,9 +75,8 @@ export function TemplateShowcase() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           {TEMPLATES.map((template) => {
             const isLight =
-              template.slug === 'dara-sophea' ||
-              template.slug === 'cheata-piseth' ||
-              template.slug === 'rithy-sreypov';
+              template.slug === 'rithy-sreypov' ||
+              template.slug === 'chhaiya-thearoth';
             const textPrimary = isLight ? 'text-[#2C1810]' : 'text-white';
             const textSecondary = isLight ? 'text-gray-600' : 'text-white/80';
             const badgeBg = isLight
@@ -104,10 +84,10 @@ export function TemplateShowcase() {
               : 'bg-white/20 border-white/20 text-white/90';
 
             return (
-              <Link
+              <div
                 key={template.slug}
-                href={`/wedding/${template.slug}`}
-                className='group relative h-105 rounded-3xl overflow-hidden flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2'
+                onClick={() => setPreviewTemplate(template)}
+                className='group relative h-[420px] rounded-3xl overflow-hidden flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer'
               >
                 <div
                   className={`absolute inset-0 bg-linear-to-br ${template.color} opacity-90 group-hover:opacity-100 transition-opacity duration-500`}
@@ -126,7 +106,7 @@ export function TemplateShowcase() {
 
                   <div>
                     <h3
-                      className={`font-khmer-moul text-3xl ${textPrimary} mb-3 drop-shadow-sm group-hover:scale-105 transform origin-left transition-transform duration-500`}
+                      className={`font-khmer text-4xl ${textPrimary} mb-3 drop-shadow-sm group-hover:scale-105 transform origin-left transition-transform duration-500`}
                     >
                       {template.names}
                     </h3>
@@ -136,21 +116,33 @@ export function TemplateShowcase() {
                       {template.desc}
                     </p>
 
-                    <div
-                      className={`flex items-center gap-2 ${template.textColor} font-bold`}
+                    <button
+                      type='button'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setPreviewTemplate(template);
+                      }}
+                      className={`flex items-center gap-2 ${template.textColor} font-bold text-left cursor-pointer group/btn`}
                     >
-                      <span className='group-hover:mr-2 transition-all duration-300'>
+                      <Eye className='w-4 h-4 text-inherit shrink-0' />
+                      <span className='group-hover/btn:mr-2 transition-all duration-300'>
                         Preview Design
                       </span>
-                      <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
-                    </div>
+                      <ArrowRight className='w-4 h-4 group-hover/btn:translate-x-2 transition-transform duration-300' />
+                    </button>
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
       </div>
+
+      {/* Full-screen Device Preview Modal */}
+      <TemplatePreviewModal
+        template={previewTemplate}
+        onClose={() => setPreviewTemplate(null)}
+      />
     </section>
   );
 }

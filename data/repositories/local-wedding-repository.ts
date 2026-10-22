@@ -28,6 +28,8 @@ export class LocalWeddingRepository implements WeddingRepository {
         return {
           ...seed,
           ...stored,
+          template_id: seed.template_id || stored.template_id,
+          theme: seed.theme || stored.theme,
           contact_info: seed.contact_info || stored.contact_info,
           gift_info: seed.gift_info || stored.gift_info,
           cover_photo: seed.cover_photo || stored.cover_photo,

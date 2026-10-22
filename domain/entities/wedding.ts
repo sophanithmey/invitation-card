@@ -34,13 +34,11 @@ export interface Wedding {
   gift_enabled: boolean;
   template_id:
     | 'khmer-luxury'
-    | 'khmer-classic'
-    | 'khmer-modern'
-    | 'khmer-floral'
     | 'khmer-etheap'
     | 'khmer-romantic'
     | 'european-villa'
-    | 'khmer-traditional';
+    | 'khmer-traditional'
+    | 'celestial-dream';
   theme: ThemeSettings;
   parents: ParentsInfo;
   gift_info?: GiftInfo;

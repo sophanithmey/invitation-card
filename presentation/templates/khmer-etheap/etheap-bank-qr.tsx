@@ -48,7 +48,7 @@ export const EtheapBankQr: React.FC<EtheapBankQrProps> = ({
         </div>
 
         {/* QR Code Container */}
-        <div className='bg-[#FAF4E6]/90 rounded-2xl p-5 border border-[#EBC070]/50 max-w-70 mx-auto space-y-3 shadow-xs'>
+        <div className='bg-[#FAF4E6]/90 rounded-2xl p-5 border border-[#EBC070]/50 max-w-[280px] mx-auto space-y-3 shadow-sm'>
           {giftInfo.qr_code_url && (
             <div className='relative w-44 h-44 mx-auto rounded-xl overflow-hidden bg-white p-2 border-2 border-[#EBC070] shadow-sm'>
               <Image

@@ -31,7 +31,7 @@ export default function WeddingMap({
   return (
     <div
       className={cn(
-        'relative w-full h-80 xs:h-90 sm:h-105 md:h-115 overflow-hidden bg-[#FAF6EE] select-none rounded-xl sm:rounded-2xl',
+        'relative w-full h-80 xs:h-[360px] sm:h-[420px] md:h-[460px] overflow-hidden bg-[#FAF6EE] select-none rounded-xl sm:rounded-2xl',
         className,
       )}
     >
@@ -63,7 +63,7 @@ export default function WeddingMap({
           href={osmDirectUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/90 backdrop-blur-xs text-[10px] text-slate-600 hover:text-[#8B0000] border border-slate-200/80 shadow-xs transition-colors'
+          className='inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-white/90 backdrop-blur-sm text-[10px] text-slate-600 hover:text-[#8B0000] border border-slate-200/80 shadow-sm transition-colors'
         >
           <span>© OpenStreetMap</span>
           <ExternalLink className='w-2.5 h-2.5' />

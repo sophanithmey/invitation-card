@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+.celestial-root {
+  --cd-bg: #0F1833;
+  --cd-night: #0F1833;
+  --cd-midnight: #18254A;
+  --cd-ivory: #F2E9D9;
+  --cd-moonlight: #F8F7F3;
+  --cd-gold: #C9A45C;
+  --cd-gold-glow: rgba(255, 220, 140, 0.35);
+  --cd-lavender: #B8A4FF;
+  --cd-cyan: #8FD6FF;
+  --cd-text: #F8F7F3;
+  --cd-text-soft: rgba(242, 233, 217, 0.72);
+  --cd-text-dark: #1A2445;
+  --cd-text-dark-soft: rgba(26, 36, 69, 0.66);
+  --cd-hairline: rgba(201, 164, 92, 0.38);
+  --cd-btn-bg: linear-gradient(120deg, #C9A45C, #E4C787);
+  --cd-btn-text: #1A1405;
+  --cd-glow-soft: 0 0 24px rgba(255, 220, 140, 0.18);
+  --cd-glow-medium: 0 0 48px rgba(255, 220, 140, 0.28);
+  --cd-glow-strong: 0 0 90px rgba(255, 220, 140, 0.42);
+  --cd-font-display: "Cinzel Decorative", "Cormorant Garamond", Georgia, serif;
+  --cd-font-serif: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --cd-font-sans: "Jost", "Inter", system-ui, sans-serif;
+  background-color: var(--cd-bg);
+  color: var(--cd-text);
+}
+
+.cd-font-display {
+  font-family: var(--cd-font-display);
+}
+
+.cd-font-serif {
+  font-family: var(--cd-font-serif);
+}
+
+.cd-font-sans {
+  font-family: var(--cd-font-sans);
+}
+
+@keyframes cdTwinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes cdPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 40px 8px rgba(255, 214, 126, 0.4), inset 0 0 60px 15px rgba(255, 214, 126, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 75px 16px rgba(255, 214, 126, 0.65), inset 0 0 100px 25px rgba(255, 214, 126, 0.4);
+  }
+}
+
+@keyframes cdFloatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes cdShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.cd-animate-twinkle {
+  animation: cdTwinkle 3s ease-in-out infinite;
+}
+
+.cd-arch-glow {
+  animation: cdPulseGlow 4.5s ease-in-out infinite;
+}
+
+.cd-float {
+  animation: cdFloatSlow 3.8s ease-in-out infinite;
+}
+
+.cd-gold-shimmer {
+  background: linear-gradient(110deg, #C9A45C 0%, #FFF4D0 45%, #C9A45C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cdShimmer 6s linear infinite;
+}

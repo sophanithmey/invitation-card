@@ -99,7 +99,7 @@ export function Day2Card({
 
           {/* Morning Ceremony Phase Header */}
           <div className='relative flex items-center gap-3 pt-1 pb-1'>
-            <div className='inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#8B0000] text-xs sm:text-sm font-bold shadow-xs'>
+            <div className='inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#8B0000] text-xs sm:text-sm font-bold shadow-sm'>
               <Sun className='w-4 h-4 text-[#D4AF37]' />
               <span
                 className={
@@ -163,7 +163,7 @@ export function Day2Card({
 
           {/* Evening Reception Phase Header */}
           <div className='relative flex items-center gap-3 pt-4 pb-1'>
-            <div className='inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-linear-to-r from-[#8B0000]/15 to-[#8B0000]/5 border border-[#8B0000]/30 text-[#8B0000] text-xs sm:text-sm font-bold shadow-xs'>
+            <div className='inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-linear-to-r from-[#8B0000]/15 to-[#8B0000]/5 border border-[#8B0000]/30 text-[#8B0000] text-xs sm:text-sm font-bold shadow-sm'>
               <Moon className='w-4 h-4 text-[#8B0000]' />
               <span
                 className={
@@ -191,7 +191,7 @@ export function Day2Card({
               </div>
 
               <div className='flex-1 p-3.5 sm:p-5 rounded-2xl bg-linear-to-br from-white via-[#FFF9EE] to-[#FAF3E3] border-2 border-[#D4AF37]/50 shadow-sm'>
-                <div className='inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#8B0000] text-[#FFF2B2] text-xs font-bold mb-1.5 shadow-xs'>
+                <div className='inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#8B0000] text-[#FFF2B2] text-xs font-bold mb-1.5 shadow-sm'>
                   <Clock className='w-3 h-3 text-[#FFF2B2]' />
                   <span>{item.time}</span>
                 </div>

@@ -53,7 +53,7 @@ export const EtheapCouple: React.FC<EtheapCoupleProps> = ({ wedding }) => {
 
           {/* Center Traditional Khmer Phka Chan Rosette Emblem */}
           <div className='flex flex-col items-center justify-center px-1'>
-            <div className='w-10 h-10 rounded-full bg-[#FAF3E0] border border-[#EBC070] flex items-center justify-center shadow-xs'>
+            <div className='w-10 h-10 rounded-full bg-[#FAF3E0] border border-[#EBC070] flex items-center justify-center shadow-sm'>
               <KbachRosette className='w-6 h-6 text-[#C98C08]' />
             </div>
           </div>

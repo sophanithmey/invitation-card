@@ -115,11 +115,9 @@ export const BuilderForm: React.FC<BuilderFormProps> = ({
             <option value="khmer-romantic">🌹 Khmer Romantic (Sokha & Devi Crimson & Gold)</option>
             <option value="khmer-luxury">👑 Khmer Luxury (Deep Burgundy & Gold)</option>
             <option value="khmer-etheap">⚜️ Khmer E-Theap (Golden Ivory Elegance)</option>
-            <option value="khmer-classic">🏛 Khmer Classic (Ivory & Golden Lotus Frame)</option>
-            <option value="khmer-modern">✨ Khmer Modern (Dark Emerald Glassmorphism)</option>
             <option value="khmer-traditional">🏛️ Khmer Traditional (Royal Crimson & Golden Arch)</option>
-            <option value="khmer-floral">🌸 Khmer Floral (Rose Gold & Garland)</option>
             <option value="european-villa">🏰 European Villa (Watercolor Save the Date)</option>
+            <option value="celestial-dream">✨ Celestial Dream (Starry Midnight & Astrolabe)</option>
           </select>
         </div>
       </div>

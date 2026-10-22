@@ -143,12 +143,12 @@ export default function PreWeddingGallery({ gallery }: PreWeddingGalleryProps) {
               key={item.id || idx}
               variants={itemVariants}
               onClick={() => setSelectedImageIndex(idx)}
-              className='group relative aspect-3/4 sm:aspect-4/5 md:aspect-3/4 overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 border border-[#D4AF37]/35 hover:border-[#D4AF37] bg-slate-900'
+              className='group relative aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 border border-[#D4AF37]/35 hover:border-[#D4AF37] bg-slate-900'
             >
               <img
                 src={item.image_url}
                 alt={item.caption || `Photo ${idx + 1}`}
-                className='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108'
+                className='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]'
                 loading='lazy'
               />
               <div className='absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-75 sm:opacity-50 group-hover:opacity-90 transition-opacity duration-300' />

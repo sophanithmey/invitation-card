@@ -93,7 +93,7 @@ export function BankQrCard({
               }}
             />
 
-            <div className='absolute inset-0 bg-black/60 opacity-0 group-hover/qr:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 backdrop-blur-xs rounded-lg text-white'>
+            <div className='absolute inset-0 bg-black/60 opacity-0 group-hover/qr:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 backdrop-blur-sm rounded-lg text-white'>
               <button
                 onClick={onDownloadQr}
                 className='px-4 py-2 bg-linear-to-r from-[#C98C08] to-[#EBC070] hover:from-[#A87406] hover:to-[#D4AF37] text-white rounded-full text-xs font-bold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 active:scale-95 cursor-pointer'

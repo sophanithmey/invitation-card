@@ -68,8 +68,8 @@ export const TraditionalFrameBadge: React.FC<FrameBadgeProps> = ({ label, lang }
     <span
       className={
         lang === 'kh'
-          ? 'font-khmer-moul text-[min(4.2cqw,2.4cqh)] text-[#801826] drop-shadow-xs'
-          : 'font-serif-display text-[min(3.8cqw,2.2cqh)] font-bold text-[#801826] drop-shadow-xs'
+          ? 'font-khmer-moul text-[min(4.2cqw,2.4cqh)] text-[#801826] drop-shadow-sm'
+          : 'font-serif-display text-[min(3.8cqw,2.2cqh)] font-bold text-[#801826] drop-shadow-sm'
       }
     >
       {label}

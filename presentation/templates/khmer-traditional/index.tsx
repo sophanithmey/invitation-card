@@ -77,7 +77,7 @@ export const KhmerTraditionalTemplate: React.FC<KhmerTraditionalTemplateProps> =
         lang={isKh ? 'km' : 'en'}
         aria-label={copy.matrimony}
         data-paused={mode === 'auto' && !timeline.isPlaying}
-        className='traditional-stage relative h-svh w-full overflow-hidden bg-[#3b080f] sm:aspect-9/16 sm:h-[min(92svh,1080px)] sm:w-auto sm:rounded-[24px] sm:shadow-[0_30px_90px_rgba(0,0,0,0.85)] sm:ring-1 sm:ring-[#d4af37]/40'
+        className='traditional-stage relative h-svh w-full overflow-hidden bg-[#3b080f] sm:aspect-[9/16] sm:h-[min(92svh,1080px)] sm:w-auto sm:rounded-[24px] sm:shadow-[0_30px_90px_rgba(0,0,0,0.85)] sm:ring-1 sm:ring-[#d4af37]/40'
       >
         <TraditionalArtwork scene={timeline.scene} mode={mode} />
 

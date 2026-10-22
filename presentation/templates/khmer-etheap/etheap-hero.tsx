@@ -25,8 +25,8 @@ export const EtheapHero: React.FC<EtheapHeroProps> = ({ wedding }) => {
 
         {/* Royal Flame Pediment Crest at Apex */}
         <div className='relative z-10 flex flex-col items-center mb-2'>
-          <KbachCrest className='w-12 h-14 text-[#C98C08] drop-shadow-xs' />
-          <span className='font-khmer-moul text-xs sm:text-sm text-[#7A1624] tracking-wider uppercase mt-1'>
+          <KbachCrest className='w-12 h-14 text-[#C98C08] drop-shadow-sm' />
+          <span className='font-khmer-moul text-xs sm:text-sm text-[#7A1624] uppercase mt-1'>
             សិរីសួស្តី អាពាហ៍ពិពាហ៍
           </span>
           <p className='text-[10px] sm:text-[11px] text-[#84623A] font-semibold tracking-[0.25em] uppercase mt-0.5'>
@@ -61,7 +61,7 @@ export const EtheapHero: React.FC<EtheapHeroProps> = ({ wedding }) => {
         <KbachWing className='w-24 h-4 text-[#C98C08]/80 mb-3' />
 
         {/* Auspicious Solar & Lunar Date Pill */}
-        <div className='inline-flex items-center gap-2 bg-[#FAF3E0] px-4 py-2 rounded-full border border-[#EBC070]/60 text-xs text-[#84623A] shadow-xs'>
+        <div className='inline-flex items-center gap-2 bg-[#FAF3E0] px-4 py-2 rounded-full border border-[#EBC070]/60 text-xs text-[#84623A] shadow-sm'>
           <Calendar className='w-3.5 h-3.5 text-[#C98C08]' />
           <span className='font-khmer-kantumruuy font-medium'>
             {formatKhmerDate(wedding.wedding_date)}

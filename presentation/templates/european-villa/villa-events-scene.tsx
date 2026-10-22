@@ -38,7 +38,7 @@ export const VillaEventsScene: React.FC<VillaEventsSceneProps> = ({ lang, copy, 
 
           return (
             <Reveal key={evt.id || idx} delay={delay} className='flex flex-col items-center'>
-              <span className='rounded-full bg-white/50 px-3 py-0.5 text-[min(3.2cqw,1.7cqh)] font-semibold text-[#4f7fa3] shadow-xs backdrop-blur-xs ring-1 ring-white/60'>
+              <span className='rounded-full bg-white/50 px-3 py-0.5 text-[min(3.2cqw,1.7cqh)] font-semibold text-[#4f7fa3] shadow-sm backdrop-blur-sm ring-1 ring-white/60'>
                 {evt.start_time}
               </span>
 

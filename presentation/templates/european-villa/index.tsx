@@ -75,7 +75,7 @@ export const EuropeanVillaTemplate: React.FC<EuropeanVillaTemplateProps> = ({
         lang={isKh ? 'km' : 'en'}
         aria-label={copy.title}
         data-paused={mode === 'auto' && !timeline.isPlaying}
-        className='villa-stage relative h-svh w-full overflow-hidden bg-[#cfe2f0] sm:aspect-9/16 sm:h-[min(92svh,1080px)] sm:w-auto sm:rounded-[22px] sm:shadow-[0_30px_80px_-20px_rgba(47,84,112,0.45)] sm:ring-1 sm:ring-white/60'
+        className='villa-stage relative h-svh w-full overflow-hidden bg-[#cfe2f0] sm:aspect-[9/16] sm:h-[min(92svh,1080px)] sm:w-auto sm:rounded-[22px] sm:shadow-[0_30px_80px_-20px_rgba(47,84,112,0.45)] sm:ring-1 sm:ring-white/60'
       >
         <VillaArtwork />
 

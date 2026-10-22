@@ -32,7 +32,7 @@ export const EtheapAgenda: React.FC<EtheapAgendaProps> = ({ events }) => {
               className="bg-[#FAF4E6]/80 rounded-2xl p-4 border border-[#EBC070]/50 space-y-2.5 transition-all duration-300 hover:shadow-md"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="inline-block px-3 py-1 bg-[#C98C08] text-[#FFFCF7] font-mono font-bold text-xs rounded-full shadow-xs">
+                <span className="inline-block px-3 py-1 bg-[#C98C08] text-[#FFFCF7] font-mono font-bold text-xs rounded-full shadow-sm">
                   {event.start_time} {event.end_time ? `- ${event.end_time}` : ''}
                 </span>
                 <span className="text-[11px] font-medium text-[#84623A]">

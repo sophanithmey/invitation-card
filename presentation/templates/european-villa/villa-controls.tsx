@@ -18,10 +18,10 @@ interface VillaControlsProps {
 }
 
 const BUTTON_CLASS =
-  'grid size-8 place-items-center rounded-full bg-white/40 text-[#4f7fa3] shadow-xs backdrop-blur-md ring-1 ring-white/60 transition hover:bg-white/70 hover:text-[#2f5f84] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8863b]';
+  'grid size-8 place-items-center rounded-full bg-white/40 text-[#4f7fa3] shadow-sm backdrop-blur-md ring-1 ring-white/60 transition hover:bg-white/70 hover:text-[#2f5f84] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8863b]';
 
 const MODE_BTN_CLASS =
-  'flex items-center gap-1.5 rounded-full bg-white/45 px-2.5 py-1 text-xs font-semibold text-[#4f7fa3] shadow-xs backdrop-blur-md ring-1 ring-white/60 transition hover:bg-white/75 hover:text-[#2f5f84] active:scale-95';
+  'flex items-center gap-1.5 rounded-full bg-white/45 px-2.5 py-1 text-xs font-semibold text-[#4f7fa3] shadow-sm backdrop-blur-md ring-1 ring-white/60 transition hover:bg-white/75 hover:text-[#2f5f84] active:scale-95';
 
 export const VillaControls: React.FC<VillaControlsProps> = ({
   copy,

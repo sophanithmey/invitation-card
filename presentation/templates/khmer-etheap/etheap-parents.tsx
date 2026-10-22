@@ -35,7 +35,7 @@ export const EtheapParents: React.FC<EtheapParentsProps> = ({ wedding }) => {
         {/* Dual Parents Plaques */}
         <div className='grid grid-cols-2 gap-3 pt-2 relative z-10'>
           {/* Groom Parents */}
-          <div className='bg-[#FAF4E6]/80 rounded-2xl p-4 border border-[#EBC070]/50 text-center space-y-1.5 shadow-xs relative overflow-hidden'>
+          <div className='bg-[#FAF4E6]/80 rounded-2xl p-4 border border-[#EBC070]/50 text-center space-y-1.5 shadow-sm relative overflow-hidden'>
             <KbachCorner className="absolute -top-1 -left-1 w-5 h-5 text-[#EBC070]/40" />
             <span className='inline-block font-khmer-moul text-xs text-[#C98C08] pb-1 border-b border-[#EBC070]/50'>
               មាតាបិតាខាងប្រុស
@@ -49,7 +49,7 @@ export const EtheapParents: React.FC<EtheapParentsProps> = ({ wedding }) => {
           </div>
 
           {/* Bride Parents */}
-          <div className='bg-[#FAF4E6]/80 rounded-2xl p-4 border border-[#EBC070]/50 text-center space-y-1.5 shadow-xs relative overflow-hidden'>
+          <div className='bg-[#FAF4E6]/80 rounded-2xl p-4 border border-[#EBC070]/50 text-center space-y-1.5 shadow-sm relative overflow-hidden'>
             <KbachCorner className="absolute -top-1 -right-1 w-5 h-5 text-[#EBC070]/40" flip />
             <span className='inline-block font-khmer-moul text-xs text-[#C98C08] pb-1 border-b border-[#EBC070]/50'>
               មាតាបិតាខាងស្រី

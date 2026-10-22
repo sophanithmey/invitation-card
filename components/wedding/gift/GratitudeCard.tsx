@@ -51,7 +51,7 @@ export function GratitudeCard() {
         </p>
 
         {/* Heartfelt Blessing Note Box */}
-        <div className='bg-white/80 backdrop-blur-sm p-6 sm:p-7 rounded-2xl border border-[#EBC070]/40 shadow-xs space-y-4 my-6'>
+        <div className='bg-white/80 backdrop-blur-sm p-6 sm:p-7 rounded-2xl border border-[#EBC070]/40 shadow-sm space-y-4 my-6'>
           <p
             className={`text-xs sm:text-sm text-[#4A351C] leading-relaxed ${
               language === 'kh' ? 'font-khmer not-italic' : 'italic'

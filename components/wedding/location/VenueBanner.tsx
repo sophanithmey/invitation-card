@@ -19,7 +19,7 @@ export function VenueBanner({ copied, onCopyAddress }: VenueBannerProps) {
 
       <div className='relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4'>
         <div className='flex items-start gap-3.5'>
-          <div className='w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-[#FFF2B2]/60 flex items-center justify-center text-[#FFF2B2] shrink-0 mt-0.5 shadow-xs'>
+          <div className='w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-[#FFF2B2]/60 flex items-center justify-center text-[#FFF2B2] shrink-0 mt-0.5 shadow-sm'>
             <MapPin className='w-5 h-5 text-[#FFF2B2]' />
           </div>
           <div>

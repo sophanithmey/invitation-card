@@ -4,13 +4,11 @@ import React from 'react';
 import { Wedding } from '@/domain/entities/wedding';
 import { VisibleSections } from '@/use-cases/get-visible-sections';
 import { KhmerLuxuryTemplate } from './khmer-luxury';
-import { KhmerClassicTemplate } from './khmer-classic';
-import { KhmerModernTemplate } from './khmer-modern';
-import { KhmerFloralTemplate } from './khmer-floral';
 import { KhmerEtheapTemplate } from './khmer-etheap';
 import { KhmerRomanticTemplate } from './khmer-romantic';
 import { EuropeanVillaTemplate } from './european-villa';
 import { KhmerTraditionalTemplate } from './khmer-traditional';
+import { CelestialDreamTemplate } from './celestial-dream';
 import { RSVPItem } from '@/domain/entities/rsvp';
 import { WishItem } from '@/domain/entities/wish';
 import { LanguageProvider } from '@/presentation/context/language-context';
@@ -30,12 +28,6 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
 
   const renderTemplate = () => {
     switch (template_id) {
-      case 'khmer-classic':
-        return <KhmerClassicTemplate {...props} />;
-      case 'khmer-modern':
-        return <KhmerModernTemplate {...props} />;
-      case 'khmer-floral':
-        return <KhmerFloralTemplate {...props} />;
       case 'khmer-etheap':
         return <KhmerEtheapTemplate {...props} />;
       case 'khmer-romantic':
@@ -44,6 +36,8 @@ export const WeddingTemplateDispatcher: React.FC<DispatcherProps> = (props) => {
         return <EuropeanVillaTemplate wedding={props.wedding} />;
       case 'khmer-traditional':
         return <KhmerTraditionalTemplate wedding={props.wedding} />;
+      case 'celestial-dream':
+        return <CelestialDreamTemplate {...props} />;
       case 'khmer-luxury':
       default:
         return <KhmerLuxuryTemplate {...props} />;

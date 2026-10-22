@@ -8,11 +8,9 @@ export interface ThemeSettings {
   font_family: string;
   ornament_style:
     | 'luxury-gold'
-    | 'classic-lotus'
-    | 'modern-emerald'
-    | 'rose-garland'
     | 'watercolor-garden'
-    | 'traditional-gold';
+    | 'traditional-gold'
+    | 'celestial-astrolabe';
   hero_style?: 'full-cover' | 'framed-card' | 'split-view';
   button_style?: 'gold-border' | 'solid-burgundy' | 'emerald-glow';
 }

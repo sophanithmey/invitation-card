@@ -18,10 +18,10 @@ interface TraditionalControlsProps {
 }
 
 const BUTTON_CLASS =
-  'grid size-8 place-items-center rounded-full bg-black/40 text-[#fef2b8] shadow-xs backdrop-blur-md ring-1 ring-[#d4af37]/60 transition hover:bg-black/65 hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]';
+  'grid size-8 place-items-center rounded-full bg-black/40 text-[#fef2b8] shadow-sm backdrop-blur-md ring-1 ring-[#d4af37]/60 transition hover:bg-black/65 hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]';
 
 const MODE_BTN_CLASS =
-  'flex items-center gap-1.5 rounded-full bg-black/45 px-2.5 py-1 text-xs font-semibold text-[#fef2b8] shadow-xs backdrop-blur-md ring-1 ring-[#d4af37]/60 transition hover:bg-black/70 hover:text-white active:scale-95';
+  'flex items-center gap-1.5 rounded-full bg-black/45 px-2.5 py-1 text-xs font-semibold text-[#fef2b8] shadow-sm backdrop-blur-md ring-1 ring-[#d4af37]/60 transition hover:bg-black/70 hover:text-white active:scale-95';
 
 export const TraditionalControls: React.FC<TraditionalControlsProps> = ({
   copy,

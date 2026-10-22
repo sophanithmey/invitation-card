@@ -53,7 +53,7 @@ export default function ContactSection({
           transition={{ duration: 0.8 }}
           className='text-center mb-8 sm:mb-12'
         >
-          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-xs'>
+          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-sm'>
             <PhoneCall className='w-6 h-6 text-[#D4AF37]' />
           </div>
 
@@ -177,7 +177,7 @@ export default function ContactSection({
                 return (
                   <div
                     key={idx}
-                    className='group relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:px-5 sm:py-4 rounded-2xl bg-white/95 hover:bg-white border border-[#EBC070]/50 hover:border-[#D4AF37] shadow-xs hover:shadow-md transition-all duration-300'
+                    className='group relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:px-5 sm:py-4 rounded-2xl bg-white/95 hover:bg-white border border-[#EBC070]/50 hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all duration-300'
                   >
                     <a
                       href={`tel:${cleanPhone}`}
@@ -200,7 +200,7 @@ export default function ContactSection({
                       <button
                         type='button'
                         onClick={(e) => handleCopy(e, phone, idx)}
-                        className='px-3 py-2 rounded-xl bg-[#FFFDF9] hover:bg-[#FCEEC8] border border-[#D4AF37]/50 text-[#7A1624] font-semibold text-xs transition-all duration-200 hover:scale-105 active:scale-95 shadow-xs flex items-center gap-1.5 cursor-pointer'
+                        className='px-3 py-2 rounded-xl bg-[#FFFDF9] hover:bg-[#FCEEC8] border border-[#D4AF37]/50 text-[#7A1624] font-semibold text-xs transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm flex items-center gap-1.5 cursor-pointer'
                         title={isKh ? 'ចម្លងលេខ' : 'Copy number'}
                       >
                         {isCopied ? (
@@ -224,7 +224,7 @@ export default function ContactSection({
 
                       <a
                         href={`tel:${cleanPhone}`}
-                        className='px-4 py-2 rounded-xl bg-linear-to-r from-[#8B0000] to-[#A00E0E] hover:from-[#7A1624] hover:to-[#8B0000] text-white font-bold text-xs shadow-xs hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-1.5'
+                        className='px-4 py-2 rounded-xl bg-linear-to-r from-[#8B0000] to-[#A00E0E] hover:from-[#7A1624] hover:to-[#8B0000] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-1.5'
                       >
                         <Phone className='w-3.5 h-3.5' />
                         <span className={isKh ? 'font-khmer-kantumruuy' : ''}>

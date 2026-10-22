@@ -61,7 +61,7 @@ export const TimeUnit: React.FC<TimeUnitProps> = ({
       </div>
 
       {/* Label */}
-      <span className='text-[#D4AF37] uppercase text-[10px] sm:text-[11px] font-black mt-2.5 sm:mt-4 drop-shadow-xs font-khmer-kantumruuy select-none'>
+      <span className='text-[#D4AF37] uppercase text-[10px] sm:text-[11px] font-black mt-2.5 sm:mt-4 drop-shadow-sm font-khmer-kantumruuy select-none'>
         {label}
       </span>
     </div>

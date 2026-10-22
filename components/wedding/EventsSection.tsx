@@ -44,7 +44,7 @@ export default function EventsSection() {
           transition={{ duration: 0.8 }}
           className='text-center mb-8 sm:mb-12'
         >
-          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-xs'>
+          <div className='w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 flex items-center justify-center mx-auto mb-3 shadow-sm'>
             <Calendar className='w-6 h-6 text-[#D4AF37]' />
           </div>
           <h2
@@ -74,7 +74,7 @@ export default function EventsSection() {
             {t.events.subtitle}
           </p>
 
-          <div className='inline-flex items-center p-1 sm:p-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-[#D4AF37]/35 mt-6 sm:mt-8 shadow-xs max-w-full overflow-x-auto'>
+          <div className='inline-flex items-center p-1 sm:p-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-[#D4AF37]/35 mt-6 sm:mt-8 shadow-sm max-w-full overflow-x-auto'>
             <button
               type='button'
               onClick={() => setActiveDay('day1')}

@@ -92,7 +92,7 @@ export default function DressCodeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className={`font-bold text-[#7A1624] mb-4 drop-shadow-xs ${
+          className={`font-bold text-[#7A1624] mb-4 drop-shadow-sm ${
             language === 'kh'
               ? 'font-khmer-moul text-2xl sm:text-3xl tracking-normal'
               : 'font-serif text-3xl sm:text-4xl tracking-wide'

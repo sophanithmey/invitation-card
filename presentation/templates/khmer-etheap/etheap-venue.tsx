@@ -56,7 +56,7 @@ export const EtheapVenue: React.FC<EtheapVenueProps> = ({ wedding }) => {
 
         {/* Optional Embed Map */}
         {wedding.map_embed_url && (
-          <div className='rounded-2xl overflow-hidden border border-[#EBC070]/40 shadow-xs h-52 w-full'>
+          <div className='rounded-2xl overflow-hidden border border-[#EBC070]/40 shadow-sm h-52 w-full'>
             <iframe
               src={wedding.map_embed_url}
               width='100%'

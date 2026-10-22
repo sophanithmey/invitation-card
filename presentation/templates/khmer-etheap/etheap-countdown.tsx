@@ -77,7 +77,7 @@ export const EtheapCountdown: React.FC<EtheapCountdownProps> = ({
           {units.map((unit, idx) => (
             <div
               key={idx}
-              className='bg-linear-to-b from-[#FAF4E6] to-[#FFFDF9] rounded-2xl p-2.5 sm:p-3.5 border-2 border-[#EBC070]/70 shadow-xs flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105'
+              className='bg-linear-to-b from-[#FAF4E6] to-[#FFFDF9] rounded-2xl p-2.5 sm:p-3.5 border-2 border-[#EBC070]/70 shadow-sm flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105'
             >
               <span className='font-khmer-kantumruuy font-bold text-xl sm:text-2xl text-[#7A1624] leading-tight tracking-normal'>
                 {toKhmerDigits(String(unit.value).padStart(2, '0'))}

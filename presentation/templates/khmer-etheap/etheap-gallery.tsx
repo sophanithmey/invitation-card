@@ -35,7 +35,7 @@ export const EtheapGallery: React.FC<EtheapGalleryProps> = ({ gallery }) => {
             <div
               key={item.id || idx}
               onClick={() => setActivePhoto(item.image_url)}
-              className='relative aspect-3/4 rounded-2xl overflow-hidden border border-[#EBC070]/50 shadow-xs cursor-pointer group transition-all duration-300 hover:scale-[1.03]'
+              className='relative aspect-[3/4] rounded-2xl overflow-hidden border border-[#EBC070]/50 shadow-sm cursor-pointer group transition-all duration-300 hover:scale-[1.03]'
             >
               <Image
                 src={item.image_url}
@@ -60,7 +60,7 @@ export const EtheapGallery: React.FC<EtheapGalleryProps> = ({ gallery }) => {
       {activePhoto && (
         <div
           onClick={() => setActivePhoto(null)}
-          className='fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in'
+          className='fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in'
         >
           <button
             onClick={() => setActivePhoto(null)}
