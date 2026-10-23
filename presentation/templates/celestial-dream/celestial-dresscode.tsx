@@ -31,7 +31,7 @@ export const CelestialDressCode: React.FC<CelestialDressCodeProps> = ({
       price: 'from $120/night',
       stars: '★★★★★',
       desc: isKh
-        ? 'ត្រឹមតែ ៥ នាទីពីទីតាំងមង្គលការ បន្ទប់ស្អាត និងមានផាសុកភាព។'
+        ? 'ត្រឹមតែ ៥ នាទីពីទីតាំងមង្គលការ បន្ទប់ស្អាត និងមានផាសុកភាព'
         : '5 minutes from the venue with starry panoramic view.',
     },
     {
@@ -39,7 +39,7 @@ export const CelestialDressCode: React.FC<CelestialDressCodeProps> = ({
       price: 'from $85/night',
       stars: '★★★★',
       desc: isKh
-        ? 'រមណីយដ្ឋានបែបធម្មជាតិស្ងប់ស្ងាត់ មានអាងហែលទឹក។'
+        ? 'រមណីយដ្ឋានបែបធម្មជាតិស្ងប់ស្ងាត់ មានអាងហែលទឹក'
         : 'Serene garden resort surrounded by lush greenery.',
     },
   ];

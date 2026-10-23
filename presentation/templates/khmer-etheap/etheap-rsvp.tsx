@@ -69,7 +69,7 @@ export const EtheapRsvp: React.FC<EtheapRsvpProps> = ({
               សូមអរគុណសម្រាប់ការបញ្ជាក់វត្តមាន!
             </h3>
             <p className='font-khmer-kantumruuy text-xs text-[#84623A]'>
-              យើងខ្ញុំទន្ទឹងរង់ចាំជួបលោកអ្នកក្នុងថ្ងៃដ៏វិសេសនេះ។
+              យើងខ្ញុំទន្ទឹងរង់ចាំជួបលោកអ្នកក្នុងថ្ងៃដ៏វិសេសនេះ
             </p>
           </div>
         ) : (

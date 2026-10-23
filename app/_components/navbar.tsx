@@ -50,6 +50,12 @@ export function Navbar() {
             >
               របៀបប្រើប្រាស់
             </a>
+            <a
+              href='#pricing'
+              className='transition-colors hover:text-[#7A1624]'
+            >
+              តម្លៃកញ្ចប់
+            </a>
             <a href='#faq' className='transition-colors hover:text-[#7A1624]'>
               សំណួរញឹកញាប់
             </a>
@@ -114,6 +120,13 @@ export function Navbar() {
               className='px-2 py-1.5 text-sm font-medium text-[#2C1810]'
             >
               របៀបប្រើប្រាស់
+            </a>
+            <a
+              href='#pricing'
+              onClick={() => setMobileMenuOpen(false)}
+              className='px-2 py-1.5 text-sm font-medium text-[#2C1810]'
+            >
+              តម្លៃកញ្ចប់
             </a>
             <a
               href='#faq'

@@ -14,7 +14,7 @@ export const RITHY_SREYPOV_WEDDING: Wedding = {
   story:
     'From our first walk through the tranquil gardens of Siem Reap to a lifelong journey of shared dreams and boundless devotion.',
   invitation_message:
-    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ។',
+    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ',
   venue: 'វីឡា តូស្កាណា ហ្គាដិន រីសត (Villa Toscana Garden Resort)',
   venue_address: 'ផ្លូវលេខ ៦០ ក្រុងសៀមរាប (Road 60, Krong Siem Reap, Cambodia)',
   map_location: 'https://maps.google.com/?q=Siem+Reap+Cambodia',

@@ -32,7 +32,7 @@ export const EtheapFooter: React.FC<EtheapFooterProps> = ({ wedding }) => {
         <KbachWing className="w-24 h-4 text-[#C98C08]/70" />
 
         <p className="text-xs text-[#4A351C]/80 leading-relaxed max-w-xs mx-auto">
-          សូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះវត្តមានដ៏ថ្លៃថ្លារបស់ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និងប្រិយមិត្តទាំងអស់។
+          សូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះវត្តមានដ៏ថ្លៃថ្លារបស់ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និងប្រិយមិត្តទាំងអស់
         </p>
 
         <div className="pt-2 border-t border-[#EBC070]/30 text-[10px] text-[#84623A]/60">

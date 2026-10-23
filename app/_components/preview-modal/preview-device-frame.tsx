@@ -29,10 +29,10 @@ export const PreviewDeviceFrame: React.FC<PreviewDeviceFrameProps> = ({
   }, [slug, device]);
 
   return (
-    <div className='relative flex items-center justify-center transition-all duration-500 ease-out w-full'>
+    <div className='relative flex items-center justify-center transition-all duration-300 ease-out w-full h-full'>
       {/* Loading Spinner */}
       {isLoading && (
-        <div className='absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-[#0B0F19]/80 text-[#D4AF37] backdrop-blur-sm rounded-3xl pointer-events-none transition-opacity duration-300'>
+        <div className='absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-[#0B0F19]/80 text-[#D4AF37] backdrop-blur-sm pointer-events-none transition-opacity duration-300'>
           <Loader2 className='w-8 h-8 animate-spin' />
           <span className='font-khmer text-xs text-white/80'>
             កំពុងដំណើរការគំរូសំបុត្រ...
@@ -40,9 +40,23 @@ export const PreviewDeviceFrame: React.FC<PreviewDeviceFrameProps> = ({
         </div>
       )}
 
+      {/* Full Modal Edge-to-Edge Viewport */}
+      {device === 'full' && (
+        <div className='w-full h-full relative bg-black overflow-hidden flex-1'>
+          <iframe
+            src={iframeSrc}
+            title={`${templateName} - Full Screen Preview`}
+            loading='eager'
+            allow='autoplay; fullscreen; encrypted-media'
+            onLoad={() => setIsLoading(false)}
+            className='w-full h-full border-0 bg-white'
+          />
+        </div>
+      )}
+
       {/* PC Viewport */}
       {device === 'pc' && (
-        <div className='w-full max-w-[1200px] h-[82vh] min-h-[580px] rounded-2xl border border-white/15 bg-[#141824] shadow-[0_30px_90px_rgba(0,0,0,0.7)] flex flex-col overflow-hidden ring-1 ring-white/10'>
+        <div className='w-full max-w-[1240px] h-[82vh] min-h-[580px] rounded-2xl border border-white/15 bg-[#141824] shadow-[0_30px_90px_rgba(0,0,0,0.7)] flex flex-col overflow-hidden ring-1 ring-white/10'>
           {/* Browser Window Chrome */}
           <div className='h-10 bg-[#1A2234] border-b border-white/10 px-4 flex items-center gap-3 shrink-0'>
             <div className='flex items-center gap-1.5'>
@@ -71,34 +85,15 @@ export const PreviewDeviceFrame: React.FC<PreviewDeviceFrameProps> = ({
         </div>
       )}
 
-      {/* Tablet Viewport */}
-      {device === 'tablet' && (
-        <div className='relative w-[768px] max-w-[92vw] h-[860px] max-h-[82vh] rounded-[36px] border-8 sm:border-[12px] border-[#181B22] bg-[#181B22] shadow-[0_30px_90px_rgba(0,0,0,0.8)] overflow-hidden ring-1 ring-white/15 flex flex-col'>
-          {/* Top Camera Dot */}
-          <div className='absolute top-2 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#0a0a0f] border border-white/10 z-20' />
-
-          <div className='relative flex-1 w-full h-full rounded-[20px] sm:rounded-[24px] overflow-hidden bg-black'>
-            <iframe
-              src={iframeSrc}
-              title={`${templateName} - Tablet Preview`}
-              loading='eager'
-              allow='autoplay; fullscreen; encrypted-media'
-              onLoad={() => setIsLoading(false)}
-              className='w-full h-full border-0 bg-white'
-            />
-          </div>
-        </div>
-      )}
-
       {/* Phone Viewport */}
       {device === 'phone' && (
-        <div className='relative w-full max-w-[390px] h-[780px] sm:h-[820px] max-h-[82vh] rounded-[36px] sm:rounded-[48px] border-4 sm:border-[10px] border-[#181B22] bg-[#181B22] shadow-[0_30px_90px_rgba(0,0,0,0.8)] overflow-hidden ring-1 ring-white/15 flex flex-col'>
-          {/* Dynamic Island Notch */}
-          <div className='absolute top-2.5 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-5 bg-[#0a0a0f] rounded-full z-20 border border-white/5 flex items-center justify-end px-2'>
+        <div className='relative w-full sm:max-w-[390px] h-full sm:h-[820px] sm:max-h-[82vh] rounded-none sm:rounded-[44px] border-0 sm:border-8 border-[#181B22] bg-[#181B22] shadow-[0_30px_90px_rgba(0,0,0,0.8)] overflow-hidden ring-0 sm:ring-1 ring-white/15 flex flex-col'>
+          {/* Dynamic Island Notch (desktop frame only) */}
+          <div className='hidden sm:flex absolute top-2.5 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-5 bg-[#0a0a0f] rounded-full z-20 border border-white/5 items-center justify-end px-2'>
             <span className='w-2.5 h-2.5 rounded-full bg-[#18254A] border border-white/20' />
           </div>
 
-          <div className='relative flex-1 w-full h-full rounded-[28px] sm:rounded-[38px] overflow-hidden bg-black'>
+          <div className='relative flex-1 w-full h-full rounded-none sm:rounded-[36px] overflow-hidden bg-black'>
             <iframe
               src={iframeSrc}
               title={`${templateName} - Phone Preview`}

@@ -42,6 +42,11 @@ export function PlatformFooter() {
                 </a>
               </li>
               <li>
+                <a href='#pricing' className='hover:text-[#7A1624] transition-colors'>
+                  កញ្ចប់តម្លៃ (Pricing)
+                </a>
+              </li>
+              <li>
                 <Link href='/admin/builder' className='hover:text-[#7A1624] transition-colors'>
                   ប្រព័ន្ធបង្កើតសំបុត្រ (Builder)
                 </Link>

@@ -63,7 +63,7 @@ export const RSVPSection: React.FC<RSVPSectionProps> = ({ slug, enabled, onRSVPS
             </h3>
             <p className="text-[var(--text-primary)] opacity-80 max-w-sm mx-auto leading-relaxed">
               {lang === 'kh'
-                ? 'យើងខ្ញុំបានទទួលការបញ្ជាក់របស់អ្នករួចរាល់ហើយ។ រង់ចាំជួបគ្នានៅថ្ងៃកម្មវិធី!'
+                ? 'យើងខ្ញុំបានទទួលការបញ្ជាក់របស់អ្នករួចរាល់ហើយ រង់ចាំជួបគ្នានៅថ្ងៃកម្មវិធី!'
                 : 'Your RSVP has been successfully received. We look forward to celebrating with you!'}
             </p>
           </div>

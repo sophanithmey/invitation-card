@@ -1,21 +1,30 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { AlbumIcon, ArrowLeft, ArrowRight } from 'lucide-react';
-import { TemplatePreviewModal } from './preview-modal/template-preview-modal';
 import { TemplatePreviewItem } from './preview-modal/preview-types';
 import { TEMPLATES } from './template-showcase-data';
 import { TemplateCoverflowCard } from './template-coverflow-card';
+
+const TemplatePreviewModal = dynamic(
+  () =>
+    import('./preview-modal/template-preview-modal').then(
+      (m) => m.TemplatePreviewModal,
+    ),
+  { ssr: false },
+);
 
 export { TEMPLATES };
 
 export function TemplateShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [previewTemplate, setPreviewTemplate] =
     useState<TemplatePreviewItem | null>(null);
 
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const touchEnd = useRef<{ x: number; y: number } | null>(null);
 
   const total = TEMPLATES.length;
 
@@ -27,7 +36,13 @@ export function TemplateShowcase() {
     setActiveIndex((prev) => (prev < total - 1 ? prev + 1 : 0));
   }, [total]);
 
-  // Keyboard navigation support
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile, { passive: true });
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') handlePrev();
@@ -37,35 +52,36 @@ export function TemplateShowcase() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handlePrev, handleNext]);
 
-  // Mobile Touch Swipe Handlers
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
+    touchStart.current = { x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY };
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
+    touchEnd.current = { x: e.targetTouches[0].clientX, y: e.targetTouches[0].clientY };
   };
 
   const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    if (distance > 45) {
-      handleNext();
-    } else if (distance < -45) {
-      handlePrev();
+    if (!touchStart.current || !touchEnd.current) return;
+    const diffX = touchStart.current.x - touchEnd.current.x;
+    const diffY = touchStart.current.y - touchEnd.current.y;
+
+    // Only swipe cards when horizontal movement dominates (never hijack vertical scroll)
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+      if (diffX > 0) handleNext();
+      else handlePrev();
     }
-    touchStartX.current = null;
-    touchEndX.current = null;
+    touchStart.current = null;
+    touchEnd.current = null;
   };
 
   const currentTemplate = TEMPLATES[activeIndex];
 
   return (
-    <section id='templates' className='py-20 md:py-28 px-4 overflow-hidden relative'>
+    <section id='templates' className='py-20 md:py-28 px-4 overflow-hidden relative w-full'>
       <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
         <div className='text-center mb-10 md:mb-14 flex flex-col items-center justify-center'>
-          <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#7A1624] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs'>
+          <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#7A1624] text-xs font-bold uppercase mb-4 shadow-xs'>
             <AlbumIcon className='w-3.5 h-3.5 text-[#D4AF37]' />
             <span>Collections</span>
           </div>
@@ -84,8 +100,11 @@ export function TemplateShowcase() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          style={{ perspective: '1100px', transformStyle: 'preserve-3d' }}
-          className='relative w-full h-[510px] sm:h-[570px] flex items-center justify-center my-4 overflow-visible'
+          style={{
+            perspective: isMobile ? '800px' : '1100px',
+            transformStyle: 'preserve-3d',
+          }}
+          className='relative w-full max-w-full h-[470px] sm:h-[570px] flex items-center justify-center my-4 overflow-hidden touch-pan-y select-none'
         >
           {TEMPLATES.map((template, index) => {
             let offset = (index - activeIndex) % total;
@@ -98,6 +117,7 @@ export function TemplateShowcase() {
                 template={template}
                 offset={offset}
                 isActive={index === activeIndex}
+                isMobile={isMobile}
                 onSelect={() => setActiveIndex(index)}
                 onPreview={() => setPreviewTemplate(template)}
               />
@@ -107,7 +127,6 @@ export function TemplateShowcase() {
 
         {/* Bottom Navigation Controls: Previous / Dots / Next */}
         <div className='flex items-center justify-center gap-6 mt-8 sm:mt-12 select-none'>
-          {/* Previous Arrow Button */}
           <button
             type='button'
             onClick={handlePrev}
@@ -117,7 +136,6 @@ export function TemplateShowcase() {
             <ArrowLeft className='w-5 h-5' />
           </button>
 
-          {/* Pagination Indicators */}
           <div className='flex items-center gap-2'>
             {TEMPLATES.map((tpl, i) => {
               const isActive = i === activeIndex;
@@ -137,7 +155,6 @@ export function TemplateShowcase() {
             })}
           </div>
 
-          {/* Next Arrow Button */}
           <button
             type='button'
             onClick={handleNext}
@@ -156,11 +173,13 @@ export function TemplateShowcase() {
         </div>
       </div>
 
-      {/* Full-screen Device Preview Modal */}
-      <TemplatePreviewModal
-        template={previewTemplate}
-        onClose={() => setPreviewTemplate(null)}
-      />
+      {/* Lazy Loaded Full-screen Device Preview Modal */}
+      {previewTemplate && (
+        <TemplatePreviewModal
+          template={previewTemplate}
+          onClose={() => setPreviewTemplate(null)}
+        />
+      )}
     </section>
   );
 }

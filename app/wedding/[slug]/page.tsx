@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   const description =
     wedding.invitation_message ||
-    `យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់ ${coupleKh} (${coupleEn})។`;
+    `យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់ ${coupleKh} (${coupleEn})`;
 
   const canonicalUrl = `/wedding/${resolvedParams.slug}`;
 

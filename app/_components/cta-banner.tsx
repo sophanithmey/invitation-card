@@ -8,8 +8,8 @@ export function CtaBanner() {
     <section className='py-20 px-4'>
       <div className='max-w-5xl mx-auto rounded-3xl bg-linear-to-r from-[#7A1624] via-[#5A0F1A] to-[#4A0D15] p-10 sm:p-16 text-center text-white relative overflow-hidden shadow-2xl shadow-[#7A1624]/20 border border-[#D4AF37]/35'>
         {/* Ambient gold glow */}
-        <div className='absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#D4AF37]/20 blur-3xl pointer-events-none' />
-        <div className='absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#D4AF37]/15 blur-3xl pointer-events-none' />
+        <div className='absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#D4AF37]/20 blur-2xl md:blur-3xl pointer-events-none' />
+        <div className='absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-[#D4AF37]/15 blur-2xl md:blur-3xl pointer-events-none' />
 
         <div className='relative z-10 max-w-2xl mx-auto space-y-6'>
           <KhmerOrnament

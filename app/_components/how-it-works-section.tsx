@@ -8,19 +8,19 @@ export function HowItWorksSection() {
       num: '០១',
       icon: Palette,
       title: 'ជ្រើសរើសម៉ូត (Choose Style)',
-      desc: 'ជ្រើសរើសពីបណ្តុំម៉ូតប្រណីតៗ បែបប្រពៃណីខ្មែរ វីឡាបែបអឺរ៉ុប ឬរាត្រីតារា Celestial Dream តាមចំណង់ចំណូលចិត្តរបស់អ្នក។',
+      desc: 'ជ្រើសរើសពីបណ្តុំម៉ូតប្រណីតៗ បែបប្រពៃណីខ្មែរ វីឡាបែបអឺរ៉ុប ឬរាត្រីតារា Celestial Dream តាមចំណង់ចំណូលចិត្តរបស់អ្នក',
     },
     {
       num: '០២',
       icon: Sparkles,
       title: 'បញ្ចូលព័ត៌មាន (Personalize)',
-      desc: 'បញ្ចូលឈ្មោះគូស្នេហ៍ កាលបរិច្ឆេទ ទីតាំង ផែនទី Google Maps កម្រងរូបថត និងគណនីទទួលចំណងដៃ ABA/Bakong យ៉ាងងាយស្រួល។',
+      desc: 'បញ្ចូលឈ្មោះគូស្នេហ៍ កាលបរិច្ឆេទ ទីតាំង ផែនទី Google Maps កម្រងរូបថត និងគណនីទទួលចំណងដៃ ABA/Bakong យ៉ាងងាយស្រួល',
     },
     {
       num: '០៣',
       icon: Share2,
       title: 'ចែករំលែក & តាមដាន (Share & Track)',
-      desc: 'ផ្ញើ Link សំបុត្រទៅកាន់ភ្ញៀវតាម Telegram, Messenger ឬ QR Code ហើយតាមដានវត្តមានភ្ញៀវ (RSVP) ក្នុងពេលជាក់ស្តែង។',
+      desc: 'ផ្ញើ Link សំបុត្រទៅកាន់ភ្ញៀវតាម Telegram, Messenger ឬ QR Code ហើយតាមដានវត្តមានភ្ញៀវ (RSVP) ក្នុងពេលជាក់ស្តែង',
     },
   ];
 

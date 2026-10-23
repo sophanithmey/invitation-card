@@ -1,4 +1,4 @@
-export type PreviewDevice = 'pc' | 'tablet' | 'phone';
+export type PreviewDevice = 'full' | 'phone' | 'pc';
 
 export interface TemplatePreviewItem {
   slug: string;

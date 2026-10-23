@@ -107,7 +107,7 @@ export const CelestialRSVP: React.FC<CelestialRSVPProps> = ({
             </h3>
             <p className='mt-1 text-sm text-[#1A2445]/80'>
               {isKh
-                ? 'ការឆ្លើយតបរបស់អ្នកត្រូវបានកត់ត្រាទុកដោយជោគជ័យ។'
+                ? 'ការឆ្លើយតបរបស់អ្នកត្រូវបានកត់ត្រាទុកដោយជោគជ័យ'
                 : 'Your RSVP response has been received with delight.'}
             </p>
           </div>

@@ -111,7 +111,7 @@ export const EtheapWishes: React.FC<EtheapWishesProps> = ({
           {wishes.length === 0 ? (
             <div className='py-6 text-center text-xs text-[#84623A]/70 font-khmer-kantumruuy bg-[#FAF4E6]/40 rounded-2xl border border-dashed border-[#EBC070]/40'>
               <MessageSquareHeart className='w-6 h-6 mx-auto text-[#C98C08]/50 mb-1' />
-              <span>មិនទាន់មានសារជូនពរនៅឡើយទេ។ សូមធ្វើជាអ្នកជូនពរដំបូងគេ!</span>
+              <span>មិនទាន់មានសារជូនពរនៅឡើយទេ សូមធ្វើជាអ្នកជូនពរដំបូងគេ!</span>
             </div>
           ) : (
             wishes.map((item) => (

@@ -52,7 +52,7 @@ export const GiftSection: React.FC<GiftSectionProps> = ({ giftInfo, enabled }) =
 
         <p className="text-xs md:text-sm opacity-80 italic leading-relaxed mb-8">
           {lang === 'kh'
-            ? '"វត្តមានរបស់លោកអ្នកក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ គឺជាកាដូដ៏ធំបំផុត។ ប៉ុន្តែប្រសិនបើលោកអ្នកចង់ផ្តល់ជាចំណងដៃ យើងខ្ញុំសូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅបំផុត។"'
+            ? '"វត្តមានរបស់លោកអ្នកក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ គឺជាកាដូដ៏ធំបំផុត ប៉ុន្តែប្រសិនបើលោកអ្នកចង់ផ្តល់ជាចំណងដៃ យើងខ្ញុំសូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅបំផុត"'
             : '"Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a monetary contribution would be greatly appreciated."'}
         </p>
 

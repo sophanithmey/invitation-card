@@ -35,7 +35,7 @@ export function BentoFeatures() {
               </h3>
               <p className='text-sm text-gray-600 leading-relaxed font-khmer'>
                 បង្កើត Link ពិសេសសម្រាប់ភ្ញៀវម្នាក់ៗ ពេលបើកមកនឹងឃើញឈ្មោះរបស់គាត់ផ្ទាល់
-                ដូចជា <i>«លិខិតអញ្ជើញសម្រាប់ លោកជំទាវ សុខ ម៉ាលី»</i> បង្ហាញពីការគោរព និងយកចិត្តទុកដាក់ខ្ពស់បំផុត។
+                ដូចជា <i>«លិខិតអញ្ជើញសម្រាប់ លោកជំទាវ សុខ ម៉ាលី»</i> បង្ហាញពីការគោរព និងយកចិត្តទុកដាក់ខ្ពស់បំផុត
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export function BentoFeatures() {
                 ចំណងដៃតាម KHQR (Gift)
               </h3>
               <p className='text-sm text-gray-600 leading-relaxed font-khmer'>
-                បញ្ចូលរូបភាព Bakong KHQR និងលេខគណនីធនាគារ ABA ងាយស្រួលឱ្យភ្ញៀវជូនចំណងដៃពីចម្ងាយដោយសុវត្ថិភាព។
+                បញ្ចូលរូបភាព Bakong KHQR និងលេខគណនីធនាគារ ABA ងាយស្រួលឱ្យភ្ញៀវជូនចំណងដៃពីចម្ងាយដោយសុវត្ថិភាព
               </p>
             </div>
             <div className='mt-4 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500'>
@@ -85,7 +85,7 @@ export function BentoFeatures() {
                 បញ្ជាក់វត្តមាន (RSVP)
               </h3>
               <p className='text-sm text-gray-600 leading-relaxed font-khmer'>
-                ភ្ញៀវអាចបញ្ជាក់ការចូលរួម ចំនួនមនុស្ស និងសរសេរសារជូនពរបានភ្លាមៗ ជួយឱ្យម្ចាស់ពិធីរៀបចំតុអាហារបានត្រឹមត្រូវ។
+                ភ្ញៀវអាចបញ្ជាក់ការចូលរួម ចំនួនមនុស្ស និងសរសេរសារជូនពរបានភ្លាមៗ ជួយឱ្យម្ចាស់ពិធីរៀបចំតុអាហារបានត្រឹមត្រូវ
               </p>
             </div>
             <div className='mt-4 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500'>
@@ -104,7 +104,7 @@ export function BentoFeatures() {
                 ផែនទី Google Maps
               </h3>
               <p className='text-sm text-gray-600 leading-relaxed font-khmer'>
-                ភ្ជាប់ទីតាំងពិធីទៅកាន់ Google Maps ដោយផ្ទាល់ ចុចតែ ១ ដងអាចនាំផ្លូវ (GPS) ទៅដល់មណ្ឌលពិធីបានយ៉ាងងាយ។
+                ភ្ជាប់ទីតាំងពិធីទៅកាន់ Google Maps ដោយផ្ទាល់ ចុចតែ ១ ដងអាចនាំផ្លូវ (GPS) ទៅដល់មណ្ឌលពិធីបានយ៉ាងងាយ
               </p>
             </div>
             <div className='mt-4 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500'>
@@ -123,7 +123,7 @@ export function BentoFeatures() {
                 ភ្លេងមង្គលការ &amp; អក្សរខ្មែរ
               </h3>
               <p className='text-sm text-gray-600 leading-relaxed font-khmer'>
-                មានបទភ្លេងកំដរពិរោះរណ្តំ និងរក្សាទម្រង់អក្សរខ្មែរ ជើងអក្សរ និងស្រៈបានត្រឹមត្រូវ ១០០% លើទូរស័ព្ទគ្រប់ប្រភេទ។
+                មានបទភ្លេងកំដរពិរោះរណ្តំ និងរក្សាទម្រង់អក្សរខ្មែរ ជើងអក្សរ និងស្រៈបានត្រឹមត្រូវ ១០០% លើទូរស័ព្ទគ្រប់ប្រភេទ
               </p>
             </div>
             <div className='mt-4 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500'>

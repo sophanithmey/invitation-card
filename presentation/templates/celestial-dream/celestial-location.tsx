@@ -30,13 +30,13 @@ export const CelestialLocation: React.FC<CelestialLocationProps> = ({
     {
       title: isKh ? 'សេវារថយន្តជូនដំណើរ (Shuttle Service)' : 'Shuttle Service',
       desc: isKh
-        ? 'មានសេវារថយន្តជូនដំណើរពីទីតាំងចំណតកណ្តាលក្រុងចាប់ពីម៉ោង ៤:០០ រសៀល។'
+        ? 'មានសេវារថយន្តជូនដំណើរពីទីតាំងចំណតកណ្តាលក្រុងចាប់ពីម៉ោង ៤:០០ រសៀល'
         : 'Complimentary shuttle available from the city center starting at 4:00 PM.',
     },
     {
       title: isKh ? 'ចំណតយានយន្ត (Parking)' : 'Guest Parking',
       desc: isKh
-        ? 'មានចំណតយានយន្តធំទូលាយ និងឥតគិតថ្លៃនៅទីតាំងរៀបចំពិធី។'
+        ? 'មានចំណតយានយន្តធំទូលាយ និងឥតគិតថ្លៃនៅទីតាំងរៀបចំពិធី'
         : 'Spacious complimentary valet and self-parking available on premise.',
     },
   ];

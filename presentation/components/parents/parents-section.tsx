@@ -32,7 +32,7 @@ export const ParentsSection: React.FC<ParentsSectionProps> = ({ wedding }) => {
         </h2>
         <p className="text-xs md:text-sm italic opacity-80 font-khmer-kantumruuy mb-8 max-w-xl mx-auto leading-relaxed">
           {lang === 'kh'
-            ? '"សេចក្តីស្រឡាញ់មិនមែនគ្រាន់តែជាការសម្លឹងមើលគ្នាទៅវិញទៅមកនោះទេ ប៉ុន្តែវាគឺជាការសម្លឹងមើលទៅក្នុងទិសដៅតែមួយ។"'
+            ? '"សេចក្តីស្រឡាញ់មិនមែនគ្រាន់តែជាការសម្លឹងមើលគ្នាទៅវិញទៅមកនោះទេ ប៉ុន្តែវាគឺជាការសម្លឹងមើលទៅក្នុងទិសដៅតែមួយ"'
             : '"Love is not just looking at each other, it\'s looking in the same direction."'}
         </p>
 

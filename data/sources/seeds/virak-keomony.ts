@@ -12,9 +12,9 @@ export const VIRAK_KEOMONY_WEDDING: Wedding = {
   groom_photo: '/templates/khmer-traditional/arch-scene.webp',
   bride_photo: '/templates/khmer-traditional/arch-scene.webp',
   story:
-    'សេចក្តីស្រឡាញ់ដែលផ្តើមចេញពីការយល់ចិត្ត ការគោរព និងការថ្នាក់ថ្នម បានរីកដុះដាលក្លាយជាចំណងអាពាហ៍ពិពាហ៍ដ៏ពិសិដ្ឋ។',
+    'សេចក្តីស្រឡាញ់ដែលផ្តើមចេញពីការយល់ចិត្ត ការគោរព និងការថ្នាក់ថ្នម បានរីកដុះដាលក្លាយជាចំណងអាពាហ៍ពិពាហ៍ដ៏ពិសិដ្ឋ',
   invitation_message:
-    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ។',
+    'យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាសក្ខីភាពក្នុងពិធីមង្គលការរបស់យើងខ្ញុំ',
   venue: 'មណ្ឌលសន្និបាត និងពិព័រណ៍កោះពេជ្រ (Diamond Island Convention & Exhibition Center)',
   venue_address: 'អាគារ G សាលមហោស្រព កោះពេជ្រ រាជធានីភ្នំពេញ (Building G, Koh Pich, Phnom Penh)',
   map_location: 'https://maps.google.com/?q=Koh+Pich+Phnom+Penh',

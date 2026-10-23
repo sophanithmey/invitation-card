@@ -1,5 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -31,7 +37,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='km'>
-      <body className='antialiased font-khmer-noto bg-[#FFF9EF] text-[#2C1810]'>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='stylesheet'
+          href='https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Great+Vibes&family=Kantumruuy+Pro:wght@400;600;700&family=Moul&family=Moulpali&family=Noto+Sans+Khmer:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Suwannaphum:wght@400;700&display=swap'
+        />
+      </head>
+      <body className='antialiased font-khmer bg-[#FFF9EF] text-[#2C1810]'>
         {children}
       </body>
     </html>
